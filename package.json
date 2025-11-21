@@ -2,10 +2,18 @@
   "name": "z_gaia",
   "version": "1.0.0",
   "scripts": {
-    "build": "sass assets/scss/main.scss:style.css --style=compressed",
-    "watch": "sass assets/scss/main.scss:style.css --watch"
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "sass assets/scss/main.scss:assets/dist/style.css --style=compressed",
+    "build:js": "esbuild assets/js/main.js --bundle --minify --outfile=assets/dist/main.js",
+    "dev": "concurrently \"npm run dev:css\" \"npm run dev:js\" \"npm run dev:server\"",
+    "dev:css": "sass assets/scss/main.scss:assets/dist/style.css --watch",
+    "dev:js": "esbuild assets/js/main.js --bundle --outfile=assets/dist/main.js --watch",
+    "dev:server": "browser-sync start --proxy 'zeinur.local' --files 'assets/dist/*.css, assets/dist/*.js, **/*.php' --no-notify"
   },
   "devDependencies": {
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.0",
+    "esbuild": "^0.27.0",
     "sass": "^1.81.0"
   }
 }
