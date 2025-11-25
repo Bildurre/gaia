@@ -24,6 +24,34 @@
       ]
     },
 
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    },
+
+    "shadow": {
+      "defaultPresets": false,
+      "presets": [
+        {
+          "slug": "soft",
+          "name": "Soft",
+          "shadow": "0 4px 12px rgba(15, 23, 42, 0.08)"
+        },
+        {
+          "slug": "medium",
+          "name": "Medium",
+          "shadow": "0 10px 30px rgba(15, 23, 42, 0.15)"
+        },
+        {
+          "slug": "inner",
+          "name": "Inner",
+          "shadow": "inset 0 0 0 1px rgba(148, 163, 184, 0.5)"
+        }
+      ]
+    },
+
     "color": {
       "defaultPalette": false,
       "palette": [
@@ -84,6 +112,34 @@
         { "slug": "2xl", "name": "2XL", "size": "1.5rem" },
         { "slug": "3xl", "name": "3XL", "size": "1.875rem" }
       ]
+    },
+
+    "blocks": {
+      "core/image": {
+        "border": {
+          "color": true,
+          "radius": true,
+          "style": true,
+          "width": true
+        }
+      },
+      "core/featured-image": {
+        "border": {
+          "color": true,
+          "radius": true,
+          "style": true,
+          "width": true
+        }
+      },
+      "core/group": {
+        "border": {
+          "color": true,
+          "radius": true,
+          "style": true,
+          "width": true
+        },
+        "shadow": true
+      }
     }
   },
 
@@ -101,6 +157,12 @@
       "fontFamily": "var(--wp--preset--font-family--system-sans)",
       "fontSize": "var(--wp--preset--font-size--md)",
       "lineHeight": "1.6"
+    },
+
+    "border": {
+      "radius": "0.5rem",
+      "style": "solid",
+      "width": "0"
     },
 
     "elements": {
@@ -131,7 +193,9 @@
           "fontWeight": "600"
         },
         "border": {
-          "radius": "4px"
+          "radius": "999px",
+          "style": "solid",
+          "width": "0"
         },
         "spacing": {
           "padding": {
@@ -140,6 +204,30 @@
             "bottom": "0.6rem",
             "left": "1.2rem"
           }
+        }
+      },
+
+      "core/image": {
+        "border": {
+          "radius": "0.5rem",
+          "style": "none",
+          "width": "0"
+        }
+      },
+
+      "core/featured-image": {
+        "border": {
+          "radius": "0.5rem",
+          "style": "none",
+          "width": "0"
+        }
+      },
+
+      "core/group": {
+        "border": {
+          "radius": "0.75rem",
+          "style": "none",
+          "width": "0"
         }
       }
     }
