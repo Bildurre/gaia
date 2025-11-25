@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "title": "Gaia Sans",
+  "slug": "gaia-sans",
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-sans)",
+      "fontSize": "var(--wp--preset--font-size--md)",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--system-sans)",
+          "fontWeight": "700",
+          "lineHeight": "1.2"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "title": "Gaia Serif",
+  "slug": "gaia-serif",
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-serif)",
+      "fontSize": "var(--wp--preset--font-size--md)",
+      "lineHeight": "1.7"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--system-serif)",
+          "fontWeight": "700",
+          "lineHeight": "1.2"
+        }
+      }
+    }
+  }
+}

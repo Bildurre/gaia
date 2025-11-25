@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "title": "Gaia Editorial",
+  "slug": "gaia-editorial",
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-sans)",
+      "fontSize": "var(--wp--preset--font-size--lg)",
+      "lineHeight": "1.7"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--system-serif)",
+          "fontWeight": "700",
+          "lineHeight": "1.15"
+        }
+      }
+    }
+  }
+}

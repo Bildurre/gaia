@@ -1,0 +1,147 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+
+  "settings": {
+    "appearanceTools": true,
+
+    "layout": {
+      "contentSize": "720px",
+      "wideSize": "1120px"
+    },
+
+    "spacing": {
+      "units": [ "px", "em", "rem", "vh", "vw", "%" ],
+      "blockGap": "1.5rem",
+      "spacingSizes": [
+        { "slug": "xs",  "name": "XS",  "size": "0.25rem" },
+        { "slug": "sm",  "name": "SM",  "size": "0.5rem" },
+        { "slug": "md",  "name": "MD",  "size": "1rem" },
+        { "slug": "lg",  "name": "LG",  "size": "1.5rem" },
+        { "slug": "xl",  "name": "XL",  "size": "2rem" },
+        { "slug": "2xl", "name": "2XL", "size": "3rem" },
+        { "slug": "3xl","name": "3XL","size": "4rem" }
+      ]
+    },
+
+    "color": {
+      "defaultPalette": false,
+      "palette": [
+        { "slug": "primary", "name": "Primary", "color": "#2563eb" },
+        { "slug": "secondary", "name": "Secondary", "color": "#f97316" },
+        { "slug": "accent", "name": "Accent", "color": "#10b981" },
+        { "slug": "background", "name": "Background", "color": "#f5f5f7" },
+
+        { "slug": "surface", "name": "Surface", "color": "#ffffff" },
+        { "slug": "foreground", "name": "Text", "color": "#0f172a" },
+        { "slug": "muted", "name": "Muted", "color": "#e5e7eb" },
+        { "slug": "muted-foreground", "name": "Muted text", "color": "#6b7280" },
+        { "slug": "border", "name": "Border", "color": "#d1d5db" },
+
+        { "slug": "primary-foreground", "name": "On primary", "color": "#ffffff" },
+        { "slug": "secondary-foreground", "name": "On secondary", "color": "#111827" },
+        { "slug": "accent-foreground", "name": "On accent", "color": "#022c22" },
+
+        { "slug": "success", "name": "Success", "color": "#22c55e" },
+        { "slug": "success-foreground", "name": "On success", "color": "#052e16" },
+        { "slug": "warning", "name": "Warning", "color": "#facc15" },
+        { "slug": "warning-foreground", "name": "On warning", "color": "#422006" },
+        { "slug": "error", "name": "Error", "color": "#ef4444" },
+        { "slug": "error-foreground", "name": "On error", "color": "#450a0a" },
+        { "slug": "info", "name": "Info", "color": "#0ea5e9" },
+        { "slug": "info-foreground", "name": "On info", "color": "#082f49" }
+      ]
+    },
+
+    "typography": {
+      "appearanceTools": true,
+      "fluid": true,
+
+      "fontFamilies": [
+        {
+          "slug": "system-sans",
+          "name": "System Sans",
+          "fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif"
+        },
+        {
+          "slug": "system-serif",
+          "name": "System Serif",
+          "fontFamily": "Georgia, \"Times New Roman\", serif"
+        },
+        {
+          "slug": "system-mono",
+          "name": "System Mono",
+          "fontFamily": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace"
+        }
+      ],
+
+      "fontSizes": [
+        { "slug": "xs", "name": "XS", "size": "0.75rem" },
+        { "slug": "sm", "name": "Small", "size": "0.875rem" },
+        { "slug": "md", "name": "Normal", "size": "1rem" },
+        { "slug": "lg", "name": "Large", "size": "1.125rem" },
+        { "slug": "xl", "name": "XL", "size": "1.25rem" },
+        { "slug": "2xl", "name": "2XL", "size": "1.5rem" },
+        { "slug": "3xl", "name": "3XL", "size": "1.875rem" }
+      ]
+    }
+  },
+
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--background)",
+      "text": "var(--wp--preset--color--foreground)"
+    },
+
+    "spacing": {
+      "blockGap": "1.5rem"
+    },
+
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--system-sans)",
+      "fontSize": "var(--wp--preset--font-size--md)",
+      "lineHeight": "1.6"
+    },
+
+    "elements": {
+      "link": {
+        "color": {
+          "text": "var(--wp--preset--color--primary)"
+        }
+      },
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--system-serif)",
+          "fontWeight": "700",
+          "lineHeight": "1.2"
+        },
+        "color": {
+          "text": "var(--wp--preset--color--foreground)"
+        }
+      }
+    },
+
+    "blocks": {
+      "core/button": {
+        "color": {
+          "background": "var(--wp--preset--color--primary)",
+          "text": "var(--wp--preset--color--primary-foreground)"
+        },
+        "typography": {
+          "fontWeight": "600"
+        },
+        "border": {
+          "radius": "4px"
+        },
+        "spacing": {
+          "padding": {
+            "top": "0.6rem",
+            "right": "1.2rem",
+            "bottom": "0.6rem",
+            "left": "1.2rem"
+          }
+        }
+      }
+    }
+  }
+}
