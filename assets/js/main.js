@@ -1,6 +1,6 @@
-// Main JavaScript file for Z Gaia theme
+// Main JavaScript file for Gaia theme
 
-console.log('Z Gaia theme loaded');
+console.log('Gaia theme loaded');
 
 // Example: Add a class to body when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {

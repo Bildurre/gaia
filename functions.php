@@ -1,11 +1,11 @@
 <?php
 
-function z_gaia_setup() {
+function gaia_setup() {
   add_theme_support('title-tag');
 }
-add_action('after_setup_theme', 'z_gaia_setup');
+add_action('after_setup_theme', 'gaia_setup');
 
-function z_gaia_scripts() {
+function gaia_scripts() {
   // Enqueue main stylesheet from dist folder
   wp_enqueue_style(
     'z-gaia-style',
@@ -23,4 +23,4 @@ function z_gaia_scripts() {
     true
   );
 }
-add_action('wp_enqueue_scripts', 'z_gaia_scripts');
+add_action('wp_enqueue_scripts', 'gaia_scripts');
