@@ -8,7 +8,7 @@ add_action('after_setup_theme', 'gaia_setup');
 function gaia_scripts() {
   // Enqueue main stylesheet from dist folder
   wp_enqueue_style(
-    'z-gaia-style',
+    'gaia-style',
     get_template_directory_uri() . '/assets/dist/style.css',
     array(),
     filemtime(get_template_directory() . '/assets/dist/style.css')
@@ -16,7 +16,7 @@ function gaia_scripts() {
   
   // Enqueue main JavaScript from dist folder
   wp_enqueue_script(
-    'z-gaia-main',
+    'gaia-main',
     get_template_directory_uri() . '/assets/dist/main.js',
     array(),
     filemtime(get_template_directory() . '/assets/dist/main.js'),
