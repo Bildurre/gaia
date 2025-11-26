@@ -9,15 +9,12 @@
       max-width: 80vw !important;
       padding-top: 0 !important;
       transform: translateX(-100%);
-      transition: transform $menu-transition-duration $menu-transition-effect !important;
+      transition: transform $menu-transition-duration $menu-transition-effect;
       visibility: visible !important;
       opacity: 1 !important;
-      display: flex !important;
-      pointer-events: none;
 
       &.is-menu-open {
         transform: translateX(0);
-        pointer-events: auto;
       }
 
       .wp-block-navigation__responsive-container-close {
