@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: $hamburger-width;
+  height: $hamburger-width;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 100001;
+
+  @media (max-width: $mobile-breakpoint) {
+    display: flex;
+  }
+
+  &__bar {
+    position: absolute;
+    display: block;
+    width: $hamburger-bar-width;
+    height: $hamburger-bar-height;
+    background-color: $hamburger-color;
+    border-radius: 2px;
+    transition: 
+      transform $hamburger-transition-duration $hamburger-transition-effect,
+      width $hamburger-transition-duration $hamburger-transition-effect,
+      opacity $hamburger-transition-duration $hamburger-transition-effect;
+
+    &:nth-child(1) {
+      transform: translateY(-#{$hamburger-bar-gap});
+    }
+
+    &:nth-child(2) {
+      transform: translateY(0);
+    }
+
+    &:nth-child(3) {
+      transform: translateY(#{$hamburger-bar-gap});
+    }
+  }
+
+  &.is-active {
+    .nav-hamburger__bar {
+      width: calc(#{$hamburger-bar-width} * 1.41);
+
+      &:nth-child(1) {
+        transform: translateY(0) rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        width: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+  }
+}

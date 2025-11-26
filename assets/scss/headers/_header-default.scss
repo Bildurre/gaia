@@ -1,0 +1,45 @@
+@use '../abstracts' as *;
+
+.header-default {
+  .wp-block-navigation__responsive-container {
+    @media (max-width: $mobile-breakpoint) {
+      position: fixed !important;
+      left: 0 !important;
+      width: $mobile-menu-width !important;
+      max-width: 80vw !important;
+      padding-top: 0 !important;
+      transform: translateX(-100%);
+      transition: transform $menu-transition-duration $menu-transition-effect !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      display: flex !important;
+      pointer-events: none;
+
+      &.is-menu-open {
+        transform: translateX(0);
+        pointer-events: auto;
+      }
+
+      .wp-block-navigation__responsive-container-close {
+        display: none !important;
+      }
+
+      .wp-block-navigation__responsive-container-content {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 1.5rem !important;
+        gap: 0.5rem !important;
+
+        .wp-block-navigation__submenu-container {
+          padding-top: 0 !important;
+          padding-right: 0 !important;
+        }
+      }
+
+      .wp-block-navigation-item__content {
+        margin: 0.5rem !important;
+        font-size: 1.125rem;
+      }
+    }
+  }
+}

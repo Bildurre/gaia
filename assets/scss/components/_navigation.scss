@@ -1,0 +1,102 @@
+@use '../abstracts' as *;
+
+.wp-block-navigation__responsive-container-open {
+  @media (max-width: $mobile-breakpoint) {
+    display: none !important;
+  }
+}
+
+.wp-block-navigation {
+  .wp-block-navigation__container {
+    gap: 0;
+  }
+
+  .wp-block-navigation-item__content.wp-block-navigation-item__content {
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--wp--preset--color--secondary);
+    }
+  }
+
+  .wp-block-navigation-item {
+    // Current item - desktop (primer nivel)
+    &.current-menu-item {
+      > .wp-block-navigation-item__content {
+        border-bottom: 1px solid currentColor;
+        color: var(--wp--preset--color--secondary);
+      }
+    }
+
+    // Padre cuando un hijo es current
+    &.current-menu-ancestor,
+    &.current-menu-parent {
+      > .wp-block-navigation-item__content {
+        border-bottom: 1px solid currentColor;
+        color: var(--wp--preset--color--secondary);
+      }
+    }
+  }
+
+  // Submenú
+  .wp-block-navigation__submenu-container {
+    margin-top: 0.5rem;
+
+    // Puente invisible para mantener el hover
+    &::before {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      left: 0;
+      width: 100%;
+      height: 0.5rem;
+    }
+
+    .wp-block-navigation-item {
+      padding-left: 1px;
+    }
+
+    .current-menu-item {
+      > .wp-block-navigation-item__content {
+        border-bottom: none;
+        border-left: 2px solid currentColor;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  .wp-block-navigation:not(.has-background) {
+    .wp-block-navigation__submenu-container {
+      border: none;
+    }
+  }
+
+  // Mobile
+  @media (max-width: $mobile-breakpoint) {
+    .wp-block-navigation__submenu-container {
+      margin-top: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .wp-block-navigation-item {
+      &.current-menu-item,
+      &.current-menu-ancestor,
+      &.current-menu-parent {
+        > .wp-block-navigation-item__content {
+          border-bottom: none;
+          border-left: 2px solid currentColor;
+          padding-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.wp-block-navigation-item {
+  .wp-block-navigation-item__content {
+    padding: 0.25rem 0.5rem;
+  }
+}

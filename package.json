@@ -8,8 +8,7 @@
     "dev": "concurrently \"npm run dev:css\" \"npm run dev:js\" \"npm run dev:server\"",
     "dev:css": "sass assets/scss/main.scss:assets/dist/style.css --watch",
     "dev:js": "esbuild assets/js/main.js --bundle --outfile=assets/dist/main.js --watch",
-    "dev:server": "browser-sync start --proxy 'zeinur.local' --files 'assets/dist/*.css, assets/dist/*.js, **/*.php' --no-notify"
-  },
+    "dev:server": "browser-sync start --proxy 'gaia.local' --files 'assets/dist/*.css, assets/dist/*.js, **/*.php, parts/*.html, templates/*.html, patterns/*.html, theme.json' --no-notify"  },
   "devDependencies": {
     "browser-sync": "^3.0.3",
     "concurrently": "^9.1.0",
