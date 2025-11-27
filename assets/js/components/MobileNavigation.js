@@ -9,9 +9,11 @@ class MobileNavigation {
     this.header = document.querySelector(options.headerSelector);
     this.adminBar = document.getElementById('wpadminbar');
     this.mobileBreakpoint = options.mobileBreakpoint || 600;
+    this.socialSelector = options.socialSelector || '.header-default__social';
     
     this.hamburger = null;
     this.backdrop = null;
+    this.socialClone = null;
 
     if (!this.navigation || !this.menuContainer) return;
 
@@ -21,6 +23,7 @@ class MobileNavigation {
   init() {
     this.createHamburger();
     this.createBackdrop();
+    this.cloneSocialToMenu();
     this.bindEvents();
   }
 
@@ -42,6 +45,19 @@ class MobileNavigation {
     this.backdrop = document.createElement('div');
     this.backdrop.className = 'nav-backdrop';
     document.body.appendChild(this.backdrop);
+  }
+
+  cloneSocialToMenu() {
+    const socialOriginal = this.header?.querySelector(this.socialSelector);
+    const menuContent = this.menuContainer.querySelector('.wp-block-navigation__responsive-container-content');
+
+    if (!socialOriginal || !menuContent) return;
+
+    this.socialClone = socialOriginal.cloneNode(true);
+    this.socialClone.classList.remove('header-default__social');
+    this.socialClone.classList.add('header-default__social--menu');
+    
+    menuContent.insertBefore(this.socialClone, menuContent.firstChild);
   }
 
   bindEvents() {

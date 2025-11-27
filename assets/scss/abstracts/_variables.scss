@@ -10,15 +10,13 @@ $hamburger-bar-gap: 8px !default;
 $hamburger-color: var(--wp--preset--color--primary-foreground) !default;
 
 // Mobile menu
-$mobile-menu-width: 100% !default;
+$mobile-menu-width: 80vw !default;
 $mobile-breakpoint: 600px !default;
 
-// Transitions - Durations
-$hamburger-transition-duration: 0.4s !default;
-$menu-transition-duration: 0.4s !default;
-$backdrop-transition-duration: 0.4s !default;
-
-// Transitions - Effects
+// Transitions
+$hamburger-transition-duration: 0.1s !default;
 $hamburger-transition-effect: ease-in-out !default;
+$menu-transition-duration: 0.1s !default;
 $menu-transition-effect: ease-in-out !default;
+$backdrop-transition-duration: 0.1s !default;
 $backdrop-transition-effect: ease-in-out !default;

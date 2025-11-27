@@ -100,3 +100,30 @@
     padding: 0.25rem 0.5rem;
   }
 }
+
+// ========================================
+// Remove WordPress default animations
+// ========================================
+
+// Remove animations but allow custom transitions on container
+.wp-block-navigation__responsive-container,
+.wp-block-navigation__responsive-container.is-menu-open,
+.wp-block-navigation__responsive-container.has-modal-open {
+  animation: none !important;
+}
+
+// Remove all animations and transitions from inner elements
+.wp-block-navigation__responsive-container-content,
+.wp-block-navigation__responsive-dialog,
+.wp-block-navigation__responsive-close,
+.wp-block-navigation__responsive-container-close,
+.wp-block-navigation-item,
+.wp-block-navigation__submenu-container {
+  animation: none !important;
+  transition: none !important;
+}
+
+// Keep hover transition for menu links
+.wp-block-navigation-item__content.wp-block-navigation-item__content {
+  transition: color 0.2s ease !important;
+}
