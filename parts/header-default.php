@@ -2,8 +2,14 @@
 /**
  * Header Default Template
  */
+
+$header_classes = gaia_get_header_classes();
+$header_styles = gaia_get_header_styles_attr();
+$header_data = gaia_get_header_data_attrs();
+$show_social = gaia_header_show_social();
+$show_search = gaia_header_show_search();
 ?>
-<header class="header-default">
+<header class="<?php echo esc_attr($header_classes); ?>" style="<?php echo esc_attr($header_styles); ?>" <?php echo $header_data; ?>>
   <div class="header-default__container">
     
     <!-- Top Row -->
@@ -28,7 +34,15 @@
 
       <!-- Header Actions -->
       <div class="header-default__actions">
-        <?php gaia_social_links(); ?>
+        <?php if ($show_search) : ?>
+          <button class="header-default__search-toggle" aria-label="<?php esc_attr_e('Toggle search', 'gaia'); ?>">
+            <?php echo gaia_get_icon('search'); ?>
+          </button>
+        <?php endif; ?>
+        
+        <?php if ($show_social) : ?>
+          <?php gaia_social_links(); ?>
+        <?php endif; ?>
       </div>
     </div>
 
@@ -49,9 +63,17 @@
   <!-- Mobile Panel -->
   <div class="header-default__mobile-panel">
     <div class="header-default__mobile-content">
-      <div class="header-default__mobile-actions">
-        <?php gaia_social_links(); ?>
-      </div>
+      <?php if ($show_search) : ?>
+        <div class="header-default__mobile-search">
+          <?php get_search_form(); ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if ($show_social) : ?>
+        <div class="header-default__mobile-actions">
+          <?php gaia_social_links(); ?>
+        </div>
+      <?php endif; ?>
 
       <nav class="header-default__mobile-nav">
         <?php
@@ -68,4 +90,16 @@
 
   <!-- Backdrop -->
   <div class="header-default__backdrop"></div>
+
+  <!-- Search Modal -->
+  <?php if ($show_search) : ?>
+    <div class="header-default__search-modal">
+      <div class="header-default__search-modal-content">
+        <?php get_search_form(); ?>
+        <button class="header-default__search-close" aria-label="<?php esc_attr_e('Close search', 'gaia'); ?>">
+          <?php echo gaia_get_icon('close'); ?>
+        </button>
+      </div>
+    </div>
+  <?php endif; ?>
 </header>

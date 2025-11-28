@@ -1,0 +1,177 @@
+/**
+ * Gaia Admin Styles
+ */
+
+.gaia-admin {
+  max-width: 1200px;
+}
+
+.gaia-admin h1 {
+  margin-bottom: 1.5rem;
+}
+
+/* Cards Grid */
+.gaia-admin__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .gaia-admin__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card */
+.gaia-admin__card {
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.gaia-admin__card--full {
+  grid-column: 1 / -1;
+}
+
+.gaia-admin__card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #c3c4c7;
+}
+
+.gaia-admin__card > p {
+  margin-top: 0;
+  color: #646970;
+}
+
+.gaia-admin__card .form-table {
+  margin: 0;
+}
+
+/* Dashboard Links */
+.gaia-admin__links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.gaia-admin__link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem;
+  background: #f6f7f7;
+  border: 1px solid #c3c4c7;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #1d2327;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.gaia-admin__link:hover {
+  border-color: #2271b1;
+  box-shadow: 0 0 0 1px #2271b1;
+}
+
+.gaia-admin__link .dashicons {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 0.5rem;
+  color: #2271b1;
+}
+
+.gaia-admin__link strong {
+  font-size: 14px;
+}
+
+.gaia-admin__link span:last-child {
+  font-size: 13px;
+  color: #646970;
+}
+
+/* Form Elements */
+.gaia-admin__input,
+.gaia-admin__select {
+  width: 100%;
+  max-width: 400px;
+}
+
+.gaia-admin .form-table th {
+  width: 150px;
+  padding-left: 0;
+  vertical-align: top;
+  padding-top: 1.25rem;
+}
+
+.gaia-admin .form-table td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.gaia-admin .form-table td p.description {
+  margin-top: 0.5rem;
+}
+
+.gaia-admin .form-table td label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Color Picker Circles */
+.gaia-admin__color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.gaia-admin__color-option {
+  position: relative;
+}
+
+.gaia-admin__color-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.gaia-admin__color-circle {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.gaia-admin__color-circle:hover {
+  transform: scale(1.1);
+}
+
+.gaia-admin__color-option input[type="radio"]:checked + .gaia-admin__color-circle {
+  border-color: #2271b1;
+  box-shadow: 
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 0 0 2px #fff,
+    0 0 0 4px #2271b1;
+}
+
+.gaia-admin__color-option input[type="radio"]:focus + .gaia-admin__color-circle {
+  box-shadow: 
+    inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 0 0 2px #fff,
+    0 0 0 4px #2271b1;
+}
+
+/* Color name tooltip */
+.gaia-admin__color-circle[title] {
+  position: relative;
+}
