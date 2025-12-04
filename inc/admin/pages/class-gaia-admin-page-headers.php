@@ -9,6 +9,7 @@ class Gaia_Admin_Page_Headers {
 
   private $settings = array(
     'gaia_header_style',
+    'gaia_header_content_width',
     'gaia_header_bg_color',
     'gaia_header_text_color',
     'gaia_header_current_color',
@@ -60,6 +61,14 @@ class Gaia_Admin_Page_Headers {
       'gaia_header_style',
       __('Header Style', 'gaia'),
       array($this, 'render_style_field'),
+      'gaia-headers',
+      'gaia_headers_layout'
+    );
+
+    add_settings_field(
+      'gaia_header_content_width',
+      __('Content Width', 'gaia'),
+      array($this, 'render_content_width_field'),
       'gaia-headers',
       'gaia_headers_layout'
     );
@@ -191,6 +200,43 @@ class Gaia_Admin_Page_Headers {
   }
 
   /**
+   * Get theme.json layout sizes
+   */
+  private function get_layout_sizes() {
+    $sizes = array(
+      'full' => array(
+        'name' => __('Full Width', 'gaia'),
+        'value' => '100%',
+      ),
+    );
+    
+    $theme_json_path = get_template_directory() . '/theme.json';
+    if (file_exists($theme_json_path)) {
+      $theme_json = json_decode(file_get_contents($theme_json_path), true);
+      
+      if (isset($theme_json['settings']['layout'])) {
+        $layout = $theme_json['settings']['layout'];
+        
+        if (isset($layout['wideSize'])) {
+          $sizes['wide'] = array(
+            'name' => __('Wide', 'gaia') . ' (' . $layout['wideSize'] . ')',
+            'value' => $layout['wideSize'],
+          );
+        }
+        
+        if (isset($layout['contentSize'])) {
+          $sizes['content'] = array(
+            'name' => __('Content', 'gaia') . ' (' . $layout['contentSize'] . ')',
+            'value' => $layout['contentSize'],
+          );
+        }
+      }
+    }
+    
+    return $sizes;
+  }
+
+  /**
    * Render colors section description
    */
   public function render_colors_description() {
@@ -214,6 +260,26 @@ class Gaia_Admin_Page_Headers {
       );
     }
     echo '</select>';
+  }
+
+  /**
+   * Render content width field
+   */
+  public function render_content_width_field() {
+    $value = get_option('gaia_header_content_width', 'wide');
+    $sizes = $this->get_layout_sizes();
+    
+    echo '<select name="gaia_header_content_width" class="gaia-admin__select">';
+    foreach ($sizes as $key => $size_data) {
+      printf(
+        '<option value="%s" %s>%s</option>',
+        esc_attr($key),
+        selected($value, $key, false),
+        esc_html($size_data['name'])
+      );
+    }
+    echo '</select>';
+    echo '<p class="description">' . __('Maximum width of the header content.', 'gaia') . '</p>';
   }
 
   /**

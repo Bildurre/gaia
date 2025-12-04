@@ -24,6 +24,30 @@ function gaia_get_header_style() {
 }
 
 /**
+ * Get header content width setting
+ */
+function gaia_get_header_content_width() {
+  return get_option('gaia_header_content_width', 'content');
+}
+
+/**
+ * Get header content width CSS value
+ */
+function gaia_get_header_content_width_value() {
+  $width = gaia_get_header_content_width();
+  
+  switch ($width) {
+    case 'full':
+      return '100%';
+    case 'content':
+      return 'var(--wp--style--global--content-size)';
+    case 'wide':
+    default:
+      return 'var(--wp--style--global--wide-size)';
+  }
+}
+
+/**
  * Get header background color
  */
 function gaia_get_header_bg_color() {
@@ -84,7 +108,7 @@ function gaia_get_header_classes() {
     $classes[] = 'header-default--sticky';
   }
   
-  if (gaia_header_hide_on_scroll()) {
+  if (gaia_header_is_sticky() && gaia_header_hide_on_scroll()) {
     $classes[] = 'header-default--hide-on-scroll';
   }
   
@@ -98,11 +122,13 @@ function gaia_get_header_styles_attr() {
   $bg_color = gaia_get_header_bg_color();
   $text_color = gaia_get_header_text_color();
   $current_color = gaia_get_header_current_color();
+  $content_width = gaia_get_header_content_width_value();
   
   $styles = array(
     '--header-bg: var(--wp--preset--color--' . esc_attr($bg_color) . ')',
     '--header-text: var(--wp--preset--color--' . esc_attr($text_color) . ')',
     '--header-current: var(--wp--preset--color--' . esc_attr($current_color) . ')',
+    '--header-content-width: ' . esc_attr($content_width),
   );
   
   return implode('; ', $styles);
@@ -114,7 +140,7 @@ function gaia_get_header_styles_attr() {
 function gaia_get_header_data_attrs() {
   $attrs = array();
   
-  if (gaia_header_hide_on_scroll()) {
+  if (gaia_header_is_sticky() && gaia_header_hide_on_scroll()) {
     $attrs[] = 'data-hide-on-scroll="true"';
   }
   

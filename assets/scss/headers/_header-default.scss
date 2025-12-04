@@ -31,7 +31,7 @@
 
   // Container
   &__container {
-    max-width: var(--wp--style--global--wide-size);
+    max-width: var(--header-content-width, var(--wp--style--global--wide-size));
     margin: 0 auto;
   }
 
