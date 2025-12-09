@@ -11,9 +11,6 @@ class HeaderDefault {
     this.hamburger = this.header.querySelector('.header-default__hamburger');
     this.mobilePanel = this.header.querySelector('.header-default__mobile-panel');
     this.backdrop = this.header.querySelector('.header-default__backdrop');
-    this.searchToggle = this.header.querySelector('.header-default__search-toggle');
-    this.searchModal = this.header.querySelector('.header-default__search-modal');
-    this.searchClose = this.header.querySelector('.header-default__search-close');
     
     this.mobileBreakpoint = 600;
     this.hideOnScroll = this.header.dataset.hideOnScroll === 'true';
@@ -33,18 +30,10 @@ class HeaderDefault {
     this.hamburger?.addEventListener('click', () => this.toggleMenu());
     this.backdrop?.addEventListener('click', () => this.closeMenu());
 
-    // Search modal
-    this.searchToggle?.addEventListener('click', () => this.openSearch());
-    this.searchClose?.addEventListener('click', () => this.closeSearch());
-    this.searchModal?.addEventListener('click', (e) => {
-      if (e.target === this.searchModal) this.closeSearch();
-    });
-
     // Keyboard
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        if (this.isMenuOpen()) this.closeMenu();
-        if (this.isSearchOpen()) this.closeSearch();
+      if (event.key === 'Escape' && this.isMenuOpen()) {
+        this.closeMenu();
       }
     });
 
@@ -147,26 +136,6 @@ class HeaderDefault {
 
   isMenuOpen() {
     return this.mobilePanel?.classList.contains('is-open');
-  }
-
-  // Search methods
-  openSearch() {
-    this.searchModal?.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-    
-    // Focus search input
-    setTimeout(() => {
-      this.searchModal?.querySelector('.search-field')?.focus();
-    }, 100);
-  }
-
-  closeSearch() {
-    this.searchModal?.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  isSearchOpen() {
-    return this.searchModal?.classList.contains('is-open');
   }
 }
 

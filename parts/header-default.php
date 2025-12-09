@@ -35,9 +35,9 @@ $show_search = gaia_header_show_search();
       <!-- Header Actions -->
       <div class="header-default__actions">
         <?php if ($show_search) : ?>
-          <button class="header-default__search-toggle" aria-label="<?php esc_attr_e('Toggle search', 'gaia'); ?>">
-            <?php echo gaia_get_icon('search'); ?>
-          </button>
+          <div class="header-default__search">
+            <?php get_search_form(); ?>
+          </div>
         <?php endif; ?>
         
         <?php if ($show_social) : ?>
@@ -90,16 +90,4 @@ $show_search = gaia_header_show_search();
 
   <!-- Backdrop -->
   <div class="header-default__backdrop"></div>
-
-  <!-- Search Modal -->
-  <?php if ($show_search) : ?>
-    <div class="header-default__search-modal">
-      <div class="header-default__search-modal-content">
-        <?php get_search_form(); ?>
-        <button class="header-default__search-close" aria-label="<?php esc_attr_e('Close search', 'gaia'); ?>">
-          <?php echo gaia_get_icon('close'); ?>
-        </button>
-      </div>
-    </div>
-  <?php endif; ?>
 </header>

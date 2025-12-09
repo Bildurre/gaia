@@ -1,0 +1,101 @@
+@use '../abstracts' as *;
+
+// ========================================
+// Mobile Menu Component
+// ========================================
+// Generic vertical menu list for mobile navigation
+// Uses CSS custom properties for customization:
+// --menu-color (default: inherit)
+// --menu-current-color (default: currentColor)
+
+@mixin mobile-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    a {
+      display: block;
+      padding: 0.75rem 0;
+      color: var(--menu-color, inherit);
+      text-decoration: none;
+      font-size: 1.125rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--menu-current-color, currentColor);
+      }
+    }
+
+    // Current item - wp_nav_menu classes
+    &.current-menu-item > a,
+    &.current-menu-ancestor > a,
+    &.current-menu-parent > a,
+    // Current item - wp_list_pages classes (fallback)
+    &.current_page_item > a,
+    &.current_page_ancestor > a,
+    &.current_page_parent > a {
+      position: relative;
+      color: var(--menu-current-color, currentColor);
+      padding-left: 0.75rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 1.2em;
+        background-color: var(--menu-current-color, currentColor);
+        border-radius: 1px;
+      }
+    }
+
+    // Children submenu
+    .children,
+    .sub-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-left: 1rem;
+
+      li {
+        a {
+          font-size: 1rem;
+          padding: 0.5rem 0;
+        }
+
+        // Current item inside children
+        &.current-menu-item > a,
+        &.current-menu-ancestor > a,
+        &.current-menu-parent > a,
+        &.current_page_item > a,
+        &.current_page_ancestor > a,
+        &.current_page_parent > a {
+          position: relative;
+          color: var(--menu-current-color, currentColor);
+          padding-left: 0.75rem;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 1.2em;
+            background-color: var(--menu-current-color, currentColor);
+            border-radius: 1px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Default class
+.mobile-menu {
+  @include mobile-menu;
+}

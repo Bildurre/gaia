@@ -1,19 +1,33 @@
 @use '../abstracts' as *;
 
-.nav-backdrop {
+// ========================================
+// Backdrop Component
+// ========================================
+// Generic overlay backdrop for modals, panels, etc.
+// Uses CSS custom properties for customization:
+// --backdrop-bg (default: rgba(0, 0, 0, 0.5))
+
+@mixin backdrop {
   position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  background-color: var(--backdrop-bg, rgba(0, 0, 0, 0.5));
   opacity: 0;
   visibility: hidden;
   transition: 
     opacity $backdrop-transition-duration $backdrop-transition-effect,
     visibility $backdrop-transition-duration $backdrop-transition-effect;
-  z-index: 99999;
+  z-index: 99998;
 
   &.is-active {
     opacity: 1;
     visibility: visible;
   }
+}
+
+// Default class
+.backdrop {
+  @include backdrop;
 }

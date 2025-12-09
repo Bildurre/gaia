@@ -1,5 +1,10 @@
 @use '../abstracts' as *;
 
+// ========================================
+// WordPress Block Navigation Overrides
+// ========================================
+// Styles for wp-block-navigation when used directly
+
 .wp-block-navigation__responsive-container-open {
   @media (max-width: $mobile-breakpoint) {
     display: none !important;
@@ -20,29 +25,22 @@
   }
 
   .wp-block-navigation-item {
-    // Current item - desktop (primer nivel)
-    &.current-menu-item {
-      > .wp-block-navigation-item__content {
-        border-bottom: 1px solid currentColor;
-        color: var(--wp--preset--color--secondary);
-      }
+    &.current-menu-item > .wp-block-navigation-item__content {
+      border-bottom: 1px solid currentColor;
+      color: var(--wp--preset--color--secondary);
     }
 
-    // Padre cuando un hijo es current
-    &.current-menu-ancestor,
-    &.current-menu-parent {
-      > .wp-block-navigation-item__content {
-        border-bottom: 1px solid currentColor;
-        color: var(--wp--preset--color--secondary);
-      }
+    &.current-menu-ancestor > .wp-block-navigation-item__content,
+    &.current-menu-parent > .wp-block-navigation-item__content {
+      border-bottom: 1px solid currentColor;
+      color: var(--wp--preset--color--secondary);
     }
   }
 
-  // Submenú
+  // Submenu
   .wp-block-navigation__submenu-container {
     margin-top: 0.5rem;
 
-    // Puente invisible para mantener el hover
     &::before {
       content: '';
       position: absolute;
@@ -56,12 +54,10 @@
       padding-left: 1px;
     }
 
-    .current-menu-item {
-      > .wp-block-navigation-item__content {
-        border-bottom: none;
-        border-left: 2px solid currentColor;
-        padding-left: 0.5rem;
-      }
+    .current-menu-item > .wp-block-navigation-item__content {
+      border-bottom: none;
+      border-left: 2px solid currentColor;
+      padding-left: 0.5rem;
     }
   }
 
@@ -101,18 +97,13 @@
   }
 }
 
-// ========================================
 // Remove WordPress default animations
-// ========================================
-
-// Remove animations but allow custom transitions on container
 .wp-block-navigation__responsive-container,
 .wp-block-navigation__responsive-container.is-menu-open,
 .wp-block-navigation__responsive-container.has-modal-open {
   animation: none !important;
 }
 
-// Remove all animations and transitions from inner elements
 .wp-block-navigation__responsive-container-content,
 .wp-block-navigation__responsive-dialog,
 .wp-block-navigation__responsive-close,
@@ -123,7 +114,6 @@
   transition: none !important;
 }
 
-// Keep hover transition for menu links
 .wp-block-navigation-item__content.wp-block-navigation-item__content {
   transition: color 0.2s ease !important;
 }

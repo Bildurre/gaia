@@ -1,0 +1,52 @@
+@use '../abstracts' as *;
+
+// ========================================
+// Mobile Panel Component
+// ========================================
+// Generic slide-in panel from left side
+// Uses CSS custom properties for customization:
+// --panel-bg (default: #fff)
+// --panel-text (default: inherit)
+// --panel-width (default: 80vw)
+
+@mixin mobile-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--panel-width, $mobile-menu-width);
+  height: 100vh;
+  background-color: var(--panel-bg, #fff);
+  color: var(--panel-text, inherit);
+  transform: translateX(-100%);
+  z-index: 99999;
+  overflow-y: auto;
+
+  &.is-open {
+    animation: panelSlideIn $menu-transition-duration $menu-transition-effect forwards;
+  }
+}
+
+@mixin mobile-panel-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+// Default class
+.mobile-panel {
+  @include mobile-panel;
+
+  &__content {
+    @include mobile-panel-content;
+  }
+}
+
+@keyframes panelSlideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}

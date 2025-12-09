@@ -1,0 +1,101 @@
+@use '../abstracts' as *;
+
+// ========================================
+// Desktop Menu Component
+// ========================================
+// Generic horizontal menu with dropdown submenus
+// Uses CSS custom properties for customization:
+// --menu-color (default: inherit)
+// --menu-current-color (default: currentColor)
+// --menu-bg (default: #fff) - for dropdowns
+
+@mixin desktop-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: $mobile-breakpoint) {
+    display: none;
+  }
+
+  // Menu items
+  li {
+    position: relative;
+
+    a {
+      display: block;
+      padding: 0.5rem;
+      color: var(--menu-color, inherit);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--menu-current-color, currentColor);
+      }
+    }
+
+    // Current item - wp_nav_menu classes
+    &.current-menu-item > a,
+    &.current-menu-ancestor > a,
+    &.current-menu-parent > a,
+    // Current item - wp_list_pages classes (fallback)
+    &.current_page_item > a,
+    &.current_page_ancestor > a,
+    &.current_page_parent > a {
+      color: var(--menu-current-color, currentColor);
+      border-bottom: 2px solid var(--menu-current-color, currentColor);
+    }
+
+    // Submenu (dropdown)
+    .children,
+    .sub-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      padding: 0.5rem 0;
+      margin: 0;
+      list-style: none;
+      background-color: var(--menu-bg, #fff);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 4px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      z-index: 100;
+
+      li {
+        a {
+          padding: 0.5rem 1rem;
+          font-size: 0.8125rem;
+        }
+
+        // Current in submenu - just color, no border
+        &.current_page_item > a,
+        &.current-menu-item > a {
+          color: var(--menu-current-color, currentColor);
+          border-bottom: none;
+        }
+      }
+    }
+
+    // Show submenu on hover
+    &:hover > .children,
+    &:hover > .sub-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+}
+
+// Default class
+.desktop-menu {
+  @include desktop-menu;
+}

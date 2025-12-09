@@ -1,4 +1,17 @@
 @use '../abstracts' as *;
+@use '../components/hamburger' as *;
+@use '../components/backdrop' as *;
+@use '../components/mobile-panel' as *;
+@use '../components/mobile-menu' as *;
+@use '../components/desktop-menu' as *;
+@use '../components/search-form' as *;
+
+// ========================================
+// Header Default
+// ========================================
+// Composes generic components with header-specific layout
+// CSS custom properties set by PHP:
+// --header-bg, --header-text, --header-current, --header-content-width
 
 .header-default {
   position: relative;
@@ -8,34 +21,36 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
 
-  // Sticky variant
+  // ========================================
+  // Variants
+  // ========================================
+
   &--sticky {
     position: sticky;
     top: 0;
 
-    // Account for admin bar
     .admin-bar & {
       top: var(--wp-admin--admin-bar--height, 32px);
     }
   }
 
-  // Hidden state (for hide on scroll)
   &--hidden {
     transform: translateY(-100%);
   }
 
-  // Scrolled state (add shadow)
   &--scrolled {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
-  // Container
+  // ========================================
+  // Layout
+  // ========================================
+
   &__container {
     max-width: var(--header-content-width, var(--wp--style--global--wide-size));
     margin: 0 auto;
   }
 
-  // Top row
   &__top {
     display: flex;
     align-items: center;
@@ -43,7 +58,6 @@
     gap: 1rem;
   }
 
-  // Logo
   &__logo {
     a {
       display: block;
@@ -63,7 +77,6 @@
     font-weight: 700;
   }
 
-  // Actions (social links, search)
   &__actions {
     display: flex;
     align-items: center;
@@ -74,24 +87,6 @@
     }
   }
 
-  // Search toggle button
-  &__search-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.5rem;
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
-  // Desktop navigation
   &__nav {
     margin-top: 1rem;
 
@@ -100,292 +95,106 @@
     }
   }
 
-  &__menu {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  // ========================================
+  // Component: Hamburger
+  // ========================================
 
-    a {
-      display: block;
-      padding: 0.5rem;
-      color: inherit;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.875rem;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: var(--header-current);
-      }
-    }
-
-    // Current item
-    .current-menu-item > a,
-    .current-menu-ancestor > a,
-    .current-menu-parent > a {
-      color: var(--header-current);
-      border-bottom: 2px solid var(--header-current);
-    }
-  }
-
-  // Hamburger - usa color de texto heredado
   &__hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: $hamburger-width;
-    height: $hamburger-width;
-    padding: 0;
-    background: transparent;
-    border: none;
-    color: inherit; // Hereda el color del header
-    cursor: pointer;
+    @include hamburger;
     order: -1;
-
-    @media (max-width: $mobile-breakpoint) {
-      display: flex;
-    }
   }
 
   &__hamburger-bar {
-    position: absolute;
-    display: block;
-    width: $hamburger-bar-width;
-    height: $hamburger-bar-height;
-    background-color: currentColor; // Usa currentColor para heredar
-    border-radius: 2px;
-    transition: 
-      transform $hamburger-transition-duration $hamburger-transition-effect,
-      width $hamburger-transition-duration $hamburger-transition-effect,
-      opacity $hamburger-transition-duration $hamburger-transition-effect;
-
-    &:nth-child(1) {
-      transform: translateY(-#{$hamburger-bar-gap});
-    }
-
-    &:nth-child(2) {
-      transform: translateY(0);
-    }
-
-    &:nth-child(3) {
-      transform: translateY(#{$hamburger-bar-gap});
-    }
+    @include hamburger-bar;
   }
 
   &__hamburger.is-active &__hamburger-bar {
-    width: calc(#{$hamburger-bar-width} * 1.41);
-
-    &:nth-child(1) {
-      transform: translateY(0) rotate(45deg);
-    }
-
-    &:nth-child(2) {
-      opacity: 0;
-      width: 0;
-    }
-
-    &:nth-child(3) {
-      transform: translateY(0) rotate(-45deg);
-    }
+    @include hamburger-bar-active;
   }
 
-  // Mobile panel - hereda colores del header
-  &__mobile-panel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: $mobile-menu-width;
-    height: 100vh;
-    background-color: var(--header-bg);
-    color: var(--header-text);
-    transform: translateX(-100%);
-    z-index: 99999;
-    overflow-y: auto;
+  // ========================================
+  // Component: Desktop Menu
+  // ========================================
 
-    &.is-open {
-      animation: slideIn $menu-transition-duration $menu-transition-effect forwards;
-    }
+  &__menu {
+    @include desktop-menu;
+    --menu-color: var(--header-text);
+    --menu-current-color: var(--header-current);
+    --menu-bg: var(--header-bg);
+  }
+
+  // ========================================
+  // Component: Mobile Panel
+  // ========================================
+
+  &__mobile-panel {
+    @include mobile-panel;
+    --panel-bg: var(--header-bg);
+    --panel-text: var(--header-text);
   }
 
   &__mobile-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    @include mobile-panel-content;
   }
 
-  // Mobile search
+  // ========================================
+  // Component: Mobile Menu
+  // ========================================
+
+  &__mobile-menu {
+    @include mobile-menu;
+    --menu-color: var(--header-text);
+    --menu-current-color: var(--header-current);
+  }
+
+  // ========================================
+  // Component: Backdrop
+  // ========================================
+
+  &__backdrop {
+    @include backdrop;
+  }
+
+  // ========================================
+  // Mobile-specific sections
+  // ========================================
+
   &__mobile-search {
     .search-form {
-      display: flex;
-      gap: 0.5rem;
+      @include search-form;
     }
 
     .search-field {
-      flex: 1;
       padding: 0.75rem 1rem;
-      border: 1px solid currentColor;
-      border-radius: 4px;
-      background: transparent;
-      color: inherit;
-
-      &::placeholder {
-        color: inherit;
-        opacity: 0.6;
-      }
     }
 
     .search-submit {
-      padding: 0.75rem 1rem;
-      background: var(--header-text);
-      color: var(--header-bg);
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+      padding: 0.75rem;
     }
   }
 
-  // Mobile actions (social)
   &__mobile-actions {
     padding-bottom: 1.5rem;
     border-bottom: 1px solid currentColor;
     opacity: 0.3;
   }
 
-  // Mobile navigation
-  &__mobile-menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  // ========================================
+  // Desktop Search (inline)
+  // ========================================
 
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    a {
-      display: block;
-      padding: 0.5rem 0;
-      color: inherit;
-      text-decoration: none;
-      font-size: 1.125rem;
-      font-weight: 600;
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: var(--header-current);
-      }
-    }
-
-    // Current item mobile
-    .current-menu-item > a,
-    .current-menu-ancestor > a,
-    .current-menu-parent > a {
-      color: var(--header-current);
-      padding-left: 0.75rem;
-      border-left: 3px solid var(--header-current);
-    }
-  }
-
-  // Backdrop
-  &__backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transition: 
-      opacity $backdrop-transition-duration $backdrop-transition-effect,
-      visibility $backdrop-transition-duration $backdrop-transition-effect;
-    z-index: 99998;
-
-    &.is-active {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  // Search modal
-  &__search-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 100001;
-
-    &.is-open {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  &__search-modal-content {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    padding: 2rem;
-
+  &__search {
     .search-form {
-      display: flex;
-      gap: 1rem;
+      @include search-form;
     }
 
     .search-field {
-      flex: 1;
-      padding: 1rem 1.5rem;
-      font-size: 1.25rem;
-      border: 2px solid #fff;
-      border-radius: 4px;
-      background: transparent;
-      color: #fff;
+      width: 160px;
+      transition: width 0.2s ease, background 0.2s ease;
 
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.6);
+      &:focus {
+        width: 200px;
       }
     }
-
-    .search-submit {
-      padding: 1rem 1.5rem;
-      font-size: 1.25rem;
-      background: #fff;
-      color: #000;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-  }
-
-  &__search-close {
-    position: absolute;
-    top: -2rem;
-    right: 0;
-    padding: 0.5rem;
-    background: transparent;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(0);
   }
 }
