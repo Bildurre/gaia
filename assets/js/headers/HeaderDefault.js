@@ -1,46 +1,72 @@
 // ========================================
 // Header Default
 // ========================================
+// Composes: Hamburger, MobilePanel, Backdrop, ScrollBehavior
+
+import Hamburger from '../components/Hamburger.js';
+import MobilePanel from '../components/MobilePanel.js';
+import Backdrop from '../components/Backdrop.js';
+import ScrollBehavior from '../components/ScrollBehavior.js';
+import BodyScrollLock from '../components/BodyScrollLock.js';
 
 class HeaderDefault {
-  constructor() {
-    this.header = document.querySelector('.header-default');
+  constructor(selector = '.header-default') {
+    this.header = document.querySelector(selector);
     
     if (!this.header) return;
 
-    this.hamburger = this.header.querySelector('.header-default__hamburger');
-    this.mobilePanel = this.header.querySelector('.header-default__mobile-panel');
-    this.backdrop = this.header.querySelector('.header-default__backdrop');
-    
     this.mobileBreakpoint = 600;
     this.hideOnScroll = this.header.dataset.hideOnScroll === 'true';
-    this.lastScrollY = 0;
-    this.scrollThreshold = 50;
+    this.isSticky = this.header.classList.contains('header-default--sticky');
 
-    this.init();
+    this.initComponents();
+    this.bindEvents();
   }
 
-  init() {
-    this.bindEvents();
-    this.updatePanelPosition();
+  initComponents() {
+    // Hamburger
+    this.hamburger = new Hamburger(
+      this.header.querySelector('.header-default__hamburger'),
+      {
+        onToggle: (isOpen) => this.handleMenuToggle(isOpen)
+      }
+    );
+
+    // Mobile Panel
+    this.mobilePanel = new MobilePanel(
+      this.header.querySelector('.header-default__mobile-panel'),
+      {
+        header: this.header,
+        onLinkClick: () => this.closeMenu()
+      }
+    );
+
+    // Backdrop
+    this.backdrop = new Backdrop(
+      this.header.querySelector('.header-default__backdrop'),
+      {
+        onClick: () => this.closeMenu()
+      }
+    );
+
+    // Scroll Behavior (only if sticky)
+    if (this.isSticky) {
+      this.scrollBehavior = new ScrollBehavior(
+        this.header,
+        {
+          hideOnScroll: this.hideOnScroll,
+          isMenuOpen: () => this.isMenuOpen()
+        }
+      );
+    }
   }
 
   bindEvents() {
-    // Mobile menu
-    this.hamburger?.addEventListener('click', () => this.toggleMenu());
-    this.backdrop?.addEventListener('click', () => this.closeMenu());
-
-    // Keyboard
+    // Escape key
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && this.isMenuOpen()) {
         this.closeMenu();
       }
-    });
-
-    // Close menu on link click
-    const menuLinks = this.mobilePanel?.querySelectorAll('a');
-    menuLinks?.forEach(link => {
-      link.addEventListener('click', () => this.closeMenu());
     });
 
     // Resize
@@ -48,97 +74,43 @@ class HeaderDefault {
       if (window.innerWidth > this.mobileBreakpoint) {
         this.closeMenu();
       }
-      this.updatePanelPosition();
     });
-
-    // Scroll behavior
-    if (this.hideOnScroll) {
-      window.addEventListener('scroll', () => this.handleScroll(), { passive: true });
-    } else if (this.header.classList.contains('header-default--sticky')) {
-      window.addEventListener('scroll', () => this.handleScrollSimple(), { passive: true });
-    }
   }
 
-  // Scroll handling for hide/show
-  handleScroll() {
-    const currentScrollY = window.scrollY;
-    
-    // Add scrolled class for shadow
-    if (currentScrollY > 10) {
-      this.header.classList.add('header-default--scrolled');
-    } else {
-      this.header.classList.remove('header-default--scrolled');
-    }
+  // ========================================
+  // Menu State Management
+  // ========================================
 
-    // Don't hide/show if menu is open
-    if (this.isMenuOpen()) return;
-
-    // Hide on scroll down, show on scroll up
-    if (currentScrollY > this.lastScrollY && currentScrollY > this.scrollThreshold) {
-      // Scrolling down
-      this.header.classList.add('header-default--hidden');
-    } else {
-      // Scrolling up
-      this.header.classList.remove('header-default--hidden');
-    }
-
-    this.lastScrollY = currentScrollY;
-  }
-
-  // Simple scroll handling (just shadow)
-  handleScrollSimple() {
-    if (window.scrollY > 10) {
-      this.header.classList.add('header-default--scrolled');
-    } else {
-      this.header.classList.remove('header-default--scrolled');
-    }
-  }
-
-  updatePanelPosition() {
-    if (!this.mobilePanel) return;
-
-    const adminBar = document.getElementById('wpadminbar');
-    const adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
-    const headerHeight = this.header.offsetHeight;
-    const topOffset = adminBarHeight + headerHeight;
-
-    this.mobilePanel.style.top = `${topOffset}px`;
-    this.mobilePanel.style.height = `calc(100vh - ${topOffset}px)`;
-    this.backdrop.style.top = `${topOffset}px`;
-    this.backdrop.style.height = `calc(100vh - ${topOffset}px)`;
-  }
-
-  // Menu methods
-  toggleMenu() {
-    if (this.isMenuOpen()) {
-      this.closeMenu();
-    } else {
+  handleMenuToggle(isOpen) {
+    if (isOpen) {
       this.openMenu();
+    } else {
+      this.closeMenu();
     }
   }
 
   openMenu() {
-    this.updatePanelPosition();
-    this.hamburger.classList.add('is-active');
-    this.hamburger.setAttribute('aria-expanded', 'true');
-    this.mobilePanel.classList.add('is-open');
-    this.backdrop.classList.add('is-active');
-    document.body.style.overflow = 'hidden';
+    const topOffset = this.mobilePanel.updatePosition();
+    this.backdrop.updatePosition(topOffset, `calc(100vh - ${topOffset}px)`);
+    
+    this.mobilePanel.open();
+    this.backdrop.show();
+    BodyScrollLock.lock();
   }
 
   closeMenu() {
-    this.hamburger.classList.remove('is-active');
-    this.hamburger.setAttribute('aria-expanded', 'false');
-    this.mobilePanel.classList.remove('is-open');
-    this.backdrop.classList.remove('is-active');
-    document.body.style.overflow = '';
+    this.hamburger.close();
+    this.mobilePanel.close();
+    this.backdrop.hide();
+    BodyScrollLock.unlock();
   }
 
   isMenuOpen() {
-    return this.mobilePanel?.classList.contains('is-open');
+    return this.mobilePanel?.isOpen() || false;
   }
 }
 
+// Auto-initialize
 document.addEventListener('DOMContentLoaded', () => {
   new HeaderDefault();
 });
