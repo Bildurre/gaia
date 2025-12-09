@@ -1,14 +1,16 @@
 // ========================================
-// Hamburger Component
+// Hamburger Button Component
 // ========================================
-// Manages hamburger button toggle state
-// Emits callback for state changes
+// Generic hamburger button with toggle functionality
 
 class Hamburger {
   constructor(element, options = {}) {
     this.element = element;
-    this.activeClass = options.activeClass || 'is-active';
-    this.onToggle = options.onToggle || null;
+    this.isActive = false;
+    this.options = {
+      activeClass: options.activeClass || 'is-active',
+      onToggle: options.onToggle || null,
+    };
 
     if (!this.element) return;
 
@@ -20,7 +22,7 @@ class Hamburger {
   }
 
   toggle() {
-    if (this.isActive()) {
+    if (this.isActive) {
       this.close();
     } else {
       this.open();
@@ -28,24 +30,26 @@ class Hamburger {
   }
 
   open() {
-    this.element.classList.add(this.activeClass);
+    if (this.isActive) return;
+
+    this.isActive = true;
+    this.element.classList.add(this.options.activeClass);
     this.element.setAttribute('aria-expanded', 'true');
-    this.notifyToggle(true);
+
+    if (this.options.onToggle) {
+      this.options.onToggle(true);
+    }
   }
 
-  close() {
-    this.element.classList.remove(this.activeClass);
+  close(silent = false) {
+    if (!this.isActive) return;
+
+    this.isActive = false;
+    this.element.classList.remove(this.options.activeClass);
     this.element.setAttribute('aria-expanded', 'false');
-    this.notifyToggle(false);
-  }
 
-  isActive() {
-    return this.element.classList.contains(this.activeClass);
-  }
-
-  notifyToggle(isOpen) {
-    if (typeof this.onToggle === 'function') {
-      this.onToggle(isOpen);
+    if (!silent && this.options.onToggle) {
+      this.options.onToggle(false);
     }
   }
 }

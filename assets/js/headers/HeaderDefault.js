@@ -99,7 +99,7 @@ class HeaderDefault {
   }
 
   closeMenu() {
-    this.hamburger.close();
+    this.hamburger.close(true); // silent = true, no dispara callback
     this.mobilePanel.close();
     this.backdrop.hide();
     BodyScrollLock.unlock();

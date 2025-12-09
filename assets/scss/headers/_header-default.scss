@@ -5,6 +5,7 @@
 @use '../components/mobile-menu' as *;
 @use '../components/desktop-menu' as *;
 @use '../components/search-form' as *;
+@use '../components/social-links' as *;
 
 // ========================================
 // Header Default
@@ -156,7 +157,34 @@
   }
 
   // ========================================
-  // Mobile-specific sections
+  // Component: Social Links
+  // ========================================
+
+  // Desktop social links (in __actions)
+  &__actions {
+    .social-links {
+      --social-color: var(--header-text);
+      --social-color-hover: var(--header-current);
+      --social-size: 20px;
+    }
+  }
+
+  // Mobile social links (in mobile panel)
+  &__mobile-actions {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid currentColor;
+    opacity: 0.3;
+
+    .social-links {
+      --social-color: var(--header-text);
+      --social-color-hover: var(--header-current);
+      --social-size: 24px;
+      --social-gap: 0.75rem;
+    }
+  }
+
+  // ========================================
+  // Component: Search Form
   // ========================================
 
   &__mobile-search {
@@ -173,16 +201,7 @@
     }
   }
 
-  &__mobile-actions {
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid currentColor;
-    opacity: 0.3;
-  }
-
-  // ========================================
   // Desktop Search (inline)
-  // ========================================
-
   &__search {
     .search-form {
       @include search-form;

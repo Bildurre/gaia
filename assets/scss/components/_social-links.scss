@@ -1,0 +1,67 @@
+@use '../abstracts' as *;
+
+// ========================================
+// Social Links Component
+// ========================================
+// Generic social links list with icons
+// Uses CSS custom properties for customization:
+// --social-color (default: currentColor)
+// --social-color-hover (default: currentColor with opacity)
+// --social-size (default: 24px)
+// --social-gap (default: 0.5rem)
+
+@mixin social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--social-gap, 0.5rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin social-links-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin social-links-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  color: var(--social-color, currentColor);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    color: var(--social-color-hover, var(--social-color, currentColor));
+    opacity: 0.8;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    display: block;
+    width: var(--social-size, 24px);
+    height: var(--social-size, 24px);
+  }
+}
+
+// ========================================
+// Default class implementation
+// ========================================
+
+.social-links {
+  @include social-links;
+
+  &__item {
+    @include social-links-item;
+  }
+
+  &__link {
+    @include social-links-link;
+  }
+}

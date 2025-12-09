@@ -1,15 +1,15 @@
 // ========================================
 // Mobile Panel Component
 // ========================================
-// Manages slide-in panel for mobile navigation
-// Handles positioning relative to header and admin bar
+// Generic slide-in panel from left side
 
 class MobilePanel {
   constructor(element, options = {}) {
     this.element = element;
-    this.openClass = options.openClass || 'is-open';
     this.header = options.header || null;
+    this.openClass = options.openClass || 'is-open';
     this.onLinkClick = options.onLinkClick || null;
+    this._isOpen = false;
 
     if (!this.element) return;
 
@@ -17,31 +17,31 @@ class MobilePanel {
   }
 
   init() {
-    this.bindLinkClicks();
-  }
-
-  bindLinkClicks() {
-    const links = this.element.querySelectorAll('a');
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        if (typeof this.onLinkClick === 'function') {
-          this.onLinkClick();
-        }
+    // Close on link click
+    if (this.onLinkClick) {
+      const links = this.element.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => this.onLinkClick());
       });
-    });
+    }
   }
 
   open() {
-    this.updatePosition();
+    if (this._isOpen) return;
+
+    this._isOpen = true;
     this.element.classList.add(this.openClass);
   }
 
   close() {
+    if (!this._isOpen) return;
+
+    this._isOpen = false;
     this.element.classList.remove(this.openClass);
   }
 
   isOpen() {
-    return this.element.classList.contains(this.openClass);
+    return this._isOpen;
   }
 
   updatePosition() {
@@ -54,18 +54,6 @@ class MobilePanel {
     this.element.style.height = `calc(100vh - ${topOffset}px)`;
 
     return topOffset;
-  }
-
-  resetPosition() {
-    this.element.style.top = '';
-    this.element.style.height = '';
-  }
-
-  getTopOffset() {
-    const adminBar = document.getElementById('wpadminbar');
-    const adminBarHeight = adminBar ? adminBar.offsetHeight : 0;
-    const headerHeight = this.header ? this.header.offsetHeight : 0;
-    return adminBarHeight + headerHeight;
   }
 }
 
