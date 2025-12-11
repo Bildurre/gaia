@@ -9,6 +9,10 @@
 // --social-color-hover (default: currentColor with opacity)
 // --social-size (default: 24px)
 // --social-gap (default: 0.5rem)
+// --social-brand-color (set per-link when brand colors enabled)
+
+$social-shape-size: 2.5rem;
+$social-border-radius-rounded: 0.375rem;
 
 @mixin social-links {
   display: flex;
@@ -32,7 +36,7 @@
   padding: 0.25rem;
   color: var(--social-color, currentColor);
   text-decoration: none;
-  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 
   &:hover {
     color: var(--social-color-hover, var(--social-color, currentColor));
@@ -63,5 +67,88 @@
 
   &__link {
     @include social-links-link;
+  }
+
+  // ========================================
+  // Shape Modifiers
+  // ========================================
+
+  // Circle shape
+  &--circle &__link {
+    width: $social-shape-size;
+    height: $social-shape-size;
+    border-radius: 50%;
+    padding: 0;
+  }
+
+  // Square shape
+  &--square &__link {
+    width: $social-shape-size;
+    height: $social-shape-size;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  // Rounded square shape
+  &--rounded &__link {
+    width: $social-shape-size;
+    height: $social-shape-size;
+    border-radius: $social-border-radius-rounded;
+    padding: 0;
+  }
+
+  // ========================================
+  // Border Modifier
+  // ========================================
+
+  &--border &__link {
+    border: 1px solid var(--social-color, currentColor);
+
+    &:hover {
+      border-color: var(--social-color-hover, var(--social-color, currentColor));
+    }
+  }
+
+  // ========================================
+  // Background Modifier
+  // ========================================
+
+  &--background &__link {
+    background-color: var(--social-color, currentColor);
+    color: var(--social-bg-contrast, var(--header-bg, #fff));
+
+    &:hover {
+      background-color: var(--social-color-hover, var(--social-color, currentColor));
+      opacity: 1;
+    }
+  }
+
+  // ========================================
+  // Brand Colors Modifier
+  // ========================================
+
+  &--brand-colors &__link {
+    --social-color: var(--social-brand-color, currentColor);
+    --social-color-hover: var(--social-brand-color, currentColor);
+  }
+
+  // Brand colors + background: icon is white/contrast, background is brand color
+  &--brand-colors#{&}--background &__link {
+    background-color: var(--social-brand-color, currentColor);
+    color: #fff;
+
+    &:hover {
+      background-color: var(--social-brand-color, currentColor);
+      opacity: 0.85;
+    }
+  }
+
+  // Brand colors + border: border is brand color
+  &--brand-colors#{&}--border &__link {
+    border-color: var(--social-brand-color, currentColor);
+
+    &:hover {
+      border-color: var(--social-brand-color, currentColor);
+    }
   }
 }
