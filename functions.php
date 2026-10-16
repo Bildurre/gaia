@@ -1,18 +1,16 @@
 <?php
-/**
- * Gaia Theme Functions
- */
 
-// Setup
-require_once get_template_directory() . '/inc/setup.php';
-
-// Helpers
-require_once get_template_directory() . '/inc/helpers/helper-icons.php';
-require_once get_template_directory() . '/inc/helpers/helper-header.php';
-require_once get_template_directory() . '/inc/helpers/helper-menu.php';
-require_once get_template_directory() . '/inc/helpers/helper-social.php';
-
-// Admin
-if (is_admin()) {
-  require_once get_template_directory() . '/inc/admin/class-gaia-admin.php';
+if (!defined('ABSPATH')) {
+  exit;
 }
+
+define('GAIA_VERSION', wp_get_theme()->get('Version'));
+define('GAIA_BROWSERSYNC_PORT', 3000);
+
+require_once get_template_directory() . '/inc/setup.php';
+require_once get_template_directory() . '/inc/assets.php';
+require_once get_template_directory() . '/inc/options-pages.php';
+require_once get_template_directory() . '/inc/helpers.php';
+require_once get_template_directory() . '/inc/account.php';
+require_once get_template_directory() . '/inc/avatars.php';
+require_once get_template_directory() . '/inc/blocks.php';

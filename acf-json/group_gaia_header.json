@@ -1,0 +1,48 @@
+{
+  "key": "group_gaia_header",
+  "title": "Cabecera",
+  "fields": [
+    {
+      "key": "field_gaia_header_logo",
+      "label": "Logo",
+      "name": "header_logo",
+      "type": "image",
+      "instructions": "Logo de la cabecera. Usa la versión para fondo claro.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "preview_size": "medium"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-header"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Logo de la cabecera.",
+  "show_in_rest": 0,
+  "modified": 1792012420
+}

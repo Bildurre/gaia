@@ -1,0 +1,311 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Gaia 1.0.0\n"
+"POT-Creation-Date: 2026-10-16 21:35+0000\n"
+"PO-Revision-Date: 2026-10-16 21:35+0000\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: gaia\n"
+
+#: blocks/hero/hero.php:25
+msgid "Hero: fill in the title in the block settings."
+msgstr "Hero: idatzi izenburua blokearen ezarpenetan."
+
+#: blocks/hero/hero.php:90
+msgid "Go to content"
+msgstr "Joan edukira"
+
+#: header.php:11
+msgid "Skip to content"
+msgstr "Joan edukira"
+
+#: header.php:31
+msgid "Menu"
+msgstr "Menua"
+
+#: header.php:52
+msgid "Main menu"
+msgstr "Menu nagusia"
+
+#: inc/account.php:214
+msgid "The form has expired. Please try again."
+msgstr "Inprimakia iraungi egin da. Saiatu berriro."
+
+#: inc/account.php:235
+msgid "The username or password is incorrect."
+msgstr "Erabiltzaile-izena edo pasahitza ez da zuzena."
+
+#: inc/account.php:247
+msgid "Enter your username or email address."
+msgstr "Idatzi zure erabiltzaile-izena edo helbide elektronikoa."
+
+#: inc/account.php:263 template-parts/account/reset-password-form.php:13
+msgid "This password reset link is invalid or has expired. Request a new one."
+msgstr "Pasahitza berrezartzeko esteka hau ez da baliozkoa edo iraungi egin da. Eskatu beste bat."
+
+#: inc/account.php:282 inc/account.php:403
+msgid "You must log in first."
+msgstr "Lehenik saioa hasi behar duzu."
+
+#: inc/account.php:292
+msgid "Enter a valid email address."
+msgstr "Idatzi baliozko helbide elektroniko bat."
+
+#: inc/account.php:297
+msgid "That email address is already in use."
+msgstr "Helbide elektroniko hori dagoeneko erabiltzen ari da."
+
+#: inc/account.php:310
+msgid "Enter your current password to change your username or email address."
+msgstr "Idatzi zure egungo pasahitza erabiltzaile-izena edo helbide elektronikoa aldatzeko."
+
+#: inc/account.php:356
+msgid "The username can only contain letters, numbers, spaces and the characters . - _ @"
+msgstr "Erabiltzaile-izenak letrak, zenbakiak, zuriuneak eta . - _ @ karaktereak soilik izan ditzake."
+
+#: inc/account.php:360
+msgid "The username cannot be longer than 60 characters."
+msgstr "Erabiltzaile-izenak ezin ditu 60 karaktere baino gehiago izan."
+
+#: inc/account.php:366
+msgid "That username is not available."
+msgstr "Erabiltzaile-izen hori ez dago erabilgarri."
+
+#: inc/account.php:407
+msgid "Your current password is incorrect."
+msgstr "Zure egungo pasahitza ez da zuzena."
+
+#: inc/account.php:436
+#, php-format
+msgid "The password must be at least %d characters long."
+msgstr "Pasahitzak gutxienez %d karaktere izan behar ditu."
+
+#: inc/account.php:442
+msgid "The passwords do not match."
+msgstr "Pasahitzak ez datoz bat."
+
+#: inc/account.php:484
+#, php-format
+msgid "[%s] Reset your password"
+msgstr "[%s] Berrezarri zure pasahitza"
+
+#: inc/account.php:491
+#, php-format
+msgid "Hello %s,"
+msgstr "Kaixo, %s:"
+
+#: inc/account.php:496
+#, php-format
+msgid "Someone has requested a password reset for your account on %s. If it was not you, ignore this email and nothing will change."
+msgstr "Norbaitek zure kontuaren pasahitza berrezartzeko eskatu du (%s). Zu izan ez bazara, ez egin kasurik mezu honi eta ez da ezer aldatuko."
+
+#: inc/account.php:499
+msgid "To choose a new password, open this link:"
+msgstr "Pasahitz berria aukeratzeko, ireki esteka hau:"
+
+#: inc/account.php:518
+msgid "If an account exists with that username or email, you will receive an email with a link to reset your password."
+msgstr "Erabiltzaile-izen edo helbide elektroniko horrekin konturik badago, pasahitza berrezartzeko esteka bat jasoko duzu posta elektronikoz."
+
+#: inc/account.php:519
+msgid "Your password has been changed. You can log in now."
+msgstr "Zure pasahitza aldatu da. Orain saioa has dezakezu."
+
+#: inc/account.php:520
+msgid "Your details have been saved."
+msgstr "Zure datuak gorde dira."
+
+#: inc/account.php:521
+msgid "Your password has been changed."
+msgstr "Zure pasahitza aldatu da."
+
+#: inc/avatars.php:73 inc/avatars.php:79 inc/avatars.php:92
+msgid "The image could not be uploaded. It must be a JPG, PNG, WebP or GIF file of up to 2 MB."
+msgstr "Ezin izan da irudia igo. 2 MB arteko JPG, PNG, WebP edo GIF fitxategia izan behar du."
+
+#: inc/options-pages.php:13 inc/options-pages.php:14
+msgid "Ajustes del sitio"
+msgstr ""
+
+#: inc/options-pages.php:23 inc/options-pages.php:24
+msgid "Contacto"
+msgstr ""
+
+#: inc/options-pages.php:31 inc/options-pages.php:32
+msgid "Cabecera"
+msgstr ""
+
+#: inc/options-pages.php:39 inc/options-pages.php:40
+msgid "Footer"
+msgstr ""
+
+#: inc/setup.php:19
+msgid "Primary menu"
+msgstr "Menu nagusia"
+
+#: index.php:13
+msgid "No content found."
+msgstr "Ez da edukirik aurkitu."
+
+#: page-templates/account.php:22 template-parts/user-menu.php:29
+msgid "Profile"
+msgstr "Profila"
+
+#: page-templates/account.php:29
+msgid "Your details"
+msgstr "Zure datuak"
+
+#: page-templates/account.php:34 template-parts/account/login-form.php:18
+msgid "Password"
+msgstr "Pasahitza"
+
+#: page-templates/account.php:44
+#, php-format
+msgid "Hello, %s"
+msgstr "Kaixo, %s"
+
+#: page-templates/account.php:54
+msgid "This is your personal area. More things will appear here soon."
+msgstr "Hau zure gune pertsonala da. Laster gauza gehiago agertuko dira hemen."
+
+#: page-templates/account.php:56
+msgid "Edit your profile"
+msgstr "Editatu zure profila"
+
+#: page-templates/login.php:15 template-parts/account/login-form.php:28
+msgid "Log in"
+msgstr "Hasi saioa"
+
+#: page-templates/login.php:19 template-parts/account/login-form.php:29
+msgid "Forgot your password?"
+msgstr "Pasahitza ahaztu duzu?"
+
+#: page-templates/login.php:23
+msgid "Choose a new password"
+msgstr "Aukeratu pasahitz berria"
+
+#: template-parts/account/login-form.php:13 template-parts/account/lost-password-form.php:12
+msgid "Username or email"
+msgstr "Erabiltzaile-izena edo helbide elektronikoa"
+
+#: template-parts/account/login-form.php:24
+msgid "Remember me"
+msgstr "Gogoratu nazazu"
+
+#: template-parts/account/lost-password-form.php:6
+msgid "Enter your username or email address and we will send you a link to choose a new password."
+msgstr "Idatzi zure erabiltzaile-izena edo helbide elektronikoa, eta pasahitz berria aukeratzeko esteka bat bidaliko dizugu."
+
+#: template-parts/account/lost-password-form.php:17
+msgid "Send link"
+msgstr "Bidali esteka"
+
+#: template-parts/account/lost-password-form.php:18
+msgid "Back to log in"
+msgstr "Itzuli saioa hastera"
+
+#: template-parts/account/new-password-fields.php:7
+msgid "New password"
+msgstr "Pasahitz berria"
+
+#: template-parts/account/new-password-fields.php:13
+#, php-format
+msgid "At least %d characters."
+msgstr "Gutxienez %d karaktere."
+
+#: template-parts/account/new-password-fields.php:21
+msgid "Repeat the new password"
+msgstr "Errepikatu pasahitz berria"
+
+#: template-parts/account/password-form.php:10 template-parts/account/profile-form.php:81
+msgid "Current password"
+msgstr "Egungo pasahitza"
+
+#: template-parts/account/password-form.php:17
+msgid "Change password"
+msgstr "Aldatu pasahitza"
+
+#: template-parts/account/profile-form.php:22
+msgid "The file must be a JPG, PNG, WebP or GIF image."
+msgstr "Fitxategiak JPG, PNG, WebP edo GIF irudia izan behar du."
+
+#: template-parts/account/profile-form.php:23
+msgid "The image is larger than 2 MB."
+msgstr "Irudiak 2 MB baino gehiago ditu."
+
+#: template-parts/account/profile-form.php:28
+msgid "Profile picture"
+msgstr "Profileko argazkia"
+
+#: template-parts/account/profile-form.php:38
+#, php-format
+msgid "Drag an image here or %s"
+msgstr "Arrastatu irudi bat hona edo %s"
+
+#: template-parts/account/profile-form.php:39
+msgid "choose a file"
+msgstr "aukeratu fitxategi bat"
+
+#: template-parts/account/profile-form.php:46
+msgid "JPG, PNG, WebP or GIF, up to 2 MB. A square image looks best."
+msgstr "JPG, PNG, WebP edo GIF, gehienez 2 MB. Irudi karratu batek itxura hobea du."
+
+#: template-parts/account/profile-form.php:51
+msgid "Remove profile picture"
+msgstr "Kendu profileko argazkia"
+
+#: template-parts/account/profile-form.php:58
+msgid "Username"
+msgstr "Erabiltzaile-izena"
+
+#: template-parts/account/profile-form.php:60
+msgid "You use it to log in, together with your email address."
+msgstr "Saioa hasteko erabiltzen duzu, zure helbide elektronikoarekin batera."
+
+#: template-parts/account/profile-form.php:65
+msgid "First name"
+msgstr "Izena"
+
+#: template-parts/account/profile-form.php:70
+msgid "Last name"
+msgstr "Abizenak"
+
+#: template-parts/account/profile-form.php:76
+msgid "Email"
+msgstr "Helbide elektronikoa"
+
+#: template-parts/account/profile-form.php:83
+msgid "Only needed if you change your username or email address."
+msgstr "Erabiltzaile-izena edo helbide elektronikoa aldatzen badituzu bakarrik behar da."
+
+#: template-parts/account/profile-form.php:87
+msgid "Save changes"
+msgstr "Gorde aldaketak"
+
+#: template-parts/account/reset-password-form.php:15
+msgid "Request a new link"
+msgstr "Eskatu esteka berria"
+
+#: template-parts/account/reset-password-form.php:25
+msgid "Save password"
+msgstr "Gorde pasahitza"
+
+#: template-parts/language-switcher.php:28
+msgid "Language"
+msgstr "Hizkuntza"
+
+#: template-parts/user-menu.php:34
+msgid "My area"
+msgstr "Nire gunea"
+
+#: template-parts/user-menu.php:42
+msgid "Administration"
+msgstr "Administrazioa"
+
+#: template-parts/user-menu.php:58
+msgid "User menu"
+msgstr "Erabiltzailearen menua"

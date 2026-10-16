@@ -1,0 +1,218 @@
+{
+  "key": "group_gaia_contact",
+  "title": "Contacto",
+  "fields": [
+    {
+      "key": "field_gaia_contact_phones",
+      "label": "Teléfonos",
+      "name": "contact_phones",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Añadir teléfono",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_contact_phone_number",
+          "label": "Número",
+          "name": "number",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "40",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "+34 600 000 000",
+          "parent_repeater": "field_gaia_contact_phones"
+        },
+        {
+          "key": "field_gaia_contact_phone_label",
+          "label": "Etiqueta",
+          "name": "label",
+          "type": "group",
+          "instructions": "Opcional, en cada idioma. Por ejemplo: «Oficina», «Inscripciones».",
+          "required": 0,
+          "wrapper": {
+            "width": "60",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "sub_fields": [],
+          "parent_repeater": "field_gaia_contact_phones"
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_contact_emails",
+      "label": "Emails",
+      "name": "contact_emails",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Añadir email",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_contact_email_address",
+          "label": "Email",
+          "name": "address",
+          "type": "email",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "40",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "parent_repeater": "field_gaia_contact_emails"
+        },
+        {
+          "key": "field_gaia_contact_email_label",
+          "label": "Etiqueta",
+          "name": "label",
+          "type": "group",
+          "instructions": "Opcional, en cada idioma. Por ejemplo: «Oficina», «Inscripciones».",
+          "required": 0,
+          "wrapper": {
+            "width": "60",
+            "class": "",
+            "id": ""
+          },
+          "layout": "table",
+          "sub_fields": [],
+          "parent_repeater": "field_gaia_contact_emails"
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_contact_address",
+      "label": "Dirección",
+      "name": "contact_address",
+      "type": "group",
+      "instructions": "En cada idioma. Cada línea se muestra en una línea distinta. Si un idioma se queda vacío, se muestra el castellano.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_contact_social_networks",
+      "label": "Redes sociales",
+      "name": "contact_social_networks",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "pagination": 0,
+      "min": 0,
+      "max": 0,
+      "collapsed": "",
+      "button_label": "Añadir red social",
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_contact_social_network",
+          "label": "Red",
+          "name": "network",
+          "type": "select",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "bluesky": "Bluesky",
+            "facebook": "Facebook",
+            "instagram": "Instagram",
+            "mastodon": "Mastodon",
+            "telegram": "Telegram",
+            "tiktok": "TikTok",
+            "whatsapp": "WhatsApp",
+            "x": "X",
+            "youtube": "YouTube"
+          },
+          "default_value": false,
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": "",
+          "parent_repeater": "field_gaia_contact_social_networks"
+        },
+        {
+          "key": "field_gaia_contact_social_url",
+          "label": "Enlace",
+          "name": "url",
+          "type": "url",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "https://",
+          "parent_repeater": "field_gaia_contact_social_networks"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-contact"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Datos de contacto y redes sociales. Se reutilizan en el footer y en los bloques.",
+  "show_in_rest": 0,
+  "modified": 1792183193
+}

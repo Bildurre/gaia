@@ -1,6 +1,3 @@
-// ========================================
-// Main JS
-// ========================================
-
-// Headers
-import './headers/HeaderDefault.js';
+document.addEventListener('DOMContentLoaded', () => {
+  // Theme scripts go here
+});

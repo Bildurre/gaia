@@ -1,19 +1,9 @@
-# Dependencies
 node_modules/
 
-# Build files
-assets/dist/
+# Compiled from SCSS (run npm run build)
+assets/css/
+blocks/**/*.css
+*.css.map
 
-# System files
-.DS_Store
-Thumbs.db
-
-# Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Logs
-*.log
-npm-debug.log*
+# Local settings
+.env

@@ -1,40 +1,22 @@
 <?php
-/**
- * Theme Setup
- */
 
-if (!defined('ABSPATH')) exit;
+if (!defined('ABSPATH')) {
+  exit;
+}
 
-/**
- * Setup theme
- */
-function gaia_setup() {
+function gaia_setup_theme() {
+  load_theme_textdomain('gaia', get_template_directory() . '/languages');
+
   add_theme_support('title-tag');
-  add_theme_support('custom-logo');
-  
-  register_nav_menus(array(
-    'primary' => __('Primary Menu', 'gaia'),
-  ));
-}
-add_action('after_setup_theme', 'gaia_setup');
+  add_theme_support('post-thumbnails');
+  add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script']);
 
-/**
- * Enqueue scripts and styles
- */
-function gaia_scripts() {
-  wp_enqueue_style(
-    'gaia-style',
-    get_template_directory_uri() . '/assets/dist/style.css',
-    array(),
-    filemtime(get_template_directory() . '/assets/dist/style.css')
-  );
-  
-  wp_enqueue_script(
-    'gaia-main',
-    get_template_directory_uri() . '/assets/dist/main.js',
-    array(),
-    filemtime(get_template_directory() . '/assets/dist/main.js'),
-    true
-  );
+  // Theme styles (fonts, tokens, typography) inside the block editor
+  add_theme_support('editor-styles');
+  add_editor_style(['assets/css/main.css', 'assets/css/editor.css']);
+
+  register_nav_menus([
+    'primary' => __('Primary menu', 'gaia'),
+  ]);
 }
-add_action('wp_enqueue_scripts', 'gaia_scripts');
+add_action('after_setup_theme', 'gaia_setup_theme');

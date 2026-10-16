@@ -1,0 +1,311 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Gaia 1.0.0\n"
+"POT-Creation-Date: 2026-10-16 21:35+0000\n"
+"PO-Revision-Date: 2026-10-16 21:35+0000\n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: gaia\n"
+
+#: blocks/hero/hero.php:25
+msgid "Hero: fill in the title in the block settings."
+msgstr "Hero: escribe el título en los ajustes del bloque."
+
+#: blocks/hero/hero.php:90
+msgid "Go to content"
+msgstr "Ir al contenido"
+
+#: header.php:11
+msgid "Skip to content"
+msgstr "Saltar al contenido"
+
+#: header.php:31
+msgid "Menu"
+msgstr "Menú"
+
+#: header.php:52
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: inc/account.php:214
+msgid "The form has expired. Please try again."
+msgstr "El formulario ha caducado. Inténtalo de nuevo."
+
+#: inc/account.php:235
+msgid "The username or password is incorrect."
+msgstr "El nombre de usuario o la contraseña no son correctos."
+
+#: inc/account.php:247
+msgid "Enter your username or email address."
+msgstr "Escribe tu nombre de usuario o tu email."
+
+#: inc/account.php:263 template-parts/account/reset-password-form.php:13
+msgid "This password reset link is invalid or has expired. Request a new one."
+msgstr "Este enlace para restablecer la contraseña no es válido o ha caducado. Solicita uno nuevo."
+
+#: inc/account.php:282 inc/account.php:403
+msgid "You must log in first."
+msgstr "Primero tienes que acceder."
+
+#: inc/account.php:292
+msgid "Enter a valid email address."
+msgstr "Escribe un email válido."
+
+#: inc/account.php:297
+msgid "That email address is already in use."
+msgstr "Ese email ya está en uso."
+
+#: inc/account.php:310
+msgid "Enter your current password to change your username or email address."
+msgstr "Escribe tu contraseña actual para cambiar el nombre de usuario o el email."
+
+#: inc/account.php:356
+msgid "The username can only contain letters, numbers, spaces and the characters . - _ @"
+msgstr "El nombre de usuario solo puede contener letras, números, espacios y los caracteres . - _ @"
+
+#: inc/account.php:360
+msgid "The username cannot be longer than 60 characters."
+msgstr "El nombre de usuario no puede tener más de 60 caracteres."
+
+#: inc/account.php:366
+msgid "That username is not available."
+msgstr "Ese nombre de usuario no está disponible."
+
+#: inc/account.php:407
+msgid "Your current password is incorrect."
+msgstr "Tu contraseña actual no es correcta."
+
+#: inc/account.php:436
+#, php-format
+msgid "The password must be at least %d characters long."
+msgstr "La contraseña debe tener al menos %d caracteres."
+
+#: inc/account.php:442
+msgid "The passwords do not match."
+msgstr "Las contraseñas no coinciden."
+
+#: inc/account.php:484
+#, php-format
+msgid "[%s] Reset your password"
+msgstr "[%s] Restablece tu contraseña"
+
+#: inc/account.php:491
+#, php-format
+msgid "Hello %s,"
+msgstr "Hola, %s:"
+
+#: inc/account.php:496
+#, php-format
+msgid "Someone has requested a password reset for your account on %s. If it was not you, ignore this email and nothing will change."
+msgstr "Alguien ha solicitado restablecer la contraseña de tu cuenta en %s. Si no has sido tú, ignora este email y no cambiará nada."
+
+#: inc/account.php:499
+msgid "To choose a new password, open this link:"
+msgstr "Para elegir una contraseña nueva, abre este enlace:"
+
+#: inc/account.php:518
+msgid "If an account exists with that username or email, you will receive an email with a link to reset your password."
+msgstr "Si existe una cuenta con ese nombre de usuario o email, recibirás un email con un enlace para restablecer tu contraseña."
+
+#: inc/account.php:519
+msgid "Your password has been changed. You can log in now."
+msgstr "Tu contraseña se ha cambiado. Ya puedes acceder."
+
+#: inc/account.php:520
+msgid "Your details have been saved."
+msgstr "Tus datos se han guardado."
+
+#: inc/account.php:521
+msgid "Your password has been changed."
+msgstr "Tu contraseña se ha cambiado."
+
+#: inc/avatars.php:73 inc/avatars.php:79 inc/avatars.php:92
+msgid "The image could not be uploaded. It must be a JPG, PNG, WebP or GIF file of up to 2 MB."
+msgstr "No se ha podido subir la imagen. Debe ser un archivo JPG, PNG, WebP o GIF de hasta 2 MB."
+
+#: inc/options-pages.php:13 inc/options-pages.php:14
+msgid "Ajustes del sitio"
+msgstr ""
+
+#: inc/options-pages.php:23 inc/options-pages.php:24
+msgid "Contacto"
+msgstr ""
+
+#: inc/options-pages.php:31 inc/options-pages.php:32
+msgid "Cabecera"
+msgstr ""
+
+#: inc/options-pages.php:39 inc/options-pages.php:40
+msgid "Footer"
+msgstr ""
+
+#: inc/setup.php:19
+msgid "Primary menu"
+msgstr "Menú principal"
+
+#: index.php:13
+msgid "No content found."
+msgstr "No se ha encontrado contenido."
+
+#: page-templates/account.php:22 template-parts/user-menu.php:29
+msgid "Profile"
+msgstr "Perfil"
+
+#: page-templates/account.php:29
+msgid "Your details"
+msgstr "Tus datos"
+
+#: page-templates/account.php:34 template-parts/account/login-form.php:18
+msgid "Password"
+msgstr "Contraseña"
+
+#: page-templates/account.php:44
+#, php-format
+msgid "Hello, %s"
+msgstr "Hola, %s"
+
+#: page-templates/account.php:54
+msgid "This is your personal area. More things will appear here soon."
+msgstr "Esta es tu zona personal. Pronto aparecerán aquí más cosas."
+
+#: page-templates/account.php:56
+msgid "Edit your profile"
+msgstr "Editar tu perfil"
+
+#: page-templates/login.php:15 template-parts/account/login-form.php:28
+msgid "Log in"
+msgstr "Acceder"
+
+#: page-templates/login.php:19 template-parts/account/login-form.php:29
+msgid "Forgot your password?"
+msgstr "¿Has olvidado tu contraseña?"
+
+#: page-templates/login.php:23
+msgid "Choose a new password"
+msgstr "Elige una contraseña nueva"
+
+#: template-parts/account/login-form.php:13 template-parts/account/lost-password-form.php:12
+msgid "Username or email"
+msgstr "Nombre de usuario o email"
+
+#: template-parts/account/login-form.php:24
+msgid "Remember me"
+msgstr "Recuérdame"
+
+#: template-parts/account/lost-password-form.php:6
+msgid "Enter your username or email address and we will send you a link to choose a new password."
+msgstr "Escribe tu nombre de usuario o tu email y te enviaremos un enlace para elegir una contraseña nueva."
+
+#: template-parts/account/lost-password-form.php:17
+msgid "Send link"
+msgstr "Enviar enlace"
+
+#: template-parts/account/lost-password-form.php:18
+msgid "Back to log in"
+msgstr "Volver a acceder"
+
+#: template-parts/account/new-password-fields.php:7
+msgid "New password"
+msgstr "Contraseña nueva"
+
+#: template-parts/account/new-password-fields.php:13
+#, php-format
+msgid "At least %d characters."
+msgstr "Al menos %d caracteres."
+
+#: template-parts/account/new-password-fields.php:21
+msgid "Repeat the new password"
+msgstr "Repite la contraseña nueva"
+
+#: template-parts/account/password-form.php:10 template-parts/account/profile-form.php:81
+msgid "Current password"
+msgstr "Contraseña actual"
+
+#: template-parts/account/password-form.php:17
+msgid "Change password"
+msgstr "Cambiar contraseña"
+
+#: template-parts/account/profile-form.php:22
+msgid "The file must be a JPG, PNG, WebP or GIF image."
+msgstr "El archivo debe ser una imagen JPG, PNG, WebP o GIF."
+
+#: template-parts/account/profile-form.php:23
+msgid "The image is larger than 2 MB."
+msgstr "La imagen pesa más de 2 MB."
+
+#: template-parts/account/profile-form.php:28
+msgid "Profile picture"
+msgstr "Foto de perfil"
+
+#: template-parts/account/profile-form.php:38
+#, php-format
+msgid "Drag an image here or %s"
+msgstr "Arrastra una imagen aquí o %s"
+
+#: template-parts/account/profile-form.php:39
+msgid "choose a file"
+msgstr "elige un archivo"
+
+#: template-parts/account/profile-form.php:46
+msgid "JPG, PNG, WebP or GIF, up to 2 MB. A square image looks best."
+msgstr "JPG, PNG, WebP o GIF, hasta 2 MB. Una imagen cuadrada queda mejor."
+
+#: template-parts/account/profile-form.php:51
+msgid "Remove profile picture"
+msgstr "Quitar la foto de perfil"
+
+#: template-parts/account/profile-form.php:58
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: template-parts/account/profile-form.php:60
+msgid "You use it to log in, together with your email address."
+msgstr "Lo usas para acceder, además de tu email."
+
+#: template-parts/account/profile-form.php:65
+msgid "First name"
+msgstr "Nombre"
+
+#: template-parts/account/profile-form.php:70
+msgid "Last name"
+msgstr "Apellidos"
+
+#: template-parts/account/profile-form.php:76
+msgid "Email"
+msgstr "Email"
+
+#: template-parts/account/profile-form.php:83
+msgid "Only needed if you change your username or email address."
+msgstr "Solo hace falta si cambias el nombre de usuario o el email."
+
+#: template-parts/account/profile-form.php:87
+msgid "Save changes"
+msgstr "Guardar cambios"
+
+#: template-parts/account/reset-password-form.php:15
+msgid "Request a new link"
+msgstr "Solicitar un enlace nuevo"
+
+#: template-parts/account/reset-password-form.php:25
+msgid "Save password"
+msgstr "Guardar contraseña"
+
+#: template-parts/language-switcher.php:28
+msgid "Language"
+msgstr "Idioma"
+
+#: template-parts/user-menu.php:34
+msgid "My area"
+msgstr "Mi zona"
+
+#: template-parts/user-menu.php:42
+msgid "Administration"
+msgstr "Administración"
+
+#: template-parts/user-menu.php:58
+msgid "User menu"
+msgstr "Menú de usuario"

@@ -1,0 +1,293 @@
+{
+  "key": "group_gaia_block_hero",
+  "title": "Bloque: Hero",
+  "fields": [
+    {
+      "key": "field_gaia_hero_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_hero_eyebrow",
+      "label": "Antetítulo",
+      "name": "hero_eyebrow",
+      "type": "text",
+      "instructions": "Texto corto encima del título. Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": 60
+    },
+    {
+      "key": "field_gaia_hero_title",
+      "label": "Título",
+      "name": "hero_title",
+      "type": "text",
+      "instructions": "",
+      "required": 1,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": ""
+    },
+    {
+      "key": "field_gaia_hero_text",
+      "label": "Texto",
+      "name": "hero_text",
+      "type": "textarea",
+      "instructions": "Una o dos frases. Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "rows": 3,
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_hero_buttons",
+      "label": "Botones",
+      "name": "hero_buttons",
+      "type": "repeater",
+      "instructions": "Hasta dos botones. El texto del botón es el «Texto del enlace».",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "min": 0,
+      "max": 2,
+      "button_label": "Añadir botón",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_hero_button_link",
+          "label": "Enlace",
+          "name": "link",
+          "type": "link",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "return_format": "array",
+          "parent_repeater": "field_gaia_hero_buttons"
+        },
+        {
+          "key": "field_gaia_hero_button_style",
+          "label": "Estilo",
+          "name": "style",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "choices": {
+            "accent": "Verde",
+            "light": "Blanco",
+            "outline": "Contorno"
+          },
+          "default_value": "accent",
+          "return_format": "value",
+          "multiple": 0,
+          "allow_null": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": "",
+          "parent_repeater": "field_gaia_hero_buttons"
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_hero_tab_image",
+      "label": "Imagen",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_hero_image",
+      "label": "Imagen de fondo",
+      "name": "hero_image",
+      "type": "image",
+      "instructions": "Horizontal y grande (mínimo 1920 px de ancho). Sin imagen se usa un fondo oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "jpg,jpeg,png,webp",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_gaia_hero_image_position",
+      "label": "Posición de la imagen",
+      "name": "hero_image_position",
+      "type": "select",
+      "instructions": "Qué parte de la imagen se mantiene visible al recortarla.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "center": "Centro",
+        "top": "Arriba",
+        "bottom": "Abajo",
+        "left": "Izquierda",
+        "right": "Derecha"
+      },
+      "default_value": "center",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_hero_overlay",
+      "label": "Oscurecer la imagen",
+      "name": "hero_overlay",
+      "type": "select",
+      "instructions": "Para que el texto se lea bien sobre la imagen.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Nada",
+        "light": "Poco",
+        "medium": "Medio",
+        "strong": "Mucho"
+      },
+      "default_value": "medium",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_hero_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_hero_alignment",
+      "label": "Alineación del texto",
+      "name": "hero_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_hero_title_is_h1",
+      "label": "Título principal de la página (H1)",
+      "name": "hero_title_is_h1",
+      "type": "true_false",
+      "instructions": "Actívalo solo en el hero que abre la página. Cada página debe tener un único H1.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/hero"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Hero.",
+  "show_in_rest": 0,
+  "modified": 1792183839
+}

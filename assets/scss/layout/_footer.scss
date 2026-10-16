@@ -1,0 +1,155 @@
+@use '../abstracts/breakpoints';
+
+// The footer is the only dark area: it sets its own colors from the palette
+// and redefines the semantic tokens its children (social links...) use.
+.site-footer {
+  --color-text: var(--color-white);
+  --color-link: var(--color-green);
+  --color-accent: var(--color-green);
+  --color-focus: var(--color-green);
+  --footer-separator-color: var(--color-green-offwhite);
+  --footer-label-color: var(--color-green);
+  --footer-icon-color: var(--color-green-offwhite);
+  --footer-credits-color: var(--color-green-offblack);
+
+  font-size: var(--font-size-small);
+  color: var(--color-text);
+  background-color: var(--color-ink);
+}
+
+// :where() keeps specificity low so element classes can override it.
+:where(.site-footer) a {
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-link);
+  }
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-l);
+  padding-block: var(--space-xl);
+}
+
+// Row 1: brand on the left, social networks on the right.
+// Narrow screens: social networks below the brand.
+.site-footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-m);
+
+  @include breakpoints.from('medium') {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-m) var(--space-xl);
+  }
+}
+
+.site-footer__brand {
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
+}
+
+.site-footer__logo {
+  color: var(--color-accent);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-heading-4);
+  font-weight: 800;
+  text-transform: uppercase;
+
+  img {
+    width: auto;
+    max-height: 3.375rem;
+  }
+}
+
+.site-footer__tagline {
+  max-width: 40ch;
+  color: var(--color-accent);
+}
+
+.site-footer__social {
+  margin-inline-start: calc(var(--space-3xs) * -1);
+
+  @include breakpoints.from('medium') {
+    justify-content: flex-end;
+    margin-inline: 0 calc(var(--space-3xs) * -1);
+  }
+}
+
+// Row 2: address, phones and emails. One group per row on narrow screens,
+// side by side on wide ones. Everything wraps.
+.site-footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  padding-top: var(--space-l);
+  border-top: 1px solid var(--footer-separator-color);
+
+  @include breakpoints.from('medium') {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-m) var(--space-xl);
+  }
+}
+
+.site-footer__contact-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-l);
+}
+
+.site-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2xs);
+
+  svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.15em;
+    color: var(--footer-icon-color);
+  }
+
+  a {
+    overflow-wrap: anywhere;
+  }
+}
+
+// Value first, optional label below it aligned to the right
+.site-footer__contact-text {
+  display: grid;
+}
+
+.site-footer__contact-label {
+  justify-self: end;
+  font-size: var(--font-size-smaller);
+  color: var(--footer-label-color);
+}
+
+.site-footer__credits {
+  font-size: var(--font-size-smaller);
+  text-align: center;
+  color: var(--footer-credits-color);
+}
+
+// Separator inside the container, same width as the one above the contact row
+.site-footer__credits-inner {
+  padding-block: var(--space-s);
+  border-top: 1px solid var(--footer-separator-color);
+}
+
+.site-footer__credits a {
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}

@@ -1,0 +1,7 @@
+// Block editor only (loaded with add_editor_style after main.css).
+
+// Gaia blocks are full width on the site: same in the editor
+.wp-block[data-type^='gaia/'] {
+  max-width: none;
+  margin-inline: 0;
+}

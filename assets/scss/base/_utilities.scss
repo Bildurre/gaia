@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  max-width: calc(var(--container-width) + var(--container-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.has-accent-color {
+  color: var(--color-accent);
+}
+
+.visually-hidden-focusable:not(:focus, :focus-within) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: var(--space-s);
+  left: var(--space-s);
+  padding: var(--space-2xs) var(--space-s);
+  color: var(--color-background);
+  background-color: var(--color-text);
+  border-radius: var(--border-radius);
+}
+
+// Shown in the editor when a block has no content yet
+.block-placeholder {
+  padding: var(--space-l);
+  font-size: var(--font-size-small);
+  text-align: center;
+  border: 1px dashed var(--color-separator);
+  border-radius: var(--border-radius);
+}

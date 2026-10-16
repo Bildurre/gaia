@@ -1,0 +1,25 @@
+.language-switcher ul {
+  display: flex;
+  gap: var(--space-3xs);
+}
+
+.language-switcher a {
+  display: block;
+  padding: var(--space-3xs) var(--space-2xs);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-smaller);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    color: var(--color-link);
+  }
+
+  &[aria-current='true'] {
+    color: var(--color-background);
+    background-color: var(--color-accent);
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "key": "group_gaia_footer",
+  "title": "Footer",
+  "fields": [
+    {
+      "key": "field_gaia_footer_logo",
+      "label": "Logo",
+      "name": "footer_logo",
+      "type": "image",
+      "instructions": "Logo pequeño del footer. Usa la versión para fondo oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "min_width": "",
+      "min_height": "",
+      "min_size": "",
+      "max_width": "",
+      "max_height": "",
+      "max_size": "",
+      "mime_types": "",
+      "preview_size": "medium"
+    },
+    {
+      "key": "field_gaia_footer_tagline",
+      "label": "Frase",
+      "name": "footer_tagline",
+      "type": "group",
+      "instructions": "Escribe la frase en cada idioma. Si un idioma se queda vacío, se muestra el castellano.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_footer_credits",
+      "label": "Créditos",
+      "name": "footer_credits",
+      "type": "group",
+      "instructions": "Quién ha hecho la web, en cada idioma. Puede llevar enlaces. Si un idioma se queda vacío, se muestra el castellano.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-footer"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Logo y textos del footer.",
+  "show_in_rest": 0,
+  "modified": 1792182873
+}

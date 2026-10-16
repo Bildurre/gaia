@@ -1,0 +1,113 @@
+.form {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: var(--space-m);
+}
+
+.form__field {
+  display: grid;
+  min-width: 0;
+  gap: var(--space-3xs);
+}
+
+.form__label {
+  font-size: var(--font-size-small);
+  font-weight: 600;
+}
+
+// Text fields: one style for every input of the site (also without the
+// .form__input class, e.g. inputs printed by plugins).
+.form__input,
+:where(
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  input[type='search'],
+  input[type='url'],
+  input[type='tel'],
+  input[type='number'],
+  input[type='date'],
+  textarea,
+  select
+) {
+  width: 100%;
+  min-width: 0;
+  padding: var(--control-padding-block) var(--control-padding-inline);
+  font-size: var(--control-font-size);
+  line-height: var(--control-line-height);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
+  border-radius: var(--border-radius);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--color-text) 50%, transparent);
+  }
+
+  // Green border (doubled with a shadow so it is visible enough)
+  &:focus,
+  &:focus-visible {
+    border-color: var(--color-green);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--color-green);
+  }
+}
+
+.form__hint {
+  font-size: var(--font-size-smaller);
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+}
+
+.form__checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-size: var(--font-size-small);
+  cursor: pointer;
+
+  input {
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--color-accent);
+  }
+}
+
+// Main button on the right, secondary links on the left. The button stays
+// first in the markup (and in the tab order).
+.form__actions {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s) var(--space-m);
+  font-size: var(--font-size-small);
+}
+
+.form-notice {
+  display: grid;
+  gap: var(--space-3xs);
+  margin-bottom: var(--space-m);
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--font-size-small);
+  border-left: 4px solid;
+  border-radius: var(--border-radius);
+
+  &--success {
+    background-color: var(--color-success-background);
+    border-color: var(--color-accent);
+  }
+
+  &--error {
+    background-color: var(--color-error-background);
+    border-color: var(--color-error);
+  }
+}

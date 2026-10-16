@@ -1,0 +1,255 @@
+@use '../abstracts/breakpoints';
+
+// Sticky header, always visible. JS keeps --site-header-height updated
+// (used to place the mobile panel below the header).
+.site-header {
+  position: sticky;
+  z-index: 100;
+  top: 0;
+  background-color: var(--color-header-background);
+  border-bottom: 1px solid var(--color-separator);
+}
+
+// The admin bar is fixed above 600px wide only
+@media (min-width: 601px) {
+  .admin-bar .site-header {
+    top: var(--wp-admin--admin-bar--height, 0px);
+  }
+}
+
+// Narrow: [toggle] [logo] ... [user]. The panel opens below the header.
+// The first row has the same height on every screen size.
+.site-header__inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: 'toggle logo user';
+  align-items: center;
+  column-gap: var(--space-s);
+}
+
+// Hamburger: three bars that turn into an X
+.site-header__menu-toggle {
+  grid-area: toggle;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  margin-inline-start: calc(var(--space-3xs) * -1);
+  color: var(--color-ink);
+  background: none;
+  border: 0;
+}
+
+.site-header__menu-toggle-bars {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 0.875rem;
+
+  span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+    transition:
+      transform 0.2s ease,
+      opacity 0.15s ease,
+      top 0.2s ease;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: calc(50% - 1px);
+    }
+
+    &:nth-child(3) {
+      top: calc(100% - 2px);
+    }
+  }
+}
+
+.is-menu-open .site-header__menu-toggle-bars span {
+  &:nth-child(1) {
+    top: calc(50% - 1px);
+    transform: rotate(45deg);
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+  }
+
+  &:nth-child(3) {
+    top: calc(50% - 1px);
+    transform: rotate(-45deg);
+  }
+}
+
+.site-header__logo {
+  grid-area: logo;
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-s);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-large);
+  font-weight: 800;
+  line-height: var(--header-logo-height);
+  color: var(--color-accent);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  img {
+    width: auto;
+    height: var(--header-logo-height);
+  }
+}
+
+.site-header__user {
+  grid-area: user;
+  justify-self: end;
+}
+
+// Narrow: drawer that slides in from the left below the header, with a
+// backdrop over the page. The page does not scroll; the drawer does.
+.site-header__backdrop {
+  position: fixed;
+  inset: var(--site-header-height, 3.5rem) 0 0;
+  background-color: color-mix(in srgb, var(--color-ink) 40%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s;
+}
+
+.site-header__panel {
+  position: fixed;
+  top: var(--site-header-height, 3.5rem);
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  width: min(20rem, 85vw);
+  padding: var(--space-m) var(--container-gutter) var(--space-xl);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--color-header-background);
+  border-right: 1px solid var(--color-separator);
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition:
+    transform 0.25s ease,
+    visibility 0.25s;
+}
+
+.is-menu-open {
+  .site-header__backdrop {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .site-header__panel {
+    transform: none;
+    visibility: visible;
+  }
+}
+
+.site-header__menu {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: block;
+    padding-block: var(--space-s);
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-separator);
+
+    &:hover {
+      color: var(--color-link);
+    }
+  }
+
+  .current-menu-item > a,
+  .current-menu-ancestor > a {
+    color: var(--color-accent);
+  }
+}
+
+// Wide: logo on the left, language switcher and user menu on the right,
+// navigation centered in a second row between two separators.
+@include breakpoints.from('medium') {
+  .site-header__inner {
+    grid-template-columns: auto 1fr auto auto;
+    grid-template-areas:
+      'logo . languages user'
+      'navigation navigation navigation navigation';
+    column-gap: var(--space-m);
+  }
+
+  .site-header__menu-toggle,
+  .site-header__backdrop {
+    display: none;
+  }
+
+  .site-header__panel,
+  .is-menu-open .site-header__panel {
+    display: contents;
+    visibility: visible;
+  }
+
+  .site-header__languages {
+    grid-area: languages;
+  }
+
+  .site-header__navigation {
+    position: relative;
+    grid-area: navigation;
+
+    // Full-width separator between the top row and the navigation
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100vw;
+      border-top: 1px solid var(--color-separator);
+      transform: translateX(-50%);
+    }
+  }
+
+  .site-header {
+    overflow-x: clip;
+  }
+
+  .site-header__menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 var(--space-l);
+
+    a {
+      padding-block: var(--space-xs);
+      font-size: var(--font-size-small);
+      border-bottom: 0;
+      box-shadow: inset 0 -2px 0 transparent;
+      transition: box-shadow 0.15s ease, color 0.15s ease;
+    }
+
+    .current-menu-item > a,
+    .current-menu-ancestor > a {
+      box-shadow: inset 0 -2px 0 var(--color-accent);
+    }
+  }
+}

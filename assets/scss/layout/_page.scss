@@ -1,0 +1,26 @@
+// Sticky footer: the footer stays at the bottom of the viewport on short pages
+// and is pushed down by the content on long ones.
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body.admin-bar {
+  min-height: calc(100dvh - var(--wp-admin--admin-bar--height, 0px));
+}
+
+.site-main {
+  flex: 1 0 auto;
+}
+
+.site-header,
+.site-footer {
+  flex-shrink: 0;
+}
+
+// Mobile menu open: lock page scroll
+.has-open-menu {
+  overflow: hidden;
+}

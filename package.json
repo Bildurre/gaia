@@ -1,18 +1,20 @@
 {
   "name": "gaia",
   "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "build": "npm run build:css && npm run build:js",
-    "build:css": "sass assets/scss/main.scss:assets/dist/style.css --style=compressed",
-    "build:js": "esbuild assets/js/main.js --bundle --minify --outfile=assets/dist/main.js",
-    "dev": "concurrently \"npm run dev:css\" \"npm run dev:js\" \"npm run dev:server\"",
-    "dev:css": "sass assets/scss/main.scss:assets/dist/style.css --watch",
-    "dev:js": "esbuild assets/js/main.js --bundle --outfile=assets/dist/main.js --watch",
-    "dev:server": "browser-sync start --proxy 'gaia.local' --files 'assets/dist/*.css, assets/dist/*.js, **/*.php, parts/*.html, templates/*.html, patterns/*.html, theme.json' --no-notify"  },
+    "dev": "concurrently --kill-others --names sass,sync \"npm:watch:css\" \"npm:serve\"",
+    "watch:css": "sass --watch --embed-sources assets/scss:assets/css blocks:blocks",
+    "serve": "browser-sync start --config bs-config.cjs",
+    "build": "sass --style=compressed --no-source-map assets/scss:assets/css blocks:blocks"
+  },
   "devDependencies": {
-    "browser-sync": "^3.0.3",
-    "concurrently": "^9.1.0",
-    "esbuild": "^0.27.0",
-    "sass": "^1.81.0"
+    "browser-sync": "3.0.4",
+    "concurrently": "10.0.6",
+    "sass": "1.105.1"
   }
 }
