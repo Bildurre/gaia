@@ -177,11 +177,16 @@ function gaia_get_current_url() {
 }
 
 /**
- * Gaia logo used when no logo is set in the options (assets/images/gaia-logo.svg
- * or .png). Empty string if the file does not exist.
+ * Gaia logo used when no logo is set in the options. $variant 'light' is the
+ * version for dark backgrounds (white text). An .svg takes precedence over
+ * the .png. Empty string if no file exists.
  */
-function gaia_get_default_logo_url() {
-  foreach (['gaia-logo.svg', 'gaia-logo.png'] as $logo_file) {
+function gaia_get_default_logo_url($variant = 'dark') {
+  $file_base_name = $variant === 'light' ? 'gaia-logo-light' : 'gaia-logo';
+
+  foreach (['svg', 'png'] as $file_extension) {
+    $logo_file = $file_base_name . '.' . $file_extension;
+
     if (is_readable(get_template_directory() . '/assets/images/' . $logo_file)) {
       return get_template_directory_uri() . '/assets/images/' . $logo_file;
     }
@@ -193,7 +198,7 @@ function gaia_get_default_logo_url() {
 /**
  * Logo image from an options field, the Gaia logo, or the site name.
  */
-function gaia_get_logo_markup($logo_option_name) {
+function gaia_get_logo_markup($logo_option_name, $default_logo_variant = 'dark') {
   $logo_id = (int) gaia_get_option_field($logo_option_name);
   $site_name = get_bloginfo('name');
 
@@ -201,7 +206,7 @@ function gaia_get_logo_markup($logo_option_name) {
     return wp_get_attachment_image($logo_id, 'medium', false, ['alt' => $site_name, 'loading' => 'eager']);
   }
 
-  $default_logo_url = gaia_get_default_logo_url();
+  $default_logo_url = gaia_get_default_logo_url($default_logo_variant);
 
   if ($default_logo_url) {
     return sprintf('<img src="%s" alt="%s">', esc_url($default_logo_url), esc_attr($site_name));

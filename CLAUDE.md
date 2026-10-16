@@ -105,8 +105,8 @@ Gaia is currently developed for **Biokin**: everything Biokin needs goes into Ga
 - Footer layout: row 1 brand (logo + tagline) left and social networks right (below the brand on narrow screens); row 2 address, phones and emails with Lucide icons (one group per row on narrow screens); phone/email labels below the value, aligned right; credits centered at the bottom, with a container-width separator like the one above the contact row. Everything wraps.
 - Appearance (`inc/appearance.php`, options page **Apariencia**, `acf-json/group_gaia_appearance.json`): colors, heading and body fonts, favicon. `gaia_get_appearance_css()` prints `@font-face` for the selected fonts and the `:root` overrides inline after `main.css` and in the block editor (`block_editor_settings_all`); the selected fonts are preloaded.
 - Fonts: self-hosted woff2 in `assets/fonts/`, listed in `gaia_get_available_fonts()` (Inter, Montserrat, Open Sans, Lora, Merriweather, Playfair Display). Add a font by dropping its files there and adding an entry. Defaults: Montserrat (headings), Inter (text).
-- Favicon: Apariencia option, else `assets/images/gaia-icon.svg`; the WordPress site icon takes precedence.
-- Logos: header/footer logo options, else `assets/images/gaia-logo.svg|png` if present, else the site name (`gaia_get_logo_markup()`).
+- Favicon: Apariencia option, else `assets/images/gaia-icon.png`; the WordPress site icon takes precedence.
+- Logos: header/footer logo options, else the Gaia logo (`assets/images/gaia-logo.png`, `gaia-logo-light.png` with white text for the footer; an `.svg` takes precedence), else the site name (`gaia_get_logo_markup($option, $variant)`).
 
 ## Plugins
 
@@ -132,4 +132,3 @@ Gaia is currently developed for **Biokin**: everything Biokin needs goes into Ga
 ## Pending decisions
 
 - Forms: will be hand-made (no plugin), postponed for now.
-- Gaia wordmark logo file (`assets/images/gaia-logo.svg`) to be added by the developer.

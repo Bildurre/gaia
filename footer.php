@@ -12,7 +12,7 @@ $has_contact_details = $contact_details['address'] || $contact_details['phones']
     <div class="site-footer__top">
       <div class="site-footer__brand">
         <a class="site-footer__logo" href="<?php echo esc_url(home_url('/')); ?>">
-          <?php echo gaia_get_logo_markup('footer_logo'); ?>
+          <?php echo gaia_get_logo_markup('footer_logo', 'light'); ?>
         </a>
 
         <?php if ($footer_tagline) : ?>

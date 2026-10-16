@@ -172,7 +172,7 @@ function gaia_print_favicon() {
   }
 
   $favicon_id = (int) gaia_get_option_field('appearance_favicon');
-  $favicon_url = $favicon_id ? wp_get_attachment_image_url($favicon_id, 'thumbnail') : get_template_directory_uri() . '/assets/images/gaia-icon.svg';
+  $favicon_url = $favicon_id ? wp_get_attachment_image_url($favicon_id, 'thumbnail') : get_template_directory_uri() . '/assets/images/gaia-icon.png';
 
   if ($favicon_url) {
     printf('<link rel="icon" href="%s">' . "\n", esc_url($favicon_url));
