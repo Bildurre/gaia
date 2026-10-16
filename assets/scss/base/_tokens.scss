@@ -1,36 +1,36 @@
 :root {
-  // Brand palette
-  --color-green: #85c06d; // logo: "Biokin"
-  --color-green-offwhite: #c2dcb5; // logo: "Comunidad energética"
-  --color-green-offblack: #304a23; // mirror of the offwhite (same hue, inverted lightness)
-  --color-yellow: #f1e60e; // logo: dot of the "i", decorative only
-  --color-ink: #131811; // almost black, for reading text
-  --color-black: #050507; // dark backgrounds
+  // Palette. Gaia defaults: each site overrides them from
+  // Ajustes del sitio > Apariencia (printed inline by inc/appearance.php).
+  --color-primary: #1d6ff2;
+  --color-primary-light: color-mix(in oklab, var(--color-primary) 35%, var(--color-white)); // automatic unless set
+  --color-primary-dark: color-mix(in oklab, var(--color-primary) 40%, var(--color-black)); // automatic unless set
+  --color-highlight: #ffcc00; // decorative only, never text on light
+  --color-ink: #15181c; // reading text
+  --color-black: #050507;
   --color-gray-100: #f6f6f6;
   --color-white: #ffffff;
 
-  // Semantic colors. Reading text is ink; offblack is the accent on the
-  // light background. The footer (only dark area) uses palette colors.
+  // Semantic colors. Reading text is ink; the dark primary is the accent on
+  // the light background. Dark areas (footer, hero) redefine them locally.
   --color-background: var(--color-white);
   --color-surface: var(--color-gray-100);
-  --color-header-background: color-mix(in srgb, var(--color-green-offwhite) 8%, var(--color-white)); // almost white
+  --color-header-background: color-mix(in srgb, var(--color-primary-light) 8%, var(--color-white)); // almost white
   --color-separator: color-mix(in srgb, var(--color-ink) 10%, transparent);
   --color-text: var(--color-ink);
   --color-heading: var(--color-ink);
-  --color-accent: var(--color-green-offblack);
-  --color-link: var(--color-green-offblack);
+  --color-accent: var(--color-primary-dark);
+  --color-link: var(--color-primary-dark);
   --color-link-hover: var(--color-ink);
-  --color-highlight: var(--color-yellow); // decorative only, never text on light
-  --color-focus: var(--color-green-offblack);
+  --color-focus: var(--color-primary-dark);
   --color-error: #b3261e;
   --color-error-background: #fdecea;
-  --color-success-background: color-mix(in srgb, var(--color-green-offwhite) 40%, var(--color-white));
+  --color-success-background: color-mix(in srgb, var(--color-primary-light) 40%, var(--color-white));
   --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.05);
   --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / 0.12), 0 0 0 1px rgb(0 0 0 / 0.05);
 
-  // Typography
-  --font-family-heading: 'Montserrat', system-ui, sans-serif;
-  --font-family-body: 'Inter', system-ui, sans-serif;
+  // Typography (font families and @font-face come from inc/appearance.php)
+  --font-family-heading: system-ui, sans-serif;
+  --font-family-body: system-ui, sans-serif;
 
   --font-size-smallest: 0.625rem; // 10px
   --font-size-smaller: 0.75rem; // 12px

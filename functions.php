@@ -14,3 +14,4 @@ require_once get_template_directory() . '/inc/helpers.php';
 require_once get_template_directory() . '/inc/account.php';
 require_once get_template_directory() . '/inc/avatars.php';
 require_once get_template_directory() . '/inc/blocks.php';
+require_once get_template_directory() . '/inc/appearance.php';

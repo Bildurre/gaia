@@ -175,3 +175,37 @@ function gaia_get_current_url() {
 
   return home_url(add_query_arg([], $wp->request ?? ''));
 }
+
+/**
+ * Gaia logo used when no logo is set in the options (assets/images/gaia-logo.svg
+ * or .png). Empty string if the file does not exist.
+ */
+function gaia_get_default_logo_url() {
+  foreach (['gaia-logo.svg', 'gaia-logo.png'] as $logo_file) {
+    if (is_readable(get_template_directory() . '/assets/images/' . $logo_file)) {
+      return get_template_directory_uri() . '/assets/images/' . $logo_file;
+    }
+  }
+
+  return '';
+}
+
+/**
+ * Logo image from an options field, the Gaia logo, or the site name.
+ */
+function gaia_get_logo_markup($logo_option_name) {
+  $logo_id = (int) gaia_get_option_field($logo_option_name);
+  $site_name = get_bloginfo('name');
+
+  if ($logo_id) {
+    return wp_get_attachment_image($logo_id, 'medium', false, ['alt' => $site_name, 'loading' => 'eager']);
+  }
+
+  $default_logo_url = gaia_get_default_logo_url();
+
+  if ($default_logo_url) {
+    return sprintf('<img src="%s" alt="%s">', esc_url($default_logo_url), esc_attr($site_name));
+  }
+
+  return esc_html($site_name);
+}

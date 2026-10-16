@@ -25,16 +25,16 @@
   }
 }
 
-// Brand green button with ink text (contrast 9:1)
+// Primary color button with ink text
 .button--accent {
   color: var(--color-ink);
-  background-color: var(--color-green);
-  border-color: var(--color-green);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
 
   &:hover {
     color: var(--color-ink);
-    background-color: var(--color-green-offwhite);
-    border-color: var(--color-green-offwhite);
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
   }
 }
 
@@ -45,8 +45,8 @@
 
   &:hover {
     color: var(--color-ink);
-    background-color: var(--color-green-offwhite);
-    border-color: var(--color-green-offwhite);
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
   }
 }
 

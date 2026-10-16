@@ -37,21 +37,6 @@ function gaia_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'gaia_enqueue_assets');
 
-function gaia_preload_fonts() {
-  $preloaded_font_files = [
-    'inter-variable.woff2',
-    'montserrat-variable.woff2',
-  ];
-
-  foreach ($preloaded_font_files as $font_file) {
-    printf(
-      '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-      esc_url(get_template_directory_uri() . '/assets/fonts/' . $font_file)
-    );
-  }
-}
-add_action('wp_head', 'gaia_preload_fonts', 1);
-
 function gaia_enqueue_browsersync_client() {
   if (wp_get_environment_type() !== 'local') {
     return;

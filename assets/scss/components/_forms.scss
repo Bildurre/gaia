@@ -55,9 +55,9 @@
   // Green border (doubled with a shadow so it is visible enough)
   &:focus,
   &:focus-visible {
-    border-color: var(--color-green);
+    border-color: var(--color-primary);
     outline: none;
-    box-shadow: 0 0 0 1px var(--color-green);
+    box-shadow: 0 0 0 1px var(--color-primary);
   }
 }
 

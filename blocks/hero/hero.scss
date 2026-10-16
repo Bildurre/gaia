@@ -4,9 +4,9 @@
 .hero {
   --color-text: var(--color-white);
   --color-heading: var(--color-white);
-  --color-accent: var(--color-green);
-  --color-link: var(--color-green);
-  --color-focus: var(--color-green);
+  --color-accent: var(--color-primary);
+  --color-link: var(--color-primary);
+  --color-focus: var(--color-primary);
   --hero-overlay-opacity: 0.55;
 
   position: relative;
@@ -17,7 +17,7 @@
   overflow: hidden;
   color: var(--color-text);
   background-color: var(--color-ink);
-  background-image: radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--color-green) 25%, transparent), transparent 55%);
+  background-image: radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--color-primary) 25%, transparent), transparent 55%);
 
   &--has-image {
     background-image: none;

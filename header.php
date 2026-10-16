@@ -10,10 +10,6 @@
 
 <a class="skip-link visually-hidden-focusable" href="#main"><?php esc_html_e('Skip to content', 'gaia'); ?></a>
 
-<?php
-$header_logo_id = (int) gaia_get_option_field('header_logo');
-?>
-
 <header class="site-header" data-site-header>
   <div class="site-header__inner container">
     <button
@@ -32,11 +28,7 @@ $header_logo_id = (int) gaia_get_option_field('header_logo');
     </button>
 
     <a class="site-header__logo" href="<?php echo esc_url(home_url('/')); ?>">
-      <?php if ($header_logo_id) : ?>
-        <?php echo wp_get_attachment_image($header_logo_id, 'medium', false, ['alt' => get_bloginfo('name'), 'loading' => 'eager']); ?>
-      <?php else : ?>
-        <?php bloginfo('name'); ?>
-      <?php endif; ?>
+      <?php echo gaia_get_logo_markup('header_logo'); ?>
     </a>
 
     <?php get_template_part('template-parts/user-menu', null, ['class' => 'site-header__user']); ?>

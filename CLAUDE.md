@@ -49,9 +49,10 @@ Gaia is currently developed for **Biokin**: everything Biokin needs goes into Ga
 - Render templates: start the wrapper with `gaia_get_block_wrapper_attributes($block, '<name>', [...modifier classes])` (block class, editor classes, anchor). Use `$is_preview` for editor-only tweaks and print a `.block-placeholder` when required fields are empty in the editor.
 - Editor styles: `add_editor_style()` loads `main.css` and `editor.css` (`assets/scss/editor.scss`: Gaia blocks full width in the editor).
 - **Hero** (`blocks/hero/`): full height minus the header (`calc(100svh - var(--site-header-height))`), background image with focal position and overlay strength, eyebrow, title (H1 by default, switchable to H2), text, up to 2 buttons (link + style), left/center alignment, arrow to the next section. Dark area: redefines the semantic tokens like the footer.
-- `functions.php` only loads files from `inc/` (`setup.php`, `assets.php`, `options-pages.php`, `helpers.php`, `account.php`, `avatars.php`, `blocks.php`).
+- `functions.php` only loads files from `inc/` (`setup.php`, `assets.php`, `options-pages.php`, `helpers.php`, `account.php`, `avatars.php`, `blocks.php`, `appearance.php`).
 - Page layout: `body` is a flex column (`min-height: 100dvh`), `.site-main` grows so the footer sits at the bottom.
-- Options pages (registered in `inc/options-pages.php`, fields in `acf-json/`) under "Site settings":
+- Options pages (registered in `inc/options-pages.php`, fields in `acf-json/`) under "Ajustes del sitio":
+  - **Apariencia** (colors, fonts, favicon; see Design tokens).
   - **Contacto** (`contact_phones` repeater: `number`, `label`; `contact_emails` repeater: `address`, `label`; `contact_address` (translatable); `contact_social_networks` repeater: `network`, `url`): reused in the footer and blocks. Use `gaia_get_contact_details()`.
   - **Cabecera** (`header_logo`, light-background version).
   - **Footer** (`footer_logo`, `footer_tagline`, `footer_credits` WYSIWYG).
@@ -84,9 +85,9 @@ Gaia is currently developed for **Biokin**: everything Biokin needs goes into Ga
 ## Design tokens
 
 - SCSS in `assets/scss/`: `abstracts/` (breakpoints mixin), `base/` (fonts, reset, tokens, typography, utilities), `components/` (buttons, forms, social links, language switcher, user menu), `layout/` (page, header, footer, account).
-- Buttons: `.button` (text color background) and variants `.button--accent` (green with ink text), `.button--light` (white), `.button--outline` (transparent, current text color border).
+- Buttons: `.button` (text color background) and variants `.button--accent` (primary color with ink text), `.button--light` (white), `.button--outline` (transparent, current text color border).
 - Reusable UI classes: `.button`, `.form` (`__row`, `__field`, `__label`, `__input`, `__hint`, `__checkbox`, `__actions`), `.form-notice--success|--error`.
-- Text inputs, textareas and selects share one style site-wide (also without `.form__input`): subtle border, green (`--color-green`) border on focus.
+- Text inputs, textareas and selects share one style site-wide (also without `.form__input`): subtle border, primary color (`--color-primary`) border on focus.
 - Current-password fields use `autocomplete="off"` + `data-no-autofill` (`assets/js/no-autofill.js`: read-only until focused, so browsers do not autofill them).
 - Grid/flex children that contain inputs need `min-width: 0` (and `minmax(0, …)` columns) so they can shrink; check layouts down to 280px.
 - Inputs and buttons use the `--control-*` tokens (line height 1.25, compact padding) so they have the same height: 16px text below 768px (avoids iOS zoom on focus), 14px from 768px.
@@ -94,14 +95,18 @@ Gaia is currently developed for **Biokin**: everything Biokin needs goes into Ga
 - Cards (`.account-card`): surface background, subtle border (`--color-separator`) and soft shadow (`--shadow-card`). Login/lost/reset card titles are centered.
 - JS: one file per feature in `assets/js/`, enqueued with `defer` in `inc/assets.php`.
 - All design values are CSS custom properties in `base/_tokens.scss`; use them instead of hard-coded values.
-- Palette: green `#85c06d` (`--color-green`), offwhite `#c2dcb5` (`--color-green-offwhite`), offblack `#304a23` (`--color-green-offblack`, same hue as the offwhite with inverted lightness), ink `#131811` (`--color-ink`, almost black for reading text), black `#050507` (dark backgrounds), yellow `#f1e60e` (decorative only), light gray `#f6f6f6`, white.
-- There is no dark theme. Reading text and headings are ink; the accent is offblack (accent headings with `.has-accent-color`, captions, links, details).
+- Palette (generic names, Gaia defaults in `base/_tokens.scss`, overridden per site from **Ajustes del sitio > Apariencia**): `--color-primary` (brand), `--color-primary-light` and `--color-primary-dark` (automatic `color-mix()` of the primary unless set), `--color-ink` (almost black reading text), `--color-highlight` (decorative only), `--color-black`, `--color-gray-100`, `--color-white`. Never hard-code a site's brand colors in the code.
+- Biokin values (set in its options, not in code): primary `#85c06d`, primary light `#c2dcb5`, primary dark `#304a23`, text `#131811`, highlight `#f1e60e`, fonts Montserrat (headings) + Inter (text).
+- There is no dark theme. Reading text and headings are ink; the accent is the dark primary (accent headings with `.has-accent-color`, captions, links, details).
 - Use semantic tokens (`--color-text`, `--color-heading`, `--color-accent`, `--color-link`, `--color-background`, `--color-surface`, `--color-error`...) in components, not palette tokens.
 - Dark areas (footer, hero) set their colors from the palette and redefine the semantic tokens locally.
-- Footer: `.site-footer` sets its colors from the palette (background ink, text white, accent/links/labels green, contact icons offwhite, separators offwhite, credits offblack) and redefines the semantic tokens its children use.
+- Footer: `.site-footer` sets its colors from the palette (background ink, text white, accent/links/labels primary, contact icons and separators primary light, credits primary dark) and redefines the semantic tokens its children use.
 - Compact scale: keep sizes and paddings small. Font sizes: `--font-size-smallest` (10px), `--font-size-smaller` (12px), `--font-size-small` (13px), `--font-size-base` (15-16px), `--font-size-large` (16-18px), `--font-size-heading-4` (17-20px) … `--font-size-heading-1` (28-40px). Spacing `--space-3xs` (4px) … `--space-xl` (32px), `--space-2xl`, `--space-3xl` fluid.
 - Footer layout: row 1 brand (logo + tagline) left and social networks right (below the brand on narrow screens); row 2 address, phones and emails with Lucide icons (one group per row on narrow screens); phone/email labels below the value, aligned right; credits centered at the bottom, with a container-width separator like the one above the contact row. Everything wraps.
-- Fonts (self-hosted variable woff2 in `assets/fonts/`): Montserrat for headings, Inter for body text.
+- Appearance (`inc/appearance.php`, options page **Apariencia**, `acf-json/group_gaia_appearance.json`): colors, heading and body fonts, favicon. `gaia_get_appearance_css()` prints `@font-face` for the selected fonts and the `:root` overrides inline after `main.css` and in the block editor (`block_editor_settings_all`); the selected fonts are preloaded.
+- Fonts: self-hosted woff2 in `assets/fonts/`, listed in `gaia_get_available_fonts()` (Inter, Montserrat, Open Sans, Lora, Merriweather, Playfair Display). Add a font by dropping its files there and adding an entry. Defaults: Montserrat (headings), Inter (text).
+- Favicon: Apariencia option, else `assets/images/gaia-icon.svg`; the WordPress site icon takes precedence.
+- Logos: header/footer logo options, else `assets/images/gaia-logo.svg|png` if present, else the site name (`gaia_get_logo_markup()`).
 
 ## Plugins
 
@@ -127,4 +132,4 @@ Gaia is currently developed for **Biokin**: everything Biokin needs goes into Ga
 ## Pending decisions
 
 - Forms: will be hand-made (no plugin), postponed for now.
-- Appearance options page (colors, fonts, logos, favicon) so each site configures Gaia without code.
+- Gaia wordmark logo file (`assets/images/gaia-logo.svg`) to be added by the developer.

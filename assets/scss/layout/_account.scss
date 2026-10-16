@@ -107,14 +107,14 @@
 
   &:hover,
   &.is-dragging {
-    background-color: color-mix(in srgb, var(--color-green-offwhite) 25%, var(--color-background));
-    border-color: var(--color-green);
+    background-color: color-mix(in srgb, var(--color-primary-light) 25%, var(--color-background));
+    border-color: var(--color-primary);
   }
 
   &:focus-within {
     border-style: solid;
-    border-color: var(--color-green);
-    box-shadow: 0 0 0 1px var(--color-green);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
   }
 }
 

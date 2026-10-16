@@ -4,13 +4,13 @@
 // and redefines the semantic tokens its children (social links...) use.
 .site-footer {
   --color-text: var(--color-white);
-  --color-link: var(--color-green);
-  --color-accent: var(--color-green);
-  --color-focus: var(--color-green);
-  --footer-separator-color: var(--color-green-offwhite);
-  --footer-label-color: var(--color-green);
-  --footer-icon-color: var(--color-green-offwhite);
-  --footer-credits-color: var(--color-green-offblack);
+  --color-link: var(--color-primary);
+  --color-accent: var(--color-primary);
+  --color-focus: var(--color-primary);
+  --footer-separator-color: var(--color-primary-light);
+  --footer-label-color: var(--color-primary);
+  --footer-icon-color: var(--color-primary-light);
+  --footer-credits-color: var(--color-primary-dark);
 
   font-size: var(--font-size-small);
   color: var(--color-text);

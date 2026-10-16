@@ -1,7 +1,6 @@
 </main>
 
 <?php
-$footer_logo_id = (int) gaia_get_option_field('footer_logo');
 $footer_tagline = gaia_get_translated_option_text('footer_tagline');
 $footer_credits = gaia_get_translated_option_html('footer_credits');
 $contact_details = gaia_get_contact_details();
@@ -13,11 +12,7 @@ $has_contact_details = $contact_details['address'] || $contact_details['phones']
     <div class="site-footer__top">
       <div class="site-footer__brand">
         <a class="site-footer__logo" href="<?php echo esc_url(home_url('/')); ?>">
-          <?php if ($footer_logo_id) : ?>
-            <?php echo wp_get_attachment_image($footer_logo_id, 'medium', false, ['alt' => get_bloginfo('name')]); ?>
-          <?php else : ?>
-            <?php bloginfo('name'); ?>
-          <?php endif; ?>
+          <?php echo gaia_get_logo_markup('footer_logo'); ?>
         </a>
 
         <?php if ($footer_tagline) : ?>

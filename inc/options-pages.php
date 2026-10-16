@@ -20,6 +20,14 @@ function gaia_register_options_pages() {
   ]);
 
   acf_add_options_sub_page([
+    'page_title' => __('Apariencia', 'gaia'),
+    'menu_title' => __('Apariencia', 'gaia'),
+    'menu_slug' => 'gaia-appearance',
+    'parent_slug' => 'gaia-site-settings',
+    'capability' => 'edit_theme_options',
+  ]);
+
+  acf_add_options_sub_page([
     'page_title' => __('Contacto', 'gaia'),
     'menu_title' => __('Contacto', 'gaia'),
     'menu_slug' => 'gaia-contact',
