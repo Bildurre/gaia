@@ -74,7 +74,7 @@
         "class": "",
         "id": ""
       },
-      "layout": "table",
+      "layout": "block",
       "min": 0,
       "max": 2,
       "button_label": "Añadir botón",
@@ -289,5 +289,5 @@
   "active": true,
   "description": "Campos del bloque Hero.",
   "show_in_rest": 0,
-  "modified": 1792253062
+  "modified": 1792266088
 }

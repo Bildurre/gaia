@@ -65,7 +65,7 @@
         "class": "",
         "id": ""
       },
-      "layout": "table",
+      "layout": "block",
       "min": 0,
       "max": 2,
       "button_label": "Añadir botón",
@@ -237,5 +237,5 @@
   "active": true,
   "description": "Campos del bloque Llamada a la acción.",
   "show_in_rest": 0,
-  "modified": 1792254668
+  "modified": 1792266088
 }

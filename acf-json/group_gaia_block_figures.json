@@ -83,7 +83,7 @@
         "class": "",
         "id": ""
       },
-      "layout": "table",
+      "layout": "block",
       "min": 0,
       "max": 0,
       "button_label": "Añadir cifra",
@@ -289,5 +289,5 @@
   "active": true,
   "description": "Campos del bloque Cifras.",
   "show_in_rest": 0,
-  "modified": 1792254668
+  "modified": 1792266088
 }

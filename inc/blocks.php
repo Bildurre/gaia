@@ -121,3 +121,19 @@ function gaia_get_block_heading($field_prefix, $alignment = 'left') {
 function gaia_print_block_placeholder($message) {
   printf('<p class="block-placeholder">%s</p>', esc_html($message));
 }
+
+/**
+ * Block editor (outside the content iframe): one field per row in the block
+ * settings sidebar, and a fix for SCF tabs that render before the sidebar is
+ * visible (assets/js/block-editor.js).
+ */
+function gaia_enqueue_block_editor_assets() {
+  $theme_directory_uri = get_template_directory_uri();
+
+  wp_enqueue_style('gaia-block-editor', $theme_directory_uri . '/assets/css/block-editor.css', [], GAIA_VERSION);
+  wp_enqueue_script('gaia-block-editor', $theme_directory_uri . '/assets/js/block-editor.js', [], GAIA_VERSION, [
+    'strategy' => 'defer',
+    'in_footer' => true,
+  ]);
+}
+add_action('enqueue_block_editor_assets', 'gaia_enqueue_block_editor_assets');
