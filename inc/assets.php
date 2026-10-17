@@ -16,6 +16,10 @@ function gaia_enqueue_assets() {
     'strategy' => 'defer',
     'in_footer' => true,
   ]);
+  wp_enqueue_script('gaia-extras', $theme_directory_uri . '/assets/js/extras.js', [], GAIA_VERSION, [
+    'strategy' => 'defer',
+    'in_footer' => true,
+  ]);
 
   if (is_page_template('page-templates/account.php')) {
     wp_enqueue_script('gaia-avatar-field', $theme_directory_uri . '/assets/js/avatar-field.js', [], GAIA_VERSION, [

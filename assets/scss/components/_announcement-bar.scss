@@ -1,0 +1,67 @@
+@use '../abstracts/schemes';
+
+.announcement-bar {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-light-text);
+  background-color: var(--color-primary);
+
+  &--dark {
+    @include schemes.dark;
+
+    color: var(--color-text);
+    background-color: var(--color-background);
+  }
+
+  &--highlight {
+    background-color: var(--color-highlight);
+  }
+}
+
+.announcement-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-s);
+  min-height: 2.25rem;
+  padding-block: var(--space-2xs);
+}
+
+.announcement-bar__text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+
+  svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:is(a):hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
+
+.announcement-bar__close {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: var(--border-radius);
+  opacity: 0.75;
+
+  &:hover {
+    opacity: 1;
+  }
+}

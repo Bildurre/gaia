@@ -22,6 +22,8 @@ $has_mobile_logo = $header_settings['logo_mobile'] !== $header_settings['logo'];
   <?php if ($header_settings['hides_on_scroll']) : ?>data-hide-on-scroll<?php endif; ?>
   <?php if ($header_settings['is_transparent']) : ?>data-transparent<?php endif; ?>
 >
+  <?php get_template_part('template-parts/announcement-bar'); ?>
+
   <div class="site-header__inner container">
     <button
       class="site-header__menu-toggle"
@@ -102,6 +104,9 @@ $has_mobile_logo = $header_settings['logo_mobile'] !== $header_settings['logo'];
     </div>
   <?php endif; ?>
 </header>
+<?php else : ?>
+  <?php get_template_part('template-parts/announcement-bar'); ?>
 <?php endif; ?>
 
 <main class="site-main" id="main">
+  <?php get_template_part('template-parts/breadcrumbs'); ?>

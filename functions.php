@@ -19,3 +19,4 @@ require_once get_template_directory() . '/inc/logos.php';
 require_once get_template_directory() . '/inc/header.php';
 require_once get_template_directory() . '/inc/footer.php';
 require_once get_template_directory() . '/inc/page-settings.php';
+require_once get_template_directory() . '/inc/extras.php';

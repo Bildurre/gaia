@@ -8,7 +8,11 @@
 @use 'components/social-links';
 @use 'components/language-switcher';
 @use 'components/user-menu';
+@use 'components/announcement-bar';
+@use 'components/breadcrumbs';
+@use 'components/back-to-top';
 @use 'layout/page';
 @use 'layout/header';
 @use 'layout/footer';
 @use 'layout/account';
+@use 'layout/content';

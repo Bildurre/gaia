@@ -2,14 +2,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gaia 1.0.0\n"
-"POT-Creation-Date: 2026-10-16 21:35+0000\n"
-"PO-Revision-Date: 2026-10-16 21:35+0000\n"
+"POT-Creation-Date: 2026-10-17 11:23+0000\n"
+"PO-Revision-Date: 2026-10-17 11:23+0000\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: gaia\n"
+
+#: 404.php:16
+msgid "Go to the home page"
+msgstr "Ir a la página de inicio"
 
 #: blocks/hero/hero.php:25
 msgid "Hero: fill in the title in the block settings."
@@ -19,17 +23,41 @@ msgstr "Hero: escribe el título en los ajustes del bloque."
 msgid "Go to content"
 msgstr "Ir al contenido"
 
+#: footer.php:18 footer.php:60
+msgid "Legal"
+msgstr "Legal"
+
+#: footer.php:49
+msgid "Footer menu"
+msgstr "Menú del pie"
+
+#: footer.php:75
+msgid "Back to top"
+msgstr "Volver arriba"
+
 #: header.php:11
 msgid "Skip to content"
 msgstr "Saltar al contenido"
 
-#: header.php:31
+#: header.php:40
 msgid "Menu"
 msgstr "Menú"
 
-#: header.php:52
+#: header.php:56 header.php:100 header.php:102 template-parts/search-form.php:13 template-parts/search-form.php:15
+msgid "Search"
+msgstr "Buscar"
+
+#: header.php:64
+msgid "Dark mode"
+msgstr "Modo oscuro"
+
+#: header.php:83
 msgid "Main menu"
 msgstr "Menú principal"
+
+#: header.php:101 template-parts/search-form.php:14
+msgid "Search…"
+msgstr "Buscar…"
 
 #: inc/account.php:214
 msgid "The form has expired. Please try again."
@@ -127,27 +155,101 @@ msgstr "Tu contraseña se ha cambiado."
 msgid "The image could not be uploaded. It must be a JPG, PNG, WebP or GIF file of up to 2 MB."
 msgstr "No se ha podido subir la imagen. Debe ser un archivo JPG, PNG, WebP o GIF de hasta 2 MB."
 
-#: inc/options-pages.php:13 inc/options-pages.php:14
-msgid "Ajustes del sitio"
+#: inc/extras.php:102
+msgid "Home"
+msgstr "Inicio"
+
+#: inc/extras.php:134 index.php:11
+#, php-format
+msgid "Search results for “%s”"
+msgstr "Resultados de búsqueda para «%s»"
+
+#: inc/extras.php:161
+msgid "Page not found"
+msgstr "Página no encontrada"
+
+#: inc/extras.php:162
+msgid "The page you are looking for does not exist or has been moved."
+msgstr "La página que buscas no existe o se ha movido."
+
+#: inc/header.php:109
+#, php-format
+msgid "Show submenu: %s"
+msgstr "Mostrar submenú: %s"
+
+#: inc/logos.php:18
+msgid "Logo principal"
 msgstr ""
 
-#: inc/options-pages.php:23 inc/options-pages.php:24
-msgid "Contacto"
+#: inc/logos.php:19
+msgid "Logo compacto"
 msgstr ""
 
-#: inc/options-pages.php:31 inc/options-pages.php:32
+#: inc/logos.php:20
+msgid "Icono"
+msgstr ""
+
+#: inc/logos.php:21
+msgid "Nombre del sitio (texto)"
+msgstr ""
+
+#: inc/logos.php:22
+msgid "Ninguno"
+msgstr ""
+
+#: inc/options-pages.php:12
+msgid "Colores"
+msgstr ""
+
+#: inc/options-pages.php:13
+msgid "Tipografía"
+msgstr ""
+
+#: inc/options-pages.php:14
+msgid "Estilo"
+msgstr ""
+
+#: inc/options-pages.php:15
+msgid "Logos"
+msgstr ""
+
+#: inc/options-pages.php:16
 msgid "Cabecera"
 msgstr ""
 
-#: inc/options-pages.php:39 inc/options-pages.php:40
-msgid "Footer"
+#: inc/options-pages.php:17
+msgid "Pie de página"
+msgstr ""
+
+#: inc/options-pages.php:18
+msgid "Contacto"
+msgstr ""
+
+#: inc/options-pages.php:19
+msgid "Extras"
+msgstr ""
+
+#: inc/options-pages.php:29 inc/options-pages.php:30
+msgid "Ajustes de Gaia"
 msgstr ""
 
 #: inc/setup.php:19
 msgid "Primary menu"
 msgstr "Menú principal"
 
-#: index.php:13
+#: inc/setup.php:20
+msgid "Menú del pie"
+msgstr ""
+
+#: inc/setup.php:21
+msgid "Menú legal"
+msgstr ""
+
+#: index.php:15
+msgid "News"
+msgstr "Noticias"
+
+#: index.php:44
 msgid "No content found."
 msgstr "No se ha encontrado contenido."
 
@@ -294,9 +396,25 @@ msgstr "Solicitar un enlace nuevo"
 msgid "Save password"
 msgstr "Guardar contraseña"
 
+#: template-parts/announcement-bar.php:33
+msgid "Close announcement"
+msgstr "Cerrar aviso"
+
+#: template-parts/breadcrumbs.php:16
+msgid "Breadcrumbs"
+msgstr "Ruta de navegación"
+
 #: template-parts/language-switcher.php:28
 msgid "Language"
 msgstr "Idioma"
+
+#: template-parts/maintenance.php:10
+msgid "We will be back soon"
+msgstr "Volvemos enseguida"
+
+#: template-parts/maintenance.php:11
+msgid "We are working on the website. Please come back in a little while."
+msgstr "Estamos trabajando en la web. Vuelve dentro de un rato."
 
 #: template-parts/user-menu.php:34
 msgid "My area"

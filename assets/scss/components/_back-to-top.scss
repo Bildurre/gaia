@@ -1,0 +1,37 @@
+.back-to-top {
+  position: fixed;
+  z-index: 90;
+  right: var(--space-m);
+  bottom: var(--space-m);
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-background);
+  background-color: var(--color-text);
+  border-radius: var(--button-radius);
+  box-shadow: var(--shadow-dropdown);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  &:hover {
+    color: var(--color-background);
+    background-color: var(--color-accent);
+  }
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}

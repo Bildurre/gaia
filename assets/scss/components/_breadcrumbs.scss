@@ -1,0 +1,37 @@
+.breadcrumbs {
+  padding-block: var(--space-s);
+  font-size: var(--font-size-smaller);
+}
+
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-text-muted);
+
+  a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-link);
+    }
+  }
+
+  svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-inline: var(--space-3xs);
+  }
+
+  [aria-current] {
+    color: var(--color-text);
+  }
+}
