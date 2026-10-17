@@ -46,7 +46,8 @@ function gaia_get_announcement() {
 function gaia_print_announcement_script() {
   $announcement = gaia_get_announcement();
 
-  if (!$announcement || !$announcement['is_dismissible']) {
+  // The options preview always shows the bar, even if it was dismissed
+  if (!$announcement || !$announcement['is_dismissible'] || gaia_is_options_preview_request()) {
     return;
   }
 

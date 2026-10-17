@@ -21,12 +21,12 @@
       "key": "field_gaia_colors_mode",
       "label": "Modo de color",
       "name": "colors_mode",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "«Ambos» usa el modo del sistema de cada visitante y permite cambiarlo con un botón en la cabecera.",
       "required": 0,
       "wrapper": {
         "width": "",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -37,6 +37,8 @@
       "default_value": "light",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     },
     {
@@ -295,5 +297,5 @@
   "active": true,
   "description": "Modo de color y paletas clara y oscura.",
   "show_in_rest": 0,
-  "modified": 1792235214
+  "modified": 1792250427
 }

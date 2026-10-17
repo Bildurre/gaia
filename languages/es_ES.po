@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gaia 1.0.0\n"
-"POT-Creation-Date: 2026-10-17 11:23+0000\n"
-"PO-Revision-Date: 2026-10-17 11:23+0000\n"
+"POT-Creation-Date: 2026-10-17 15:30+0000\n"
+"PO-Revision-Date: 2026-10-17 15:30+0000\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -155,20 +155,20 @@ msgstr "Tu contraseña se ha cambiado."
 msgid "The image could not be uploaded. It must be a JPG, PNG, WebP or GIF file of up to 2 MB."
 msgstr "No se ha podido subir la imagen. Debe ser un archivo JPG, PNG, WebP o GIF de hasta 2 MB."
 
-#: inc/extras.php:102
+#: inc/extras.php:103
 msgid "Home"
 msgstr "Inicio"
 
-#: inc/extras.php:134 index.php:11
+#: inc/extras.php:135 index.php:11
 #, php-format
 msgid "Search results for “%s”"
 msgstr "Resultados de búsqueda para «%s»"
 
-#: inc/extras.php:161
+#: inc/extras.php:162
 msgid "Page not found"
 msgstr "Página no encontrada"
 
-#: inc/extras.php:162
+#: inc/extras.php:163
 msgid "The page you are looking for does not exist or has been moved."
 msgstr "La página que buscas no existe o se ha movido."
 
@@ -231,6 +231,58 @@ msgstr ""
 
 #: inc/options-pages.php:29 inc/options-pages.php:30
 msgid "Ajustes de Gaia"
+msgstr ""
+
+#: inc/options-preview.php:263
+msgid "Inicio"
+msgstr ""
+
+#: inc/options-preview.php:273
+msgid "Última entrada"
+msgstr ""
+
+#: inc/options-preview.php:276
+msgid "Página no encontrada (404)"
+msgstr ""
+
+#: inc/options-preview.php:291
+msgid "Actualizando…"
+msgstr ""
+
+#: inc/options-preview.php:292 inc/options-preview.php:296 inc/options-preview.php:340
+msgid "Vista previa"
+msgstr ""
+
+#: inc/options-preview.php:298
+msgid "Página"
+msgstr ""
+
+#: inc/options-preview.php:303
+msgid "Otra página"
+msgstr ""
+
+#: inc/options-preview.php:306
+msgid "Dispositivo"
+msgstr ""
+
+#: inc/options-preview.php:309
+msgid "Escritorio"
+msgstr ""
+
+#: inc/options-preview.php:313
+msgid "Móvil"
+msgstr ""
+
+#: inc/options-preview.php:321
+msgid "Cerrar vista previa"
+msgstr ""
+
+#: inc/options-preview.php:329
+msgid "Vista previa del sitio"
+msgstr ""
+
+#: inc/options-preview.php:334
+msgid "La vista previa muestra los cambios sin guardar. Pulsa «Actualizar» para guardarlos."
 msgstr ""
 
 #: inc/setup.php:19

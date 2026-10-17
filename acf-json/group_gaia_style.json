@@ -6,12 +6,12 @@
       "key": "field_gaia_style_radius",
       "label": "Esquinas",
       "name": "style_radius",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "Botones, tarjetas, campos e imágenes.",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -22,18 +22,20 @@
       "default_value": "soft",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     },
     {
       "key": "field_gaia_style_buttons",
       "label": "Forma de los botones",
       "name": "style_buttons",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -43,18 +45,20 @@
       "default_value": "rectangular",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     },
     {
       "key": "field_gaia_style_container_width",
       "label": "Ancho del contenido",
       "name": "style_container_width",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -65,6 +69,8 @@
       "default_value": "normal",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     }
   ],
@@ -86,5 +92,5 @@
   "active": true,
   "description": "Forma de los elementos y ancho del contenido.",
   "show_in_rest": 0,
-  "modified": 1792235214
+  "modified": 1792250428
 }

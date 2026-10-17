@@ -6,54 +6,52 @@
       "key": "field_gaia_typography_font_heading",
       "label": "Fuente de los títulos",
       "name": "typography_font_heading",
-      "type": "select",
+      "type": "radio",
       "instructions": "Títulos, menú y botones.",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {},
       "default_value": "montserrat",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_typography_font_body",
       "label": "Fuente del texto",
       "name": "typography_font_body",
-      "type": "select",
+      "type": "radio",
       "instructions": "Textos de lectura y formularios.",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {},
       "default_value": "inter",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_typography_heading_weight",
       "label": "Grosor de los títulos",
       "name": "typography_heading_weight",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -64,6 +62,8 @@
       "default_value": "bold",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     },
     {
@@ -103,5 +103,5 @@
   "active": true,
   "description": "Fuentes y estilo de los títulos.",
   "show_in_rest": 0,
-  "modified": 1792235214
+  "modified": 1792250428
 }

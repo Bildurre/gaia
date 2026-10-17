@@ -21,12 +21,12 @@
       "key": "field_gaia_header_layout",
       "label": "Distribución",
       "name": "header_layout",
-      "type": "select",
+      "type": "radio",
       "instructions": "En pantallas estrechas todas usan el menú desplegable.",
       "required": 0,
       "wrapper": {
         "width": "",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -37,53 +37,50 @@
       },
       "default_value": "two-rows",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_header_logo",
       "label": "Logo",
       "name": "header_logo",
-      "type": "select",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
-        "width": "50",
-        "class": "",
+        "width": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {},
       "default_value": "main",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_header_logo_mobile",
       "label": "Logo en móvil",
       "name": "header_logo_mobile",
-      "type": "select",
+      "type": "radio",
       "instructions": "Por debajo de 768 px.",
       "required": 0,
       "wrapper": {
-        "width": "50",
-        "class": "",
+        "width": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {},
       "default_value": "main",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_header_tab_behavior",
@@ -260,12 +257,12 @@
       "key": "field_gaia_header_mobile_menu",
       "label": "Tipo de menú desplegable",
       "name": "header_mobile_menu",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "En móvil, y en escritorio con la distribución «Mínima».",
       "required": 0,
       "wrapper": {
         "width": "",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -276,6 +273,8 @@
       "default_value": "left",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     }
   ],
@@ -297,5 +296,5 @@
   "active": true,
   "description": "Distribución, logo, comportamiento y menú móvil de la cabecera.",
   "show_in_rest": 0,
-  "modified": 1792235214
+  "modified": 1792250428
 }

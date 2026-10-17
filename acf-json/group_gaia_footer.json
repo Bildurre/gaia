@@ -21,12 +21,12 @@
       "key": "field_gaia_footer_layout",
       "label": "Distribución",
       "name": "footer_layout",
-      "type": "select",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -36,22 +36,21 @@
       },
       "default_value": "brand-contact",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_footer_background",
       "label": "Fondo",
       "name": "footer_background",
-      "type": "button_group",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {
@@ -62,28 +61,29 @@
       "default_value": "dark",
       "return_format": "value",
       "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
       "layout": "horizontal"
     },
     {
       "key": "field_gaia_footer_logo",
       "label": "Logo",
       "name": "footer_logo",
-      "type": "select",
+      "type": "radio",
       "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "50",
-        "class": "",
+        "class": "gaia-visual-choices",
         "id": ""
       },
       "choices": {},
       "default_value": "main",
       "return_format": "value",
-      "multiple": 0,
       "allow_null": 0,
-      "ui": 0,
-      "ajax": 0,
-      "placeholder": ""
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_footer_show_contact",
@@ -201,5 +201,5 @@
   "active": true,
   "description": "Distribución, fondo, logo y textos del pie de página.",
   "show_in_rest": 0,
-  "modified": 1792235214
+  "modified": 1792250428
 }
