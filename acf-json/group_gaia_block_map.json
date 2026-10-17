@@ -1,0 +1,274 @@
+{
+  "key": "group_gaia_block_map",
+  "title": "Bloque: Mapa",
+  "fields": [
+    {
+      "key": "field_gaia_map_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_map_eyebrow",
+      "label": "Antetítulo",
+      "name": "map_eyebrow",
+      "type": "text",
+      "instructions": "Opcional. Una línea corta encima del título.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_map_title",
+      "label": "Título",
+      "name": "map_title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_map_intro",
+      "label": "Introducción",
+      "name": "map_intro",
+      "type": "textarea",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_map_latitude",
+      "label": "Latitud",
+      "name": "map_latitude",
+      "type": "number",
+      "instructions": "Búscala en openstreetmap.org: clic derecho > «Mostrar dirección».",
+      "required": 1,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": -90,
+      "max": 90,
+      "step": "any",
+      "placeholder": "42.6",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_map_longitude",
+      "label": "Longitud",
+      "name": "map_longitude",
+      "type": "number",
+      "instructions": "",
+      "required": 1,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": -180,
+      "max": 180,
+      "step": "any",
+      "placeholder": "-2.4",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_map_zoom",
+      "label": "Zoom",
+      "name": "map_zoom",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 15,
+      "min": 5,
+      "max": 19,
+      "step": 1,
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_map_show_address",
+      "label": "Mostrar la dirección de Contacto",
+      "name": "map_show_address",
+      "type": "true_false",
+      "instructions": "Junto al mapa.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_map_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_map_height",
+      "label": "Altura",
+      "name": "map_height",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "small": "Baja",
+        "medium": "Media",
+        "large": "Alta"
+      },
+      "default_value": "medium",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_map_alignment",
+      "label": "Alineación del título",
+      "name": "map_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_map_background",
+      "label": "Fondo",
+      "name": "map_background",
+      "type": "button_group",
+      "instructions": "El texto se adapta al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Ninguno",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_map_spacing",
+      "label": "Espaciado vertical",
+      "name": "map_spacing",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "compact": "Compacto",
+        "normal": "Normal",
+        "large": "Amplio"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/map"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Mapa.",
+  "show_in_rest": 0,
+  "modified": 1792267981
+}

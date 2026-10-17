@@ -1,6 +1,6 @@
 {
   "key": "group_gaia_block_latest_posts",
-  "title": "Bloque: Últimas noticias",
+  "title": "Bloque: Últimas entradas",
   "fields": [
     {
       "key": "field_gaia_latest_posts_tab_content",
@@ -72,10 +72,72 @@
       "new_lines": ""
     },
     {
+      "key": "field_gaia_latest_posts_post_type",
+      "label": "Tipo de contenido",
+      "name": "latest_posts_post_type",
+      "type": "select",
+      "instructions": "Las tarjetas usan los ajustes de Ajustes de Gaia > Contenidos.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": "post",
+      "return_format": "value",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_latest_posts_terms",
+      "label": "Categorías",
+      "name": "latest_posts_terms",
+      "type": "select",
+      "instructions": "Opcional. Vacío = todas. Puedes elegir varias, de cualquier taxonomía del tipo de contenido.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": [],
+      "return_format": "value",
+      "multiple": 1,
+      "allow_null": 1,
+      "ui": 1,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
       "key": "field_gaia_latest_posts_count",
-      "label": "Número de noticias",
+      "label": "Número de entradas",
       "name": "latest_posts_count",
-      "type": "button_group",
+      "type": "number",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 3,
+      "min": 1,
+      "max": 24,
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_latest_posts_order",
+      "label": "Orden",
+      "name": "latest_posts_order",
+      "type": "select",
       "instructions": "",
       "required": 0,
       "wrapper": {
@@ -84,42 +146,25 @@
         "id": ""
       },
       "choices": {
-        "3": "3",
-        "6": "6",
-        "9": "9"
+        "date_desc": "Más recientes primero",
+        "date_asc": "Más antiguas primero",
+        "title": "Por título",
+        "random": "Aleatorio"
       },
-      "default_value": "3",
+      "default_value": "date_desc",
       "return_format": "value",
       "allow_null": 0,
-      "layout": "horizontal"
+      "multiple": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
     },
     {
-      "key": "field_gaia_latest_posts_category",
-      "label": "Categoría",
-      "name": "latest_posts_category",
-      "type": "taxonomy",
-      "instructions": "Opcional. Vacío = todas.",
-      "required": 0,
-      "wrapper": {
-        "width": "50",
-        "class": "",
-        "id": ""
-      },
-      "taxonomy": "category",
-      "field_type": "select",
-      "allow_null": 1,
-      "add_term": 0,
-      "save_terms": 0,
-      "load_terms": 0,
-      "return_format": "id",
-      "multiple": 0
-    },
-    {
-      "key": "field_gaia_latest_posts_show_all_link",
-      "label": "Botón «Ver todas»",
-      "name": "latest_posts_show_all_link",
+      "key": "field_gaia_latest_posts_exclude_current",
+      "label": "Excluir la entrada actual",
+      "name": "latest_posts_exclude_current",
       "type": "true_false",
-      "instructions": "Enlaza a la página de noticias o a la categoría.",
+      "instructions": "Útil en la página de una entrada.",
       "required": 0,
       "wrapper": {
         "width": "50",
@@ -131,6 +176,42 @@
       "ui": 1,
       "ui_on_text": "",
       "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_latest_posts_show_all_link",
+      "label": "Botón «Ver todo»",
+      "name": "latest_posts_show_all_link",
+      "type": "true_false",
+      "instructions": "Enlaza al archivo del tipo de contenido o a la categoría elegida.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_latest_posts_all_link_text",
+      "label": "Texto del botón",
+      "name": "latest_posts_all_link_text",
+      "type": "text",
+      "instructions": "Vacío = «Ver todo».",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
     },
     {
       "key": "field_gaia_latest_posts_tab_settings",
@@ -146,6 +227,49 @@
       },
       "placement": "top",
       "endpoint": 0
+    },
+    {
+      "key": "field_gaia_latest_posts_layout",
+      "label": "Distribución",
+      "name": "latest_posts_layout",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "grid": "Rejilla",
+        "carousel": "Carrusel"
+      },
+      "default_value": "grid",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_latest_posts_columns",
+      "label": "Columnas",
+      "name": "latest_posts_columns",
+      "type": "button_group",
+      "instructions": "En pantallas anchas.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "2": "2",
+        "3": "3",
+        "4": "4"
+      },
+      "default_value": "3",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
     },
     {
       "key": "field_gaia_latest_posts_alignment",
@@ -230,7 +354,7 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "Campos del bloque Últimas noticias.",
+  "description": "Campos del bloque Últimas entradas.",
   "show_in_rest": 0,
-  "modified": 1792254668
+  "modified": 1792267981
 }

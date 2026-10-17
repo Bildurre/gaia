@@ -118,9 +118,25 @@ function gaia_get_thumbnail_button($button_text = '', $extra_class = '') {
 }
 
 /**
+ * Small card (image + text lines) for the Contenidos thumbnails.
+ */
+function gaia_get_thumbnail_post_card($extra_class = '') {
+  return sprintf(
+    '<span class="gaia-thumb__post-card %s"><span class="gaia-thumb__post-image"></span><span class="gaia-thumb__post-text">%s</span></span>',
+    esc_attr($extra_class),
+    gaia_get_thumbnail_parts(['title', 'line', 'line gaia-thumb__line--short'])
+  );
+}
+
+/**
  * Thumbnail markup (inner parts and modifier classes) for a choice.
  */
 function gaia_get_choice_thumbnail($field_name, $choice_value) {
+  // Contenidos fields are per post type ("content_<type>_card_layout")
+  if (preg_match('/^content_.+_(card_layout|card_image_ratio|card_style|archive_layout|archive_pagination|archive_featured_layout)$/', $field_name, $field_name_parts)) {
+    $field_name = 'content_' . $field_name_parts[1];
+  }
+
   $thumbnail_classes = ['gaia-thumb', 'gaia-thumb--' . $field_name, 'gaia-thumb--' . $field_name . '-' . $choice_value];
   $thumbnail_contents = '';
 
@@ -236,6 +252,34 @@ function gaia_get_choice_thumbnail($field_name, $choice_value) {
       foreach (['instagram', 'telegram'] as $network_slug) {
         $thumbnail_contents .= '<span class="gaia-thumb__icon">' . gaia_get_social_icon_svg($network_slug) . '</span>';
       }
+      break;
+
+    case 'content_card_layout':
+    case 'content_card_style':
+      $thumbnail_classes[] = 'gaia-thumb--center';
+      $thumbnail_contents = gaia_get_thumbnail_post_card();
+      break;
+
+    case 'content_card_image_ratio':
+      $thumbnail_classes[] = 'gaia-thumb--center';
+      $thumbnail_contents = '<span class="gaia-thumb__ratio"></span>';
+      break;
+
+    case 'content_archive_layout':
+      $thumbnail_contents = '<span class="gaia-thumb__post-grid">' . str_repeat(gaia_get_thumbnail_post_card(), $choice_value === 'list' ? 3 : 6) . '</span>';
+      break;
+
+    case 'content_archive_pagination':
+      $pagination_markup = [
+        'numbers' => '<span class="gaia-thumb__pages"><span class="is-current">1</span><span>2</span><span>3</span><span>›</span></span>',
+        'load_more' => gaia_get_thumbnail_button(__('Cargar más', 'gaia'), 'gaia-thumb__sample-button--outline'),
+        'infinite' => '<span class="gaia-thumb__loading"><span></span><span></span><span></span></span>',
+      ];
+      $thumbnail_contents = '<span class="gaia-thumb__post-grid">' . str_repeat(gaia_get_thumbnail_post_card(), 3) . '</span>' . ($pagination_markup[$choice_value] ?? '');
+      break;
+
+    case 'content_archive_featured_layout':
+      $thumbnail_contents = '<span class="gaia-thumb__post-grid">' . gaia_get_thumbnail_post_card('is-featured') . str_repeat(gaia_get_thumbnail_post_card(), 3) . '</span>';
       break;
 
     case 'extras_announcement_style':
@@ -412,6 +456,29 @@ function gaia_get_sample_markup($sample_name) {
       printf('<div class="%s"><div class="container sample-contact">', esc_attr(implode(' ', $footer_area_classes)));
       get_template_part('template-parts/contact-details', null, ['class' => 'site-footer__contact', 'is_sample' => true]);
       get_template_part('template-parts/social-links');
+      echo '</div></div>';
+      break;
+
+    case (preg_match('/^content_(.+)_sample$/', $sample_name) === 1):
+      $sample_post_type = '';
+      foreach (array_keys(gaia_get_content_post_types()) as $content_post_type) {
+        if (gaia_get_content_option_prefix($content_post_type) . 'sample' === $sample_name) {
+          $sample_post_type = $content_post_type;
+        }
+      }
+
+      // The latest item with an image, else the latest one
+      $sample_query = ['post_type' => $sample_post_type, 'numberposts' => 1, 'post_status' => 'publish'];
+      $sample_posts = $sample_post_type ? get_posts($sample_query + ['meta_key' => '_thumbnail_id']) : [];
+      $sample_posts = $sample_posts ?: ($sample_post_type ? get_posts($sample_query) : []);
+
+      if (!$sample_posts) {
+        printf('<p class="sample-padding sample-caption">%s</p>', esc_html__('Todavía no hay contenidos publicados de este tipo.', 'gaia'));
+        break;
+      }
+
+      echo '<div class="sample-padding"><div class="post-grid post-grid--columns-2 sample-card">';
+      get_template_part('template-parts/post-card', null, ['post' => $sample_posts[0], 'is_sample' => true]);
       echo '</div></div>';
       break;
 

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/map",
+  "title": "Mapa",
+  "description": "Mapa de OpenStreetMap con un punto, sin claves ni cookies.",
+  "category": "gaia",
+  "icon": "location-alt",
+  "keywords": [
+    "mapa",
+    "ubicación",
+    "dirección",
+    "openstreetmap"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./map.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "map.php"
+  }
+}

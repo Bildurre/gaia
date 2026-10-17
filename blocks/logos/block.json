@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/logos",
+  "title": "Logos",
+  "description": "Logos de colaboradores, productores o patrocinadores, en rejilla o carrusel.",
+  "category": "gaia",
+  "icon": "awards",
+  "keywords": [
+    "logos",
+    "colaboradores",
+    "patrocinadores",
+    "productores"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./logos.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "logos.php"
+  },
+  "viewScript": [
+    "gaia-carousel"
+  ]
+}

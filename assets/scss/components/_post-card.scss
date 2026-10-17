@@ -1,0 +1,300 @@
+@use '../abstracts/breakpoints';
+@use '../abstracts/schemes';
+
+// Cards of posts and custom post types (Ajustes de Gaia > Contenidos):
+// layout (image on top, image on the left, text over the image, no image),
+// image ratio and style. The whole card is clickable (stretched link); the
+// term links sit above it.
+.post-card {
+  --card-image-ratio: 3 / 2;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+
+    .post-card__title {
+      color: var(--color-accent);
+    }
+
+    .post-card__image {
+      transform: scale(1.03);
+    }
+  }
+}
+
+.post-card--ratio-wide {
+  --card-image-ratio: 16 / 9;
+}
+
+.post-card--ratio-square {
+  --card-image-ratio: 1;
+}
+
+.post-card--ratio-portrait {
+  --card-image-ratio: 4 / 5;
+}
+
+.post-card--style-surface {
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-card);
+
+  &:hover {
+    box-shadow: var(--shadow-dropdown);
+  }
+}
+
+.section--background-surface .post-card--style-surface {
+  background-color: var(--color-background);
+}
+
+.post-card--style-bordered {
+  border: 1px solid var(--color-separator);
+}
+
+.post-card__media {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.post-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--card-image-ratio);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  min-width: 0;
+  padding: var(--space-m);
+}
+
+.post-card--style-plain {
+  overflow: visible;
+
+  .post-card__media {
+    border-radius: var(--border-radius);
+  }
+
+  .post-card__body {
+    padding-inline: 0;
+  }
+}
+
+.post-card__terms {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3xs) var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    font-family: var(--font-family-heading);
+    font-size: var(--font-size-smaller);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.post-card__title {
+  margin: 0;
+  font-size: var(--font-size-heading-4);
+  transition: color 0.15s ease;
+}
+
+.post-card__link {
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+.post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  font-size: var(--font-size-smaller);
+  color: var(--color-text-muted);
+}
+
+.post-card__meta-item:not([hidden]) ~ .post-card__meta-item:not([hidden])::before {
+  content: '·';
+  margin-inline: var(--space-2xs);
+}
+
+.post-card__excerpt {
+  margin: 0;
+  font-size: var(--font-size-small);
+  color: var(--color-text-muted);
+}
+
+.post-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  margin-top: auto;
+  padding-top: var(--space-2xs);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  color: var(--color-accent);
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+// No image: the media is never shown
+.post-card--layout-text .post-card__media {
+  display: none;
+}
+
+// Image on the left (stacked on very narrow screens)
+@include breakpoints.from('small') {
+  .post-card--layout-side:not(.post-card--no-image) {
+    flex-direction: row;
+
+    .post-card__media {
+      flex-basis: 38%;
+    }
+
+    .post-card__image {
+      height: 100%;
+      min-height: 100%;
+    }
+  }
+}
+
+// Text over the image, on a dark gradient
+.post-card--layout-overlay:not(.post-card--no-image) {
+  @include schemes.dark;
+
+  color: var(--color-text);
+
+  .post-card__image {
+    min-height: 16rem;
+  }
+
+  .post-card__body {
+    position: absolute;
+    inset: auto 0 0;
+    justify-content: flex-end;
+    padding-top: var(--space-2xl);
+    background: linear-gradient(to top, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0.45) 60%, transparent);
+  }
+
+  .post-card__terms a,
+  .post-card__more,
+  &:hover .post-card__title {
+    color: var(--color-white);
+  }
+
+  .post-card__meta,
+  .post-card__excerpt {
+    color: rgb(255 255 255 / 0.85);
+  }
+}
+
+// Featured card: the whole row, bigger title and image
+.post-card--featured {
+  grid-column: 1 / -1;
+
+  .post-card__title {
+    font-size: var(--font-size-heading-2);
+  }
+
+  .post-card__excerpt {
+    font-size: var(--font-size-base);
+  }
+}
+
+.post-card--featured.post-card--layout-top {
+  --card-image-ratio: 21 / 9;
+}
+
+.post-card--featured.post-card--layout-overlay {
+  --card-image-ratio: 21 / 9;
+
+  .post-card__body {
+    padding: var(--space-xl);
+  }
+}
+
+@include breakpoints.from('medium') {
+  .post-card--featured.post-card--layout-side:not(.post-card--no-image) {
+    .post-card__media {
+      flex-basis: 55%;
+    }
+
+    .post-card__body {
+      justify-content: center;
+      padding: var(--space-xl);
+    }
+  }
+}
+
+// Grid of cards (archives and the latest posts block)
+.post-grid {
+  --post-grid-columns: 3;
+
+  display: grid;
+  gap: var(--space-l);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include breakpoints.from('medium') {
+    grid-template-columns: repeat(min(var(--post-grid-columns), 2), minmax(0, 1fr));
+  }
+
+  @include breakpoints.from('large') {
+    grid-template-columns: repeat(var(--post-grid-columns), minmax(0, 1fr));
+  }
+}
+
+.post-grid--columns-2 {
+  --post-grid-columns: 2;
+}
+
+.post-grid--columns-4 {
+  --post-grid-columns: 4;
+}
+
+.post-grid--list {
+  --post-grid-columns: 1;
+
+  max-width: 56rem;
+}

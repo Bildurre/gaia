@@ -16,8 +16,7 @@
   margin-bottom: var(--space-l);
 }
 
-.entry__meta,
-.listing-item__meta {
+.entry__meta {
   font-size: var(--font-size-small);
   color: var(--color-text-muted);
 }
@@ -56,44 +55,80 @@
   }
 }
 
-// Listings
-.listing {
+// Archives (index.php): header, category filters, grid of cards
+// (components/_post-card.scss) and "load more"
+.archive {
   padding-block: var(--space-2xl);
 }
 
-.listing__header {
+.archive__header {
   display: grid;
   gap: var(--space-m);
   margin-bottom: var(--space-xl);
 }
 
-.listing__title {
-  font-size: var(--font-size-heading-2);
+.archive__title {
+  margin: 0;
+  font-size: var(--font-size-heading-1);
 }
 
-.listing__items {
-  display: grid;
-  gap: var(--space-l);
-}
+.archive__description {
+  max-width: 46rem;
+  font-size: var(--font-size-large);
+  color: var(--color-text-muted);
 
-.listing-item {
-  display: grid;
-  gap: var(--space-3xs);
-  padding-bottom: var(--space-l);
-  border-bottom: 1px solid var(--color-separator);
-}
-
-.listing-item__title {
-  font-size: var(--font-size-heading-4);
-
-  a {
-    color: var(--color-heading);
-    text-decoration: none;
-
-    &:hover {
-      color: var(--color-link);
-    }
+  > * {
+    margin: 0;
   }
+}
+
+.archive__filter-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin: 0;
+  padding: 0;
+}
+
+.archive__filter {
+  display: block;
+  padding: var(--space-3xs) var(--space-s);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  border: 1px solid var(--color-separator);
+  border-radius: 999px;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+
+  &:hover {
+    color: var(--color-text);
+    border-color: var(--color-text);
+  }
+
+  &.is-current {
+    color: var(--color-background);
+    background-color: var(--color-text);
+    border-color: var(--color-text);
+  }
+}
+
+.archive__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+
+  &.is-loading .button {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.archive__empty {
+  color: var(--color-text-muted);
 }
 
 .pagination .nav-links {

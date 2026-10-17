@@ -1,0 +1,285 @@
+{
+  "key": "group_gaia_block_video",
+  "title": "Bloque: Vídeo",
+  "fields": [
+    {
+      "key": "field_gaia_video_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_video_eyebrow",
+      "label": "Antetítulo",
+      "name": "video_eyebrow",
+      "type": "text",
+      "instructions": "Opcional. Una línea corta encima del título.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_video_title",
+      "label": "Título",
+      "name": "video_title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_video_intro",
+      "label": "Introducción",
+      "name": "video_intro",
+      "type": "textarea",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_video_url",
+      "label": "Enlace del vídeo",
+      "name": "video_url",
+      "type": "url",
+      "instructions": "YouTube o Vimeo. Hasta que se pulsa no se conecta con ellos (sin cookies).",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "https://www.youtube.com/watch?v=…"
+    },
+    {
+      "key": "field_gaia_video_file",
+      "label": "O un archivo de vídeo",
+      "name": "video_file",
+      "type": "file",
+      "instructions": "MP4 o WebM subido a la web.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "mime_types": "mp4, webm"
+    },
+    {
+      "key": "field_gaia_video_poster",
+      "label": "Imagen de portada",
+      "name": "video_poster",
+      "type": "image",
+      "instructions": "Se muestra antes de reproducir. Sin ella, un fondo oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "id",
+      "library": "all",
+      "preview_size": "medium",
+      "mime_types": "jpg, jpeg, png, webp, avif, gif, svg"
+    },
+    {
+      "key": "field_gaia_video_caption",
+      "label": "Pie del vídeo",
+      "name": "video_caption",
+      "type": "text",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_video_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_video_width",
+      "label": "Ancho",
+      "name": "video_width",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "narrow": "Estrecho",
+        "normal": "Normal"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_video_ratio",
+      "label": "Proporción",
+      "name": "video_ratio",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "16-9": "16:9",
+        "4-3": "4:3",
+        "1-1": "Cuadrada",
+        "9-16": "Vertical"
+      },
+      "default_value": "16-9",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_video_alignment",
+      "label": "Alineación del título",
+      "name": "video_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_video_background",
+      "label": "Fondo",
+      "name": "video_background",
+      "type": "button_group",
+      "instructions": "El texto se adapta al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Ninguno",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_video_spacing",
+      "label": "Espaciado vertical",
+      "name": "video_spacing",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "compact": "Compacto",
+        "normal": "Normal",
+        "large": "Amplio"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/video"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Vídeo.",
+  "show_in_rest": 0,
+  "modified": 1792267981
+}

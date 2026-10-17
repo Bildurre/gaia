@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/video",
+  "title": "Vídeo",
+  "description": "Vídeo de YouTube, Vimeo o un archivo, que no carga nada externo hasta pulsar.",
+  "category": "gaia",
+  "icon": "video-alt3",
+  "keywords": [
+    "vídeo",
+    "youtube",
+    "vimeo"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./video.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "video.php"
+  },
+  "viewScript": [
+    "file:./video.js"
+  ]
+}

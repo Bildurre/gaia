@@ -1,0 +1,331 @@
+{
+  "key": "group_gaia_block_logos",
+  "title": "Bloque: Logos",
+  "fields": [
+    {
+      "key": "field_gaia_logos_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_logos_eyebrow",
+      "label": "Antetítulo",
+      "name": "logos_eyebrow",
+      "type": "text",
+      "instructions": "Opcional. Una línea corta encima del título.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_logos_title",
+      "label": "Título",
+      "name": "logos_title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_logos_intro",
+      "label": "Introducción",
+      "name": "logos_intro",
+      "type": "textarea",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_logos_items",
+      "label": "Logos",
+      "name": "logos_items",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "button_label": "Añadir logo",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_logos_items_image",
+          "label": "Logo",
+          "name": "image",
+          "type": "image",
+          "instructions": "Mejor en SVG o PNG con fondo transparente.",
+          "required": 0,
+          "wrapper": {
+            "width": "40",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_logos_items",
+          "return_format": "id",
+          "library": "all",
+          "preview_size": "medium",
+          "mime_types": "jpg, jpeg, png, webp, avif, gif, svg"
+        },
+        {
+          "key": "field_gaia_logos_items_name",
+          "label": "Nombre",
+          "name": "name",
+          "type": "text",
+          "instructions": "Texto alternativo del logo.",
+          "required": 1,
+          "wrapper": {
+            "width": "60",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_logos_items",
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_gaia_logos_items_url",
+          "label": "Enlace",
+          "name": "url",
+          "type": "url",
+          "instructions": "Opcional.",
+          "required": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_logos_items",
+          "default_value": "",
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_logos_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_logos_layout",
+      "label": "Distribución",
+      "name": "logos_layout",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "grid": "Rejilla",
+        "carousel": "Carrusel"
+      },
+      "default_value": "grid",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_logos_size",
+      "label": "Tamaño de los logos",
+      "name": "logos_size",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "small": "Pequeño",
+        "medium": "Mediano",
+        "large": "Grande"
+      },
+      "default_value": "medium",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_logos_grayscale",
+      "label": "En gris hasta pasar el ratón",
+      "name": "logos_grayscale",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_logos_autoplay",
+      "label": "Carrusel: pasar solo cada",
+      "name": "logos_autoplay",
+      "type": "number",
+      "instructions": "0 = no pasa solo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": "s"
+    },
+    {
+      "key": "field_gaia_logos_alignment",
+      "label": "Alineación del título",
+      "name": "logos_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "center",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_logos_background",
+      "label": "Fondo",
+      "name": "logos_background",
+      "type": "button_group",
+      "instructions": "El texto se adapta al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Ninguno",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_logos_spacing",
+      "label": "Espaciado vertical",
+      "name": "logos_spacing",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "compact": "Compacto",
+        "normal": "Normal",
+        "large": "Amplio"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/logos"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Logos.",
+  "show_in_rest": 0,
+  "modified": 1792267981
+}

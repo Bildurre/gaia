@@ -1,0 +1,53 @@
+@use '../../assets/scss/abstracts/breakpoints';
+
+// Map block: OpenStreetMap frame, with the address beside it from medium
+// screens.
+.map-block {
+  --map-height: 24rem;
+}
+
+.map-block--height-small {
+  --map-height: 16rem;
+}
+
+.map-block--height-large {
+  --map-height: 34rem;
+}
+
+.map-block__inner {
+  display: grid;
+  gap: var(--space-l);
+}
+
+@include breakpoints.from('medium') {
+  .map-block--has-address .map-block__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: start;
+  }
+}
+
+.map-block__map {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.map-block__frame {
+  width: 100%;
+  height: var(--map-height);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-separator);
+  border-radius: var(--border-radius);
+}
+
+.map-block__larger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3xs);
+  justify-self: end;
+  font-size: var(--font-size-small);
+
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}

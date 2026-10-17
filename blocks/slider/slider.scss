@@ -1,0 +1,150 @@
+@use '../../assets/scss/abstracts/schemes';
+
+// Slider block: full-width slides (image + dark overlay + text) on the
+// shared carousel; the controls sit over the bottom of the slides.
+.slider {
+  @include schemes.dark;
+  --color-text: var(--color-white);
+  --color-accent: var(--color-primary);
+  --slider-height: min(36rem, 75svh);
+  --slider-overlay-opacity: 0.5;
+
+  position: relative;
+  color: var(--color-text);
+  background-color: var(--color-dark-background);
+}
+
+// The carousel component sets its own gap: no gap between slides
+.slider.carousel {
+  --carousel-gap: 0px;
+}
+
+.slider--height-medium {
+  --slider-height: min(26rem, 60svh);
+}
+
+.slider--height-full {
+  --slider-height: calc(100svh - var(--site-header-height, 3.5rem));
+}
+
+.slider--overlay-none {
+  --slider-overlay-opacity: 0;
+}
+
+.slider--overlay-light {
+  --slider-overlay-opacity: 0.3;
+}
+
+.slider--overlay-strong {
+  --slider-overlay-opacity: 0.72;
+}
+
+.slider__slide {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: var(--slider-height);
+  padding-block: var(--space-2xl) calc(var(--space-2xl) + 3rem);
+  background-image: radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--color-primary) 30%, transparent), transparent 60%);
+
+  &.has-image {
+    background-image: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        color-mix(in srgb, var(--color-black) calc(min(var(--slider-overlay-opacity) + 0.15, 1) * 100%), transparent),
+        color-mix(in srgb, var(--color-black) calc(var(--slider-overlay-opacity) * 100%), transparent)
+      );
+    }
+  }
+}
+
+.slider__image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider__text {
+  display: grid;
+  gap: var(--space-s);
+  max-width: 40rem;
+
+  > * {
+    margin: 0;
+  }
+}
+
+.slider--align-center .slider__text {
+  justify-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.slider__eyebrow {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.slider__title {
+  font-size: var(--font-size-heading-1);
+  color: var(--color-white);
+}
+
+.slider__description {
+  font-size: var(--font-size-large);
+}
+
+// Controls over the bottom of the slides
+.slider__controls {
+  position: absolute;
+  right: 0;
+  bottom: var(--space-m);
+  left: 0;
+  pointer-events: none;
+
+  .carousel__controls {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .carousel__button,
+  .carousel__dot {
+    pointer-events: auto;
+  }
+
+  .carousel__button {
+    color: var(--color-white);
+    background-color: rgb(0 0 0 / 0.25);
+    border-color: rgb(255 255 255 / 0.35);
+  }
+
+  .carousel__dot {
+    background-color: rgb(255 255 255 / 0.45);
+
+    &[aria-current] {
+      background-color: var(--color-white);
+    }
+  }
+}
+
+.slider--align-center .slider__controls .carousel__controls {
+  justify-content: center;
+}
+
+.slider.is-static .slider__slide {
+  padding-bottom: var(--space-2xl);
+}

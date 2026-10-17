@@ -1,0 +1,271 @@
+{
+  "key": "group_gaia_block_slider",
+  "title": "Bloque: Slider",
+  "fields": [
+    {
+      "key": "field_gaia_slider_tab_content",
+      "label": "Diapositivas",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_slider_slides",
+      "label": "Diapositivas",
+      "name": "slider_slides",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 1,
+      "max": 0,
+      "button_label": "Añadir diapositiva",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_slider_slides_image",
+          "label": "Imagen",
+          "name": "image",
+          "type": "image",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_slider_slides",
+          "return_format": "id",
+          "library": "all",
+          "preview_size": "medium",
+          "mime_types": "jpg, jpeg, png, webp, avif, gif, svg"
+        },
+        {
+          "key": "field_gaia_slider_slides_eyebrow",
+          "label": "Antetítulo",
+          "name": "eyebrow",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_slider_slides",
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_gaia_slider_slides_title",
+          "label": "Título",
+          "name": "title",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "50",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_slider_slides",
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_gaia_slider_slides_text",
+          "label": "Texto",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_slider_slides",
+          "default_value": "",
+          "maxlength": "",
+          "rows": 2,
+          "placeholder": "",
+          "new_lines": ""
+        },
+        {
+          "key": "field_gaia_slider_slides_link",
+          "label": "Botón",
+          "name": "link",
+          "type": "link",
+          "instructions": "Opcional. El texto del botón es el «Texto del enlace».",
+          "required": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_slider_slides",
+          "return_format": "array"
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_slider_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_slider_height",
+      "label": "Altura",
+      "name": "slider_height",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "medium": "Media",
+        "large": "Grande",
+        "full": "Pantalla completa"
+      },
+      "default_value": "large",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_slider_alignment",
+      "label": "Alineación del texto",
+      "name": "slider_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_slider_overlay",
+      "label": "Oscurecer la imagen",
+      "name": "slider_overlay",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Nada",
+        "light": "Poco",
+        "medium": "Medio",
+        "strong": "Mucho"
+      },
+      "default_value": "medium",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_slider_autoplay",
+      "label": "Pasar solo cada",
+      "name": "slider_autoplay",
+      "type": "number",
+      "instructions": "0 = no pasa solo. Siempre se puede pausar.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 6,
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "placeholder": "",
+      "prepend": "",
+      "append": "s"
+    },
+    {
+      "key": "field_gaia_slider_first_is_h1",
+      "label": "Título de la primera diapositiva como H1",
+      "name": "slider_first_is_h1",
+      "type": "true_false",
+      "instructions": "Si el slider es la portada de la página.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/slider"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Slider.",
+  "show_in_rest": 0,
+  "modified": 1792267981
+}

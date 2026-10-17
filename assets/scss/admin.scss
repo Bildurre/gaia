@@ -512,6 +512,225 @@ $thumbnail-height: 4.5rem;
     background: linear-gradient(90deg, #f6d365, #fda085, #a18cd1, #84fab0);
   }
 
+  // Contenidos: cards, ratio, archive layouts, pagination, featured
+  &__post-card {
+    display: flex;
+    flex-direction: column;
+    width: 62%;
+    overflow: hidden;
+    background-color: var(--color-surface);
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.14);
+  }
+
+  &__post-image {
+    flex-shrink: 0;
+    height: 24px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 55%, #fff), var(--color-primary-dark));
+  }
+
+  &__post-text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+    padding: 4px;
+  }
+
+  &--content_card_layout-side &__post-card {
+    flex-direction: row;
+
+    .gaia-thumb__post-image {
+      width: 38%;
+      height: auto;
+    }
+  }
+
+  &--content_card_layout-overlay &__post-card {
+    position: relative;
+
+    .gaia-thumb__post-image {
+      height: 46px;
+    }
+
+    .gaia-thumb__post-text {
+      position: absolute;
+      inset: auto 0 0;
+      background: linear-gradient(to top, rgb(0 0 0 / 0.75), transparent);
+    }
+
+    .gaia-thumb__title,
+    .gaia-thumb__line {
+      background-color: rgb(255 255 255 / 0.85);
+    }
+  }
+
+  &--content_card_layout-text &__post-image {
+    display: none;
+  }
+
+  &--content_card_style-bordered &__post-card {
+    background: none;
+    border: 1px solid var(--color-separator);
+    box-shadow: none;
+  }
+
+  &--content_card_style-plain &__post-card {
+    background: none;
+    box-shadow: none;
+
+    .gaia-thumb__post-image {
+      border-radius: 3px;
+    }
+
+    .gaia-thumb__post-text {
+      padding-inline: 0;
+    }
+  }
+
+  &__ratio {
+    height: 46px;
+    aspect-ratio: 3 / 2;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 55%, #fff), var(--color-primary-dark));
+    border-radius: 2px;
+  }
+
+  &--content_card_image_ratio-wide &__ratio {
+    aspect-ratio: 16 / 9;
+  }
+
+  &--content_card_image_ratio-square &__ratio {
+    aspect-ratio: 1;
+  }
+
+  &--content_card_image_ratio-portrait &__ratio {
+    aspect-ratio: 4 / 5;
+  }
+
+  &__post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 5px;
+
+    .gaia-thumb__post-card {
+      width: auto;
+      box-shadow: 0 0 0 1px rgb(0 0 0 / 0.08);
+    }
+
+    .gaia-thumb__post-image {
+      height: 9px;
+    }
+
+    .gaia-thumb__post-text {
+      gap: 2px;
+      padding: 2px;
+    }
+
+    .gaia-thumb__title {
+      height: 3px;
+    }
+
+    .gaia-thumb__line {
+      height: 2px;
+    }
+  }
+
+  &--content_archive_layout-list &__post-grid {
+    grid-template-columns: minmax(0, 1fr);
+
+    .gaia-thumb__post-card {
+      flex-direction: row;
+    }
+
+    .gaia-thumb__post-image {
+      width: 30%;
+      height: auto;
+    }
+  }
+
+  &--content_archive_pagination &__post-grid {
+    padding-bottom: 2px;
+  }
+
+  &--content_archive_pagination &__sample-button {
+    align-self: center;
+    padding: 2px 6px;
+    font-size: 8px;
+  }
+
+  &__pages {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    font-size: 8px;
+    line-height: 1;
+
+    > span {
+      padding: 2px 4px;
+      border: 1px solid var(--color-separator);
+      border-radius: 2px;
+    }
+
+    > .is-current {
+      color: var(--color-background);
+      background-color: var(--color-text);
+    }
+  }
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+
+    > span {
+      width: 5px;
+      height: 5px;
+      background-color: var(--color-accent);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+
+    > span:first-child {
+      opacity: 1;
+    }
+  }
+
+  &--content_archive_featured_layout &__post-card.is-featured {
+    grid-column: 1 / -1;
+
+    .gaia-thumb__post-image {
+      height: 20px;
+    }
+  }
+
+  &--content_archive_featured_layout-side &__post-card.is-featured {
+    flex-direction: row;
+
+    .gaia-thumb__post-image {
+      width: 55%;
+      height: 24px;
+    }
+  }
+
+  &--content_archive_featured_layout-overlay &__post-card.is-featured {
+    position: relative;
+
+    .gaia-thumb__post-image {
+      height: 28px;
+    }
+
+    .gaia-thumb__post-text {
+      position: absolute;
+      inset: auto 0 0;
+    }
+
+    .gaia-thumb__title,
+    .gaia-thumb__line {
+      background-color: rgb(255 255 255 / 0.85);
+    }
+  }
+
   // Icons
   &__icon {
     display: grid;

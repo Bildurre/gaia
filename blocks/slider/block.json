@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/slider",
+  "title": "Slider",
+  "description": "Diapositivas con imagen, texto y botón que pasan solas o con flechas.",
+  "category": "gaia",
+  "icon": "images-alt2",
+  "keywords": [
+    "slider",
+    "carrusel",
+    "diapositivas",
+    "portada"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./slider.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "slider.php"
+  },
+  "viewScript": [
+    "gaia-carousel"
+  ]
+}

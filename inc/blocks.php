@@ -14,6 +14,31 @@ function gaia_get_block_directories() {
   return glob(get_template_directory() . '/blocks/*', GLOB_ONLYDIR) ?: [];
 }
 
+/**
+ * Shared carousel script, used by blocks as viewScript "gaia-carousel".
+ */
+function gaia_register_block_scripts() {
+  wp_register_script('gaia-carousel', get_template_directory_uri() . '/assets/js/carousel.js', [], GAIA_VERSION, [
+    'strategy' => 'defer',
+    'in_footer' => true,
+  ]);
+}
+add_action('init', 'gaia_register_block_scripts', 5);
+
+/**
+ * Data attributes of a carousel root (translated labels for the script).
+ */
+function gaia_get_carousel_attributes($autoplay_seconds = 0) {
+  return sprintf(
+    'data-carousel data-autoplay="%s" data-label-slide="%s" data-label-go-to="%s" aria-roledescription="carousel"',
+    esc_attr((string) $autoplay_seconds),
+    /* translators: 1: slide number, 2: number of slides */
+    esc_attr__('Slide %1$d of %2$d', 'gaia'),
+    /* translators: %d: slide number */
+    esc_attr__('Go to slide %d', 'gaia')
+  );
+}
+
 function gaia_register_blocks() {
   foreach (gaia_get_block_directories() as $block_directory) {
     if (is_readable($block_directory . '/block.json')) {
@@ -137,3 +162,33 @@ function gaia_enqueue_block_editor_assets() {
   ]);
 }
 add_action('enqueue_block_editor_assets', 'gaia_enqueue_block_editor_assets');
+
+/**
+ * Privacy-friendly embed URL of a YouTube or Vimeo link ('' otherwise):
+ * youtube-nocookie.com, and Vimeo with "do not track".
+ */
+function gaia_get_video_embed_url($video_url) {
+  if (preg_match('~(?:youtube\.com/(?:watch\?(?:.*&)?v=|embed/|shorts/|live/)|youtu\.be/)([A-Za-z0-9_-]{11})~', $video_url, $youtube_match)) {
+    return 'https://www.youtube-nocookie.com/embed/' . $youtube_match[1] . '?autoplay=1&rel=0';
+  }
+
+  if (preg_match('~vimeo\.com/(?:video/)?(\d+)~', $video_url, $vimeo_match)) {
+    return 'https://player.vimeo.com/video/' . $vimeo_match[1] . '?autoplay=1&dnt=1';
+  }
+
+  return '';
+}
+
+/**
+ * Lucide icon for a file extension (downloads block).
+ */
+function gaia_get_file_type_icon($file_extension) {
+  $icon_names = [
+    'pdf' => 'file-text', 'doc' => 'file-text', 'docx' => 'file-text', 'odt' => 'file-text', 'txt' => 'file-text', 'rtf' => 'file-text',
+    'xls' => 'file-spreadsheet', 'xlsx' => 'file-spreadsheet', 'ods' => 'file-spreadsheet', 'csv' => 'file-spreadsheet',
+    'zip' => 'file-archive', 'rar' => 'file-archive', '7z' => 'file-archive', 'gz' => 'file-archive',
+    'jpg' => 'file-image', 'jpeg' => 'file-image', 'png' => 'file-image', 'webp' => 'file-image', 'gif' => 'file-image', 'svg' => 'file-image',
+  ];
+
+  return gaia_get_icon_svg('ui/' . ($icon_names[$file_extension] ?? 'file'));
+}

@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gaia 1.0.0\n"
-"POT-Creation-Date: 2026-10-17 16:37+0000\n"
-"PO-Revision-Date: 2026-10-17 16:37+0000\n"
+"POT-Creation-Date: 2026-10-17 20:17+0000\n"
+"PO-Revision-Date: 2026-10-17 20:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,6 +24,10 @@ msgstr ""
 
 #: blocks/cta/cta.php:21
 msgid "Call to action: fill in the title in the block settings."
+msgstr ""
+
+#: blocks/downloads/downloads.php:19
+msgid "Downloads: add files in the block settings."
 msgstr ""
 
 #: blocks/faq/faq.php:20
@@ -62,16 +66,40 @@ msgstr ""
 msgid "Go to content"
 msgstr ""
 
-#: blocks/latest-posts/latest-posts.php:40
-msgid "Latest posts: there are no posts yet."
+#: blocks/latest-posts/latest-posts.php:23
+msgid "View all"
 msgstr ""
 
-#: blocks/latest-posts/latest-posts.php:62
-msgid "View all news"
+#: blocks/latest-posts/latest-posts.php:94
+msgid "Latest posts: there is no content yet."
+msgstr ""
+
+#: blocks/logos/logos.php:22
+msgid "Logos: add logos in the block settings."
+msgstr ""
+
+#: blocks/map/map.php:23
+msgid "Map: fill in the latitude and longitude in the block settings."
+msgstr ""
+
+#: blocks/map/map.php:61
+msgid "Map"
+msgstr ""
+
+#: blocks/map/map.php:66
+msgid "View larger map"
 msgstr ""
 
 #: blocks/people/people.php:19
 msgid "People: add people in the block settings."
+msgstr ""
+
+#: blocks/slider/slider.php:22
+msgid "Slider: add slides in the block settings."
+msgstr ""
+
+#: blocks/slider/slider.php:33
+msgid "Featured"
 msgstr ""
 
 #: blocks/steps/steps.php:19
@@ -84,6 +112,22 @@ msgstr ""
 
 #: blocks/text/text.php:20
 msgid "Text: write the text in the block settings."
+msgstr ""
+
+#: blocks/video/video.php:26
+msgid "Video: add a YouTube or Vimeo link or a video file in the block settings."
+msgstr ""
+
+#: blocks/video/video.php:47
+msgid "Video"
+msgstr ""
+
+#: blocks/video/video.php:52
+msgid "Play the video"
+msgstr ""
+
+#: blocks/video/video.php:61
+msgid "The video loads from an external service when you play it."
 msgstr ""
 
 #: footer.php:10
@@ -190,6 +234,200 @@ msgstr ""
 msgid "The image could not be uploaded. It must be a JPG, PNG, WebP or GIF file of up to 2 MB."
 msgstr ""
 
+#: inc/blocks.php:36
+#, php-format
+msgid "Slide %1$d of %2$d"
+msgstr ""
+
+#: inc/blocks.php:38
+#, php-format
+msgid "Go to slide %d"
+msgstr ""
+
+#: inc/content-types.php:39
+msgid "Imagen"
+msgstr ""
+
+#: inc/content-types.php:40
+msgid "Fecha"
+msgstr ""
+
+#: inc/content-types.php:41
+msgid "Categorías"
+msgstr ""
+
+#: inc/content-types.php:42
+msgid "Extracto"
+msgstr ""
+
+#: inc/content-types.php:43
+msgid "Autor"
+msgstr ""
+
+#: inc/content-types.php:44
+msgid "Tiempo de lectura"
+msgstr ""
+
+#: inc/content-types.php:45
+msgid "Enlace «Leer más»"
+msgstr ""
+
+#: inc/content-types.php:186
+msgid "Muestra"
+msgstr ""
+
+#: inc/content-types.php:187
+msgid "La tarjeta del último contenido publicado, con los ajustes de esta pestaña."
+msgstr ""
+
+#: inc/content-types.php:190
+msgid "Tarjeta"
+msgstr ""
+
+#: inc/content-types.php:190
+msgid "Cómo se ve cada elemento en los archivos y en el bloque «Últimas entradas»."
+msgstr ""
+
+#: inc/content-types.php:191
+msgid "Formato"
+msgstr ""
+
+#: inc/content-types.php:192
+msgid "Imagen arriba"
+msgstr ""
+
+#: inc/content-types.php:193
+msgid "Imagen a la izquierda"
+msgstr ""
+
+#: inc/content-types.php:194 inc/content-types.php:248
+msgid "Texto sobre la imagen"
+msgstr ""
+
+#: inc/content-types.php:195
+msgid "Sin imagen"
+msgstr ""
+
+#: inc/content-types.php:197
+msgid "Proporción de la imagen"
+msgstr ""
+
+#: inc/content-types.php:198
+msgid "Panorámica"
+msgstr ""
+
+#: inc/content-types.php:199
+msgid "Horizontal"
+msgstr ""
+
+#: inc/content-types.php:200
+msgid "Cuadrada"
+msgstr ""
+
+#: inc/content-types.php:201
+msgid "Vertical"
+msgstr ""
+
+#: inc/content-types.php:203 inc/options-pages.php:14
+msgid "Estilo"
+msgstr ""
+
+#: inc/content-types.php:204
+msgid "Con fondo"
+msgstr ""
+
+#: inc/content-types.php:205
+msgid "Con borde"
+msgstr ""
+
+#: inc/content-types.php:206
+msgid "Sin fondo"
+msgstr ""
+
+#: inc/content-types.php:209
+msgid "Qué se muestra"
+msgstr ""
+
+#: inc/content-types.php:214
+msgid "Palabras del extracto"
+msgstr ""
+
+#: inc/content-types.php:217
+msgid "Archivo"
+msgstr ""
+
+#: inc/content-types.php:217
+msgid "La página con el listado (archivo, categorías y etiquetas)."
+msgstr ""
+
+#: inc/content-types.php:218
+msgid "Distribución"
+msgstr ""
+
+#: inc/content-types.php:219
+msgid "Rejilla"
+msgstr ""
+
+#: inc/content-types.php:220
+msgid "Lista"
+msgstr ""
+
+#: inc/content-types.php:223
+msgid "Columnas de la rejilla"
+msgstr ""
+
+#: inc/content-types.php:228
+msgid "Elementos por página"
+msgstr ""
+
+#: inc/content-types.php:231
+msgid "Paginación"
+msgstr ""
+
+#: inc/content-types.php:232
+msgid "Números de página"
+msgstr ""
+
+#: inc/content-types.php:233
+msgid "Botón «Cargar más»"
+msgstr ""
+
+#: inc/content-types.php:234
+msgid "Scroll infinito"
+msgstr ""
+
+#: inc/content-types.php:237
+msgid "Primer elemento destacado"
+msgstr ""
+
+#: inc/content-types.php:239
+msgid "Con números, en cada página; con «Cargar más» o scroll infinito, solo al principio."
+msgstr ""
+
+#: inc/content-types.php:242
+msgid "Filtro por categorías"
+msgstr ""
+
+#: inc/content-types.php:244
+msgid "Botones con las categorías encima del listado."
+msgstr ""
+
+#: inc/content-types.php:246
+msgid "Formato del destacado"
+msgstr ""
+
+#: inc/content-types.php:247
+msgid "Imagen grande al lado"
+msgstr ""
+
+#: inc/content-types.php:249
+msgid "Imagen ancha arriba"
+msgstr ""
+
+#: inc/content-types.php:255 inc/options-pages.php:18
+msgid "Contenidos"
+msgstr ""
+
 #: inc/extras.php:41
 msgid "More information"
 msgstr ""
@@ -198,7 +436,7 @@ msgstr ""
 msgid "Home"
 msgstr ""
 
-#: inc/extras.php:138 index.php:11
+#: inc/extras.php:138 index.php:18
 #, php-format
 msgid "Search results for “%s”"
 msgstr ""
@@ -236,96 +474,104 @@ msgstr ""
 msgid "Ninguno"
 msgstr ""
 
-#: inc/options-admin.php:116 inc/options-admin.php:357
+#: inc/options-admin.php:116 inc/options-admin.php:401
 msgid "Botón"
 msgstr ""
 
-#: inc/options-admin.php:148
+#: inc/options-admin.php:164
 msgid "Texto con"
 msgstr ""
 
-#: inc/options-admin.php:148 inc/options-admin.php:353
+#: inc/options-admin.php:164 inc/options-admin.php:397
 msgid "enlace"
 msgstr ""
 
-#: inc/options-admin.php:192
+#: inc/options-admin.php:208
 msgid "Inicio"
 msgstr ""
 
-#: inc/options-admin.php:193
+#: inc/options-admin.php:209
 msgid "Agenda"
 msgstr ""
 
-#: inc/options-admin.php:324 inc/options-admin.php:368
+#: inc/options-admin.php:275
+msgid "Cargar más"
+msgstr ""
+
+#: inc/options-admin.php:368 inc/options-admin.php:412
 msgid "Principal"
 msgstr ""
 
-#: inc/options-admin.php:325
+#: inc/options-admin.php:369
 msgid "Principal claro"
 msgstr ""
 
-#: inc/options-admin.php:326
+#: inc/options-admin.php:370
 msgid "Principal oscuro"
 msgstr ""
 
-#: inc/options-admin.php:327 inc/options-admin.php:368
+#: inc/options-admin.php:371 inc/options-admin.php:412
 msgid "Secundario"
 msgstr ""
 
-#: inc/options-admin.php:328
+#: inc/options-admin.php:372
 msgid "Realce"
 msgstr ""
 
-#: inc/options-admin.php:343
+#: inc/options-admin.php:387
 msgid "Los cambios se han guardado."
 msgstr ""
 
-#: inc/options-admin.php:344
+#: inc/options-admin.php:388
 msgid "Revisa los campos marcados."
 msgstr ""
 
-#: inc/options-admin.php:352
+#: inc/options-admin.php:396
 msgid "Título de ejemplo"
 msgstr ""
 
-#: inc/options-admin.php:353
+#: inc/options-admin.php:397
 msgid "Texto de lectura con un"
 msgstr ""
 
-#: inc/options-admin.php:353
+#: inc/options-admin.php:397
 msgid "Texto secundario."
 msgstr ""
 
-#: inc/options-admin.php:355
+#: inc/options-admin.php:399
 msgid "Acento"
 msgstr ""
 
-#: inc/options-admin.php:356 inc/options-admin.php:356
+#: inc/options-admin.php:400 inc/options-admin.php:400
 msgid "Campo de formulario"
 msgstr ""
 
-#: inc/options-admin.php:375
+#: inc/options-admin.php:419
 msgid "Cada botón aparece normal y al pasar el ratón."
 msgstr ""
 
-#: inc/options-admin.php:381
+#: inc/options-admin.php:425
 msgid "Energía compartida para el barrio"
 msgstr ""
 
-#: inc/options-admin.php:382
+#: inc/options-admin.php:426
 msgid "Un subtítulo más pequeño"
 msgstr ""
 
-#: inc/options-admin.php:383
+#: inc/options-admin.php:427
 msgid "Así se leen los textos largos de la web, con un"
 msgstr ""
 
-#: inc/options-admin.php:383
+#: inc/options-admin.php:427
 msgid "enlace dentro del texto"
 msgstr ""
 
-#: inc/options-admin.php:383
+#: inc/options-admin.php:427
 msgid "y algunas palabras más para ver el interlineado."
+msgstr ""
+
+#: inc/options-admin.php:476
+msgid "Todavía no hay contenidos publicados de este tipo."
 msgstr ""
 
 #: inc/options-pages.php:12
@@ -334,10 +580,6 @@ msgstr ""
 
 #: inc/options-pages.php:13
 msgid "Tipografía"
-msgstr ""
-
-#: inc/options-pages.php:14
-msgid "Estilo"
 msgstr ""
 
 #: inc/options-pages.php:15
@@ -352,15 +594,15 @@ msgstr ""
 msgid "Pie de página"
 msgstr ""
 
-#: inc/options-pages.php:18
+#: inc/options-pages.php:19
 msgid "Contacto"
 msgstr ""
 
-#: inc/options-pages.php:19
+#: inc/options-pages.php:20
 msgid "Extras"
 msgstr ""
 
-#: inc/options-pages.php:29 inc/options-pages.php:30
+#: inc/options-pages.php:30 inc/options-pages.php:31
 msgid "Ajustes de Gaia"
 msgstr ""
 
@@ -376,11 +618,23 @@ msgstr ""
 msgid "Menú legal"
 msgstr ""
 
-#: index.php:15
+#: index.php:25
 msgid "News"
 msgstr ""
 
-#: index.php:44
+#: index.php:69
+msgid "Filter by category"
+msgstr ""
+
+#: index.php:71
+msgid "All"
+msgstr ""
+
+#: index.php:100
+msgid "Load more"
+msgstr ""
+
+#: index.php:104
 msgid "No content found."
 msgstr ""
 
@@ -535,6 +789,18 @@ msgstr ""
 msgid "Breadcrumbs"
 msgstr ""
 
+#: template-parts/carousel-controls.php:16
+msgid "Previous"
+msgstr ""
+
+#: template-parts/carousel-controls.php:25
+msgid "Pause the slides"
+msgstr ""
+
+#: template-parts/carousel-controls.php:31
+msgid "Next"
+msgstr ""
+
 #: template-parts/footer/site-footer.php:41 template-parts/footer/site-footer.php:83
 msgid "Legal"
 msgstr ""
@@ -569,6 +835,15 @@ msgstr ""
 
 #: template-parts/maintenance.php:11
 msgid "We are working on the website. Please come back in a little while."
+msgstr ""
+
+#: template-parts/post-card.php:99
+#, php-format
+msgid "%d min read"
+msgstr ""
+
+#: template-parts/post-card.php:112
+msgid "Read more"
 msgstr ""
 
 #: template-parts/scheme-switcher.php:13

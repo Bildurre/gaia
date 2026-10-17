@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/downloads",
+  "title": "Descargas",
+  "description": "Lista de archivos para descargar con su tipo y tamaño.",
+  "category": "gaia",
+  "icon": "download",
+  "keywords": [
+    "descargas",
+    "archivos",
+    "documentos",
+    "pdf",
+    "transparencia"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./downloads.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "downloads.php"
+  }
+}

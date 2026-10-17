@@ -15,6 +15,7 @@ function gaia_get_options_subpages() {
     'gaia-logos' => __('Logos', 'gaia'),
     'gaia-header' => __('Cabecera', 'gaia'),
     'gaia-footer' => __('Pie de página', 'gaia'),
+    'gaia-content' => __('Contenidos', 'gaia'),
     'gaia-contact' => __('Contacto', 'gaia'),
     'gaia-extras' => __('Extras', 'gaia'),
   ];

@@ -21,6 +21,13 @@ function gaia_enqueue_assets() {
     'in_footer' => true,
   ]);
 
+  if (is_home() || is_archive() || is_search()) {
+    wp_enqueue_script('gaia-archive', $theme_directory_uri . '/assets/js/archive.js', [], GAIA_VERSION, [
+      'strategy' => 'defer',
+      'in_footer' => true,
+    ]);
+  }
+
   if (is_page_template('page-templates/account.php')) {
     wp_enqueue_script('gaia-avatar-field', $theme_directory_uri . '/assets/js/avatar-field.js', [], GAIA_VERSION, [
       'strategy' => 'defer',

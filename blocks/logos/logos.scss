@@ -1,0 +1,75 @@
+@use '../../assets/scss/abstracts/breakpoints';
+
+// Logos block: logos of the same height, centered, optionally grey until
+// hover; grid that wraps or carousel.
+.logos {
+  --logo-height: 3rem;
+}
+
+.logos--size-small {
+  --logo-height: 2.25rem;
+}
+
+.logos--size-large {
+  --logo-height: 4.5rem;
+}
+
+.logos__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-l) var(--space-2xl);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section-heading--left + .logos__list {
+  justify-content: flex-start;
+}
+
+.logos__item {
+  display: grid;
+  place-items: center;
+}
+
+.logos__link {
+  display: grid;
+  place-items: center;
+  padding: var(--space-2xs);
+  border-radius: var(--border-radius);
+}
+
+.logos__image {
+  width: auto;
+  max-width: 11rem;
+  height: var(--logo-height);
+  object-fit: contain;
+  transition:
+    filter 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.logos--grayscale .logos__image {
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.logos--grayscale .logos__link:is(:hover, :focus-visible) .logos__image {
+  filter: none;
+  opacity: 1;
+}
+
+.carousel.logos__carousel {
+  --carousel-per-view: 2;
+  --carousel-gap: var(--space-l);
+
+  @include breakpoints.from('medium') {
+    --carousel-per-view: 4;
+  }
+
+  @include breakpoints.from('large') {
+    --carousel-per-view: 6;
+  }
+}

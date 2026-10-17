@@ -56,6 +56,10 @@ function initOptionsAdmin() {
       return optionField.querySelector('input[type="checkbox"]')?.checked ? '1' : '0';
     }
 
+    if (optionField.classList.contains('acf-field-checkbox')) {
+      return [...optionField.querySelectorAll('input[type="checkbox"]:checked')].map((checkbox) => checkbox.value);
+    }
+
     if (optionField.classList.contains('acf-field-range')) {
       return optionField.querySelector('input[type="number"], input[type="range"]')?.value ?? '';
     }
@@ -232,6 +236,31 @@ function initOptionsAdmin() {
     });
   };
 
+  // Card samples (Contenidos): classes and visible parts from the fields of
+  // their post type tab
+  const applySampleCardSettings = () => {
+    querySamples('[data-sample-classes]').forEach((sampleElement) => {
+      Object.entries(JSON.parse(sampleElement.dataset.sampleClasses)).forEach(([optionName, classPrefix]) => {
+        const optionField = getOptionField(optionName);
+
+        if (!optionField) {
+          return;
+        }
+
+        sampleElement.classList.remove(...[...sampleElement.classList].filter((className) => className.startsWith(classPrefix)));
+        sampleElement.classList.add(classPrefix + readFieldValue(optionField));
+      });
+    });
+
+    querySamples('[data-sample-part-option]').forEach((partElement) => {
+      const optionField = getOptionField(partElement.dataset.samplePartOption);
+
+      if (optionField) {
+        partElement.hidden = !readFieldValue(optionField).includes(partElement.dataset.samplePart);
+      }
+    });
+  };
+
   // Samples may load before main.css applies: keep links inside them inert
   sampleRoots.forEach((sampleRoot) => {
     sampleRoot.addEventListener('click', (clickEvent) => {
@@ -253,6 +282,7 @@ function initOptionsAdmin() {
     applySampleClasses();
     applySampleVariants();
     applySampleTexts();
+    applySampleCardSettings();
   };
 
   optionsForm.addEventListener('input', applyAll);

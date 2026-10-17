@@ -2,15 +2,16 @@
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
   "name": "gaia/latest-posts",
-  "title": "Últimas noticias",
-  "description": "Las entradas más recientes, de todas o de una categoría.",
+  "title": "Últimas entradas",
+  "description": "Las entradas más recientes de un tipo de contenido, de todas o de varias categorías, en rejilla o carrusel.",
   "category": "gaia",
   "icon": "admin-post",
   "keywords": [
     "noticias",
     "entradas",
     "blog",
-    "actualidad"
+    "actualidad",
+    "carrusel"
   ],
   "textdomain": "gaia",
   "supports": {
@@ -24,5 +25,8 @@
   "acf": {
     "mode": "preview",
     "renderTemplate": "latest-posts.php"
-  }
+  },
+  "viewScript": [
+    "gaia-carousel"
+  ]
 }
