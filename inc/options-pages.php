@@ -4,52 +4,46 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
+/**
+ * Option subpages of "Ajustes de Gaia" as [menu slug => title], in menu order.
+ */
+function gaia_get_options_subpages() {
+  return [
+    'gaia-colors' => __('Colores', 'gaia'),
+    'gaia-typography' => __('Tipografía', 'gaia'),
+    'gaia-style' => __('Estilo', 'gaia'),
+    'gaia-logos' => __('Logos', 'gaia'),
+    'gaia-header' => __('Cabecera', 'gaia'),
+    'gaia-footer' => __('Pie de página', 'gaia'),
+    'gaia-contact' => __('Contacto', 'gaia'),
+    'gaia-extras' => __('Extras', 'gaia'),
+  ];
+}
+
 function gaia_register_options_pages() {
   if (!function_exists('acf_add_options_page')) {
     return;
   }
 
   acf_add_options_page([
-    'page_title' => __('Ajustes del sitio', 'gaia'),
-    'menu_title' => __('Ajustes del sitio', 'gaia'),
-    'menu_slug' => 'gaia-site-settings',
+    'page_title' => __('Ajustes de Gaia', 'gaia'),
+    'menu_title' => __('Ajustes de Gaia', 'gaia'),
+    'menu_slug' => 'gaia-settings',
     'capability' => 'edit_theme_options',
-    'icon_url' => 'dashicons-admin-generic',
+    'icon_url' => 'dashicons-admin-customizer',
     'position' => 59,
     'redirect' => true,
   ]);
 
-  acf_add_options_sub_page([
-    'page_title' => __('Apariencia', 'gaia'),
-    'menu_title' => __('Apariencia', 'gaia'),
-    'menu_slug' => 'gaia-appearance',
-    'parent_slug' => 'gaia-site-settings',
-    'capability' => 'edit_theme_options',
-  ]);
-
-  acf_add_options_sub_page([
-    'page_title' => __('Contacto', 'gaia'),
-    'menu_title' => __('Contacto', 'gaia'),
-    'menu_slug' => 'gaia-contact',
-    'parent_slug' => 'gaia-site-settings',
-    'capability' => 'edit_theme_options',
-  ]);
-
-  acf_add_options_sub_page([
-    'page_title' => __('Cabecera', 'gaia'),
-    'menu_title' => __('Cabecera', 'gaia'),
-    'menu_slug' => 'gaia-header',
-    'parent_slug' => 'gaia-site-settings',
-    'capability' => 'edit_theme_options',
-  ]);
-
-  acf_add_options_sub_page([
-    'page_title' => __('Footer', 'gaia'),
-    'menu_title' => __('Footer', 'gaia'),
-    'menu_slug' => 'gaia-footer',
-    'parent_slug' => 'gaia-site-settings',
-    'capability' => 'edit_theme_options',
-  ]);
+  foreach (gaia_get_options_subpages() as $menu_slug => $page_title) {
+    acf_add_options_sub_page([
+      'page_title' => $page_title,
+      'menu_title' => $page_title,
+      'menu_slug' => $menu_slug,
+      'parent_slug' => 'gaia-settings',
+      'capability' => 'edit_theme_options',
+    ]);
+  }
 }
 add_action('acf/init', 'gaia_register_options_pages');
 
@@ -72,6 +66,25 @@ function gaia_get_translatable_option_fields() {
       'delay' => 0,
     ],
     'field_gaia_contact_address' => [
+      'type' => 'textarea',
+      'rows' => 3,
+      'new_lines' => '',
+    ],
+    'field_gaia_extras_announcement_text' => [
+      'type' => 'text',
+    ],
+    'field_gaia_extras_maintenance_title' => [
+      'type' => 'text',
+    ],
+    'field_gaia_extras_maintenance_text' => [
+      'type' => 'textarea',
+      'rows' => 3,
+      'new_lines' => '',
+    ],
+    'field_gaia_extras_404_title' => [
+      'type' => 'text',
+    ],
+    'field_gaia_extras_404_text' => [
       'type' => 'textarea',
       'rows' => 3,
       'new_lines' => '',

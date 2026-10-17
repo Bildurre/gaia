@@ -83,7 +83,7 @@
 
 .user-menu__email {
   font-size: var(--font-size-smaller);
-  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  color: var(--color-text-muted);
   overflow-wrap: anywhere;
 }
 

@@ -1,0 +1,28 @@
+// Logo with light and dark background versions: the scheme of the area
+// decides which one is visible (--show-on-light / --show-on-dark).
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo__image {
+  width: auto;
+  height: var(--site-logo-height, 2rem);
+}
+
+.site-logo__image--on-light {
+  display: var(--show-on-light, block);
+}
+
+.site-logo__image--on-dark {
+  display: var(--show-on-dark, none);
+}
+
+.site-logo--text {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-large);
+  font-weight: 800;
+  line-height: var(--site-logo-height, 2rem);
+  color: var(--color-accent);
+  text-transform: uppercase;
+}

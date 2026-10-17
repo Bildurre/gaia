@@ -1,0 +1,49 @@
+// Color schemes. Each one maps the palette (set from Ajustes de Gaia >
+// Colores) to the semantic tokens used by every component.
+// Used on html (page scheme) and on .scheme-light / .scheme-dark areas.
+
+@mixin light {
+  color-scheme: light;
+  --color-background: var(--color-light-background);
+  --color-surface: var(--color-light-surface);
+  --color-text: var(--color-light-text);
+  --color-accent: var(--color-light-accent);
+  --color-header-background: color-mix(in srgb, var(--color-primary-light) 8%, var(--color-light-background));
+  --color-success-background: color-mix(in srgb, var(--color-primary-light) 40%, var(--color-light-background));
+  --color-error: #b3261e;
+  --color-error-background: #fdecea;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.05);
+  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / 0.12), 0 0 0 1px rgb(0 0 0 / 0.05);
+  --show-on-light: block;
+  --show-on-dark: none;
+  @include derived;
+}
+
+@mixin dark {
+  color-scheme: dark;
+  --color-background: var(--color-dark-background);
+  --color-surface: var(--color-dark-surface);
+  --color-text: var(--color-dark-text);
+  --color-accent: var(--color-dark-accent);
+  --color-header-background: color-mix(in srgb, var(--color-primary) 6%, var(--color-dark-background));
+  --color-success-background: color-mix(in srgb, var(--color-primary) 22%, var(--color-dark-background));
+  --color-error: #f2b8b5;
+  --color-error-background: #3c1d1b;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
+  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.08);
+  --show-on-light: none;
+  --show-on-dark: block;
+  @include derived;
+}
+
+// Tokens derived from the scheme colors (redeclared so they follow the
+// scheme of the element they are set on).
+@mixin derived {
+  --color-heading: var(--color-text);
+  --color-link: var(--color-accent);
+  --color-link-hover: var(--color-text);
+  --color-focus: var(--color-accent);
+  --color-text-muted: color-mix(in srgb, var(--color-text) 68%, var(--color-background));
+  --color-separator: color-mix(in srgb, var(--color-text) 12%, var(--color-background));
+  --color-input-border: color-mix(in srgb, var(--color-text) 25%, var(--color-background));
+}

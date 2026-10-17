@@ -1,12 +1,12 @@
 @use '../../assets/scss/abstracts/breakpoints';
+@use '../../assets/scss/abstracts/schemes';
 
-// Dark area: redefines the semantic tokens like the footer does.
+// Always uses the dark scheme (text over an image), with the brand color
+// as accent.
 .hero {
+  @include schemes.dark;
   --color-text: var(--color-white);
-  --color-heading: var(--color-white);
   --color-accent: var(--color-primary);
-  --color-link: var(--color-primary);
-  --color-focus: var(--color-primary);
   --hero-overlay-opacity: 0.55;
 
   position: relative;
@@ -16,7 +16,7 @@
   min-height: calc(100svh - var(--site-header-height, 3.5rem));
   overflow: hidden;
   color: var(--color-text);
-  background-color: var(--color-ink);
+  background-color: var(--color-dark-background);
   background-image: radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--color-primary) 25%, transparent), transparent 55%);
 
   &--has-image {
@@ -53,8 +53,8 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      color-mix(in srgb, var(--color-ink) calc(min(var(--hero-overlay-opacity) + 0.15, 1) * 100%), transparent),
-      color-mix(in srgb, var(--color-ink) calc(var(--hero-overlay-opacity) * 100%), transparent)
+      color-mix(in srgb, var(--color-black) calc(min(var(--hero-overlay-opacity) + 0.15, 1) * 100%), transparent),
+      color-mix(in srgb, var(--color-black) calc(var(--hero-overlay-opacity) * 100%), transparent)
     );
   }
 }
@@ -103,7 +103,7 @@
 
 .hero__title {
   font-size: clamp(1.875rem, 1.35rem + 2.4vw, 3.25rem);
-  font-weight: 800;
+  font-weight: max(var(--heading-font-weight), 700);
   line-height: 1.1;
   color: var(--color-heading);
 }

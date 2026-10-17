@@ -1,0 +1,90 @@
+{
+  "key": "group_gaia_style",
+  "title": "Estilo",
+  "fields": [
+    {
+      "key": "field_gaia_style_radius",
+      "label": "Esquinas",
+      "name": "style_radius",
+      "type": "button_group",
+      "instructions": "Botones, tarjetas, campos e imágenes.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Rectas",
+        "soft": "Suaves",
+        "round": "Redondeadas"
+      },
+      "default_value": "soft",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_buttons",
+      "label": "Forma de los botones",
+      "name": "style_buttons",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "rectangular": "Como las esquinas",
+        "pill": "Píldora"
+      },
+      "default_value": "rectangular",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_container_width",
+      "label": "Ancho del contenido",
+      "name": "style_container_width",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "narrow": "Estrecho",
+        "normal": "Normal",
+        "wide": "Ancho"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-style"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Forma de los elementos y ancho del contenido.",
+  "show_in_rest": 0,
+  "modified": 1792235214
+}

@@ -28,7 +28,7 @@
     </button>
 
     <a class="site-header__logo" href="<?php echo esc_url(home_url('/')); ?>">
-      <?php echo gaia_get_logo_markup('header_logo'); ?>
+      <?php echo gaia_get_logo_markup(gaia_get_option_field('header_logo') ?: 'main'); ?>
     </a>
 
     <?php get_template_part('template-parts/user-menu', null, ['class' => 'site-header__user']); ?>

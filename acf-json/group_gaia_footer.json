@@ -1,29 +1,156 @@
 {
   "key": "group_gaia_footer",
-  "title": "Footer",
+  "title": "Pie de página",
   "fields": [
     {
-      "key": "field_gaia_footer_logo",
-      "label": "Logo",
-      "name": "footer_logo",
-      "type": "image",
-      "instructions": "Logo pequeño del footer. Usa la versión para fondo oscuro.",
+      "key": "field_gaia_footer_tab_layout",
+      "label": "Distribución",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "",
         "class": "",
         "id": ""
       },
-      "return_format": "id",
-      "library": "all",
-      "min_width": "",
-      "min_height": "",
-      "min_size": "",
-      "max_width": "",
-      "max_height": "",
-      "max_size": "",
-      "mime_types": "",
-      "preview_size": "medium"
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_footer_layout",
+      "label": "Distribución",
+      "name": "footer_layout",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "brand-contact": "Marca y contacto: logo y redes arriba, contacto debajo",
+        "columns": "Columnas: marca, menú, contacto",
+        "minimal": "Mínimo: una línea con logo, menú legal y créditos"
+      },
+      "default_value": "brand-contact",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_footer_background",
+      "label": "Fondo",
+      "name": "footer_background",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "dark": "Oscuro",
+        "light": "Claro",
+        "primary": "Color principal"
+      },
+      "default_value": "dark",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_footer_logo",
+      "label": "Logo",
+      "name": "footer_logo",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": "main",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_footer_show_contact",
+      "label": "Mostrar contacto",
+      "name": "footer_show_contact",
+      "type": "true_false",
+      "instructions": "Dirección, teléfonos y emails de Contacto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_footer_show_social",
+      "label": "Mostrar redes sociales",
+      "name": "footer_show_social",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_footer_menus_help",
+      "label": "Menús",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "Los menús del pie se asignan en Apariencia > Menús: «Menú del pie» (columna de enlaces) y «Menú legal» (aviso legal, privacidad, cookies…).",
+      "new_lines": "wpautop",
+      "esc_html": 0
+    },
+    {
+      "key": "field_gaia_footer_tab_texts",
+      "label": "Textos",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
     },
     {
       "key": "field_gaia_footer_tagline",
@@ -72,7 +199,7 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "Logo y textos del footer.",
+  "description": "Distribución, fondo, logo y textos del pie de página.",
   "show_in_rest": 0,
-  "modified": 1792182873
+  "modified": 1792235214
 }

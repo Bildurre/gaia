@@ -1,0 +1,302 @@
+{
+  "key": "group_gaia_extras",
+  "title": "Extras",
+  "fields": [
+    {
+      "key": "field_gaia_extras_tab_announcement",
+      "label": "Barra de aviso",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_extras_announcement_enabled",
+      "label": "Mostrar barra de aviso",
+      "name": "extras_announcement_enabled",
+      "type": "true_false",
+      "instructions": "Una franja encima de la cabecera con un mensaje corto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_extras_announcement_style",
+      "label": "Estilo",
+      "name": "extras_announcement_style",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "primary": "Color principal",
+        "dark": "Oscuro",
+        "highlight": "Realce"
+      },
+      "default_value": "primary",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_extras_announcement_text",
+      "label": "Mensaje",
+      "name": "extras_announcement_text",
+      "type": "group",
+      "instructions": "En cada idioma. Si un idioma se queda vacío, se muestra el castellano.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_extras_announcement_link",
+      "label": "Enlace",
+      "name": "extras_announcement_link",
+      "type": "link",
+      "instructions": "Opcional. Todo el mensaje enlaza aquí.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "return_format": "array"
+    },
+    {
+      "key": "field_gaia_extras_announcement_expiry",
+      "label": "Ocultar a partir de",
+      "name": "extras_announcement_expiry",
+      "type": "date_time_picker",
+      "instructions": "Opcional. La barra deja de mostrarse en esta fecha.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "display_format": "d/m/Y H:i",
+      "return_format": "Y-m-d H:i:s",
+      "first_day": 1
+    },
+    {
+      "key": "field_gaia_extras_announcement_dismissible",
+      "label": "Se puede cerrar",
+      "name": "extras_announcement_dismissible",
+      "type": "true_false",
+      "instructions": "Cada visitante puede cerrarla; vuelve a aparecer si cambias el mensaje.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_extras_tab_maintenance",
+      "label": "Mantenimiento",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_extras_maintenance_enabled",
+      "label": "Modo mantenimiento",
+      "name": "extras_maintenance_enabled",
+      "type": "true_false",
+      "instructions": "Solo los usuarios con permisos de edición ven la web. El resto ve un aviso (y la página de acceso).",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_extras_maintenance_title",
+      "label": "Título",
+      "name": "extras_maintenance_title",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_extras_maintenance_text",
+      "label": "Texto",
+      "name": "extras_maintenance_text",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_extras_tab_navigation",
+      "label": "Navegación",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_extras_breadcrumbs",
+      "label": "Migas de pan",
+      "name": "extras_breadcrumbs",
+      "type": "true_false",
+      "instructions": "Ruta de navegación al principio de las páginas interiores.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_extras_back_to_top",
+      "label": "Botón «volver arriba»",
+      "name": "extras_back_to_top",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_extras_tab_404",
+      "label": "Página 404",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_extras_404_title",
+      "label": "Título",
+      "name": "extras_404_title",
+      "type": "group",
+      "instructions": "Vacío: «Página no encontrada».",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_extras_404_text",
+      "label": "Texto",
+      "name": "extras_404_text",
+      "type": "group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-extras"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Barra de aviso, modo mantenimiento, migas de pan, volver arriba y página 404.",
+  "show_in_rest": 0,
+  "modified": 1792235214
+}

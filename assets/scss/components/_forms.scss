@@ -42,14 +42,14 @@
   line-height: var(--control-line-height);
   color: var(--color-text);
   background-color: var(--color-background);
-  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
+  border: 1px solid var(--color-input-border);
   border-radius: var(--border-radius);
   transition:
     border-color 0.15s ease,
     box-shadow 0.15s ease;
 
   &:hover {
-    border-color: color-mix(in srgb, var(--color-text) 50%, transparent);
+    border-color: color-mix(in srgb, var(--color-text) 50%, var(--color-background));
   }
 
   // Green border (doubled with a shadow so it is visible enough)
@@ -63,7 +63,7 @@
 
 .form__hint {
   font-size: var(--font-size-smaller);
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  color: var(--color-text-muted);
 }
 
 .form__checkbox {

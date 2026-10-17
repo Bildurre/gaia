@@ -1,0 +1,299 @@
+{
+  "key": "group_gaia_colors",
+  "title": "Colores",
+  "fields": [
+    {
+      "key": "field_gaia_colors_tab_mode",
+      "label": "Modo",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_mode",
+      "label": "Modo de color",
+      "name": "colors_mode",
+      "type": "button_group",
+      "instructions": "«Ambos» usa el modo del sistema de cada visitante y permite cambiarlo con un botón en la cabecera.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "light": "Claro",
+        "dark": "Oscuro",
+        "auto": "Ambos (con selector)"
+      },
+      "default_value": "light",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_colors_tab_brand",
+      "label": "Marca",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_primary",
+      "label": "Color principal",
+      "name": "colors_primary",
+      "type": "color_picker",
+      "instructions": "El color de la marca: botones, detalles y acentos.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#1d6ff2",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_highlight",
+      "label": "Color de realce",
+      "name": "colors_highlight",
+      "type": "color_picker",
+      "instructions": "Solo decorativo (selección de texto, pequeños detalles).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#ffcc00",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_primary_light",
+      "label": "Principal claro",
+      "name": "colors_primary_light",
+      "type": "color_picker",
+      "instructions": "Versión clara del principal. Déjalo vacío para calcularlo automáticamente.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_primary_dark",
+      "label": "Principal oscuro",
+      "name": "colors_primary_dark",
+      "type": "color_picker",
+      "instructions": "Versión oscura del principal. Déjalo vacío para calcularlo automáticamente.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_tab_light",
+      "label": "Tema claro",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_light_background",
+      "label": "Fondo",
+      "name": "colors_light_background",
+      "type": "color_picker",
+      "instructions": "Fondo de la página.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#ffffff",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_light_surface",
+      "label": "Superficie",
+      "name": "colors_light_surface",
+      "type": "color_picker",
+      "instructions": "Fondo de tarjetas y zonas destacadas.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#f5f6f7",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_light_text",
+      "label": "Texto",
+      "name": "colors_light_text",
+      "type": "color_picker",
+      "instructions": "Texto de lectura sobre fondo claro (casi negro).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#15181c",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_light_accent",
+      "label": "Acento",
+      "name": "colors_light_accent",
+      "type": "color_picker",
+      "instructions": "Enlaces, títulos de acento y detalles sobre fondo claro. Debe contrastar con el fondo. Vacío: principal oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_tab_dark",
+      "label": "Tema oscuro",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_dark_background",
+      "label": "Fondo",
+      "name": "colors_dark_background",
+      "type": "color_picker",
+      "instructions": "Fondo de la página y de las zonas oscuras (footer, hero…).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#121417",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_dark_surface",
+      "label": "Superficie",
+      "name": "colors_dark_surface",
+      "type": "color_picker",
+      "instructions": "Fondo de tarjetas y zonas destacadas.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#1d2025",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_dark_text",
+      "label": "Texto",
+      "name": "colors_dark_text",
+      "type": "color_picker",
+      "instructions": "Texto de lectura sobre fondo oscuro (casi blanco).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#f1f3f5",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_dark_accent",
+      "label": "Acento",
+      "name": "colors_dark_accent",
+      "type": "color_picker",
+      "instructions": "Enlaces, títulos de acento y detalles sobre fondo oscuro. Vacío: principal claro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-colors"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Modo de color y paletas clara y oscura.",
+  "show_in_rest": 0,
+  "modified": 1792235214
+}

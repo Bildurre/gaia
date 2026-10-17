@@ -3,27 +3,280 @@
   "title": "Cabecera",
   "fields": [
     {
-      "key": "field_gaia_header_logo",
-      "label": "Logo",
-      "name": "header_logo",
-      "type": "image",
-      "instructions": "Logo de la cabecera. Usa la versión para fondo claro.",
+      "key": "field_gaia_header_tab_layout",
+      "label": "Distribución",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
       "required": 0,
       "wrapper": {
         "width": "",
         "class": "",
         "id": ""
       },
-      "return_format": "id",
-      "library": "all",
-      "min_width": "",
-      "min_height": "",
-      "min_size": "",
-      "max_width": "",
-      "max_height": "",
-      "max_size": "",
-      "mime_types": "",
-      "preview_size": "medium"
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_header_layout",
+      "label": "Distribución",
+      "name": "header_layout",
+      "type": "select",
+      "instructions": "En pantallas estrechas todas usan el menú desplegable.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "two-rows": "Dos filas: logo y utilidades arriba, menú centrado debajo",
+        "one-row": "Una fila: logo, menú y utilidades",
+        "centered": "Centrada: logo centrado, menú debajo",
+        "minimal": "Mínima: logo y botón de menú también en escritorio"
+      },
+      "default_value": "two-rows",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_header_logo",
+      "label": "Logo",
+      "name": "header_logo",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": "main",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_header_logo_mobile",
+      "label": "Logo en móvil",
+      "name": "header_logo_mobile",
+      "type": "select",
+      "instructions": "Por debajo de 768 px.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": "main",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_header_tab_behavior",
+      "label": "Comportamiento",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_header_sticky",
+      "label": "Fija al hacer scroll",
+      "name": "header_sticky",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_hide_on_scroll",
+      "label": "Ocultar al bajar",
+      "name": "header_hide_on_scroll",
+      "type": "true_false",
+      "instructions": "Se oculta al bajar y reaparece al subir. Solo si es fija.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_transparent",
+      "label": "Transparente sobre el hero",
+      "name": "header_transparent",
+      "type": "true_false",
+      "instructions": "En las páginas que empiezan con un bloque Hero, la cabecera va encima de la imagen y se vuelve sólida al hacer scroll. Se puede cambiar en cada página.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_tab_elements",
+      "label": "Elementos",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_header_show_languages",
+      "label": "Selector de idioma",
+      "name": "header_show_languages",
+      "type": "true_false",
+      "instructions": "Solo si hay más de un idioma.",
+      "required": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_show_user",
+      "label": "Menú de usuario",
+      "name": "header_show_user",
+      "type": "true_false",
+      "instructions": "Acceder / avatar.",
+      "required": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_show_search",
+      "label": "Buscador",
+      "name": "header_show_search",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_show_scheme_toggle",
+      "label": "Selector claro/oscuro",
+      "name": "header_show_scheme_toggle",
+      "type": "true_false",
+      "instructions": "Solo con el modo de color «Ambos».",
+      "required": 0,
+      "wrapper": {
+        "width": "25",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_tab_mobile",
+      "label": "Menú desplegable",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_header_mobile_menu",
+      "label": "Tipo de menú desplegable",
+      "name": "header_mobile_menu",
+      "type": "button_group",
+      "instructions": "En móvil, y en escritorio con la distribución «Mínima».",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Panel izquierdo",
+        "right": "Panel derecho",
+        "fullscreen": "Pantalla completa"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
     }
   ],
   "location": [
@@ -42,7 +295,7 @@
   "instruction_placement": "label",
   "hide_on_screen": "",
   "active": true,
-  "description": "Logo de la cabecera.",
+  "description": "Distribución, logo, comportamiento y menú móvil de la cabecera.",
   "show_in_rest": 0,
-  "modified": 1792012420
+  "modified": 1792235214
 }

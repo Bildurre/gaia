@@ -1,0 +1,107 @@
+{
+  "key": "group_gaia_typography",
+  "title": "Tipografía",
+  "fields": [
+    {
+      "key": "field_gaia_typography_font_heading",
+      "label": "Fuente de los títulos",
+      "name": "typography_font_heading",
+      "type": "select",
+      "instructions": "Títulos, menú y botones.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": "montserrat",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_typography_font_body",
+      "label": "Fuente del texto",
+      "name": "typography_font_body",
+      "type": "select",
+      "instructions": "Textos de lectura y formularios.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {},
+      "default_value": "inter",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_typography_heading_weight",
+      "label": "Grosor de los títulos",
+      "name": "typography_heading_weight",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "regular": "Normal",
+        "bold": "Negrita",
+        "extra-bold": "Extra negrita"
+      },
+      "default_value": "bold",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_typography_heading_uppercase",
+      "label": "Títulos en mayúsculas",
+      "name": "typography_heading_uppercase",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "gaia-typography"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "seamless",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Fuentes y estilo de los títulos.",
+  "show_in_rest": 0,
+  "modified": 1792235214
+}

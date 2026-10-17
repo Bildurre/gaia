@@ -1,32 +1,26 @@
+@use '../abstracts/schemes';
+
 :root {
-  // Palette. Gaia defaults: each site overrides them from
-  // Ajustes del sitio > Apariencia (printed inline by inc/appearance.php).
+  // Palette. Gaia defaults: each site overrides them from Ajustes de Gaia >
+  // Colores (printed inline by inc/appearance.php).
   --color-primary: #1d6ff2;
   --color-primary-light: color-mix(in oklab, var(--color-primary) 35%, var(--color-white)); // automatic unless set
   --color-primary-dark: color-mix(in oklab, var(--color-primary) 40%, var(--color-black)); // automatic unless set
-  --color-highlight: #ffcc00; // decorative only, never text on light
-  --color-ink: #15181c; // reading text
-  --color-black: #050507;
-  --color-gray-100: #f6f6f6;
+  --color-highlight: #ffcc00; // decorative only
   --color-white: #ffffff;
+  --color-black: #050507;
 
-  // Semantic colors. Reading text is ink; the dark primary is the accent on
-  // the light background. Dark areas (footer, hero) redefine them locally.
-  --color-background: var(--color-white);
-  --color-surface: var(--color-gray-100);
-  --color-header-background: color-mix(in srgb, var(--color-primary-light) 8%, var(--color-white)); // almost white
-  --color-separator: color-mix(in srgb, var(--color-ink) 10%, transparent);
-  --color-text: var(--color-ink);
-  --color-heading: var(--color-ink);
-  --color-accent: var(--color-primary-dark);
-  --color-link: var(--color-primary-dark);
-  --color-link-hover: var(--color-ink);
-  --color-focus: var(--color-primary-dark);
-  --color-error: #b3261e;
-  --color-error-background: #fdecea;
-  --color-success-background: color-mix(in srgb, var(--color-primary-light) 40%, var(--color-white));
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.05);
-  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / 0.12), 0 0 0 1px rgb(0 0 0 / 0.05);
+  // Light scheme
+  --color-light-background: var(--color-white);
+  --color-light-surface: #f5f6f7;
+  --color-light-text: #15181c;
+  --color-light-accent: var(--color-primary-dark);
+
+  // Dark scheme
+  --color-dark-background: #121417;
+  --color-dark-surface: #1d2025;
+  --color-dark-text: #f1f3f5;
+  --color-dark-accent: var(--color-primary-light);
 
   // Typography (font families and @font-face come from inc/appearance.php)
   --font-family-heading: system-ui, sans-serif;
@@ -60,7 +54,13 @@
   --container-width: 75rem;
   --container-gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
   --border-radius: 0.375rem;
+  --button-radius: var(--border-radius);
   --header-logo-height: 2rem;
+
+  // Headings (Ajustes de Gaia > Tipografía)
+  --heading-font-weight: 700;
+  --heading-text-transform: none;
+  --heading-letter-spacing: normal;
 
   // Form controls (inputs and buttons share the same height).
   // 16px on narrow screens so iOS Safari does not zoom on focus.
@@ -74,4 +74,36 @@
   :root {
     --control-font-size: 0.875rem;
   }
+}
+
+// Page scheme: light by default; dark when html has data-color-scheme="dark"
+// (set by the theme from the color mode option or the visitor's choice).
+:root {
+  @include schemes.light;
+}
+
+:root[data-color-scheme='dark'] {
+  @include schemes.dark;
+}
+
+// "Both" mode without JavaScript: follow the system preference
+@media (prefers-color-scheme: dark) {
+  :root[data-color-mode='auto']:not([data-color-scheme]) {
+    @include schemes.dark;
+  }
+}
+
+// Areas with a fixed scheme (footer, hero, sections…)
+.scheme-light {
+  @include schemes.light;
+}
+
+.scheme-dark {
+  @include schemes.dark;
+}
+
+.scheme-light,
+.scheme-dark {
+  color: var(--color-text);
+  background-color: var(--color-background);
 }

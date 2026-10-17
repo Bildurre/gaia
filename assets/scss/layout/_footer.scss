@@ -1,20 +1,24 @@
 @use '../abstracts/breakpoints';
 
-// The footer is the only dark area: it sets its own colors from the palette
-// and redefines the semantic tokens its children (social links...) use.
+// Footer colors follow its scheme (.scheme-dark / .scheme-light, from the
+// "Fondo" option); on dark the brand colors are used as accents.
 .site-footer {
-  --color-text: var(--color-white);
-  --color-link: var(--color-primary);
+  --footer-separator-color: var(--color-separator);
+  --footer-label-color: var(--color-accent);
+  --footer-icon-color: var(--color-accent);
+  --footer-credits-color: var(--color-text-muted);
+
+  font-size: var(--font-size-small);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.site-footer.scheme-dark {
   --color-accent: var(--color-primary);
-  --color-focus: var(--color-primary);
   --footer-separator-color: var(--color-primary-light);
   --footer-label-color: var(--color-primary);
   --footer-icon-color: var(--color-primary-light);
   --footer-credits-color: var(--color-primary-dark);
-
-  font-size: var(--font-size-small);
-  color: var(--color-text);
-  background-color: var(--color-ink);
 }
 
 // :where() keeps specificity low so element classes can override it.
@@ -56,16 +60,9 @@
 }
 
 .site-footer__logo {
-  color: var(--color-accent);
-  font-family: var(--font-family-heading);
-  font-size: var(--font-size-heading-4);
-  font-weight: 800;
-  text-transform: uppercase;
+  --site-logo-height: 3.375rem;
 
-  img {
-    width: auto;
-    max-height: 3.375rem;
-  }
+  text-decoration: none;
 }
 
 .site-footer__tagline {

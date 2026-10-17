@@ -91,7 +91,7 @@
   padding: var(--space-s) var(--space-m);
   font-size: var(--font-size-small);
   background-color: var(--color-background);
-  border: 1px dashed color-mix(in srgb, var(--color-text) 35%, transparent);
+  border: 1px dashed var(--color-input-border);
   border-radius: var(--border-radius);
   cursor: pointer;
   transition:

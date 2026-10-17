@@ -7,12 +7,12 @@ $contact_details = gaia_get_contact_details();
 $has_contact_details = $contact_details['address'] || $contact_details['phones'] || $contact_details['emails'];
 ?>
 
-<footer class="site-footer">
+<footer class="site-footer scheme-dark">
   <div class="site-footer__inner container">
     <div class="site-footer__top">
       <div class="site-footer__brand">
         <a class="site-footer__logo" href="<?php echo esc_url(home_url('/')); ?>">
-          <?php echo gaia_get_logo_markup('footer_logo', 'light'); ?>
+          <?php echo gaia_get_logo_markup(gaia_get_option_field('footer_logo') ?: 'main'); ?>
         </a>
 
         <?php if ($footer_tagline) : ?>
