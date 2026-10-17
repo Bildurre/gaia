@@ -34,9 +34,16 @@ function gaia_get_header_settings() {
     'shows_search' => (bool) gaia_get_option_value('header_show_search', false),
     'shows_scheme_toggle' => gaia_get_color_mode() === 'auto' && (bool) gaia_get_option_value('header_show_scheme_toggle', true),
     'mobile_menu' => in_array($mobile_menu, ['left', 'right', 'fullscreen'], true) ? $mobile_menu : 'left',
+    'is_hidden' => false,
   ];
 
-  return apply_filters('gaia_header_settings', $header_settings);
+  $header_settings = apply_filters('gaia_header_settings', $header_settings);
+
+  if ($header_settings['is_hidden']) {
+    $header_settings['is_transparent'] = false;
+  }
+
+  return $header_settings;
 }
 
 /**

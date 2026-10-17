@@ -7,6 +7,7 @@ $footer_credits = gaia_get_translated_option_html('footer_credits');
 $footer_logo_markup = gaia_get_logo_markup($footer_settings['logo']);
 ?>
 
+<?php if (!$footer_settings['is_hidden']) : ?>
 <footer class="<?php echo esc_attr(gaia_get_footer_classes()); ?>">
   <?php if ($footer_settings['layout'] === 'minimal') : ?>
     <div class="site-footer__inner container">
@@ -66,6 +67,7 @@ $footer_logo_markup = gaia_get_logo_markup($footer_settings['logo']);
     <?php endif; ?>
   <?php endif; ?>
 </footer>
+<?php endif; ?>
 
 <?php wp_footer(); ?>
 </body>

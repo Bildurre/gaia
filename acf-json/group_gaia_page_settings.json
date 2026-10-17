@@ -1,0 +1,172 @@
+{
+  "key": "group_gaia_page_settings",
+  "title": "Ajustes de la página",
+  "fields": [
+    {
+      "key": "field_gaia_page_header_layout",
+      "label": "Cabecera",
+      "name": "page_header_layout",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "": "Como en Ajustes de Gaia",
+        "two-rows": "Dos filas",
+        "one-row": "Una fila",
+        "centered": "Centrada",
+        "minimal": "Mínima"
+      },
+      "default_value": "",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_page_header_transparent",
+      "label": "Cabecera transparente",
+      "name": "page_header_transparent",
+      "type": "select",
+      "instructions": "Solo si la página empieza con un bloque Hero.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "": "Como en Ajustes de Gaia",
+        "yes": "Sí",
+        "no": "No"
+      },
+      "default_value": "",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_page_hide_header",
+      "label": "Ocultar la cabecera",
+      "name": "page_hide_header",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_page_footer_layout",
+      "label": "Pie de página",
+      "name": "page_footer_layout",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "": "Como en Ajustes de Gaia",
+        "brand-contact": "Marca y contacto",
+        "columns": "Columnas",
+        "minimal": "Mínimo"
+      },
+      "default_value": "",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_page_footer_background",
+      "label": "Fondo del pie",
+      "name": "page_footer_background",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "": "Como en Ajustes de Gaia",
+        "dark": "Oscuro",
+        "light": "Claro",
+        "primary": "Color principal"
+      },
+      "default_value": "",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_gaia_page_hide_footer",
+      "label": "Ocultar el pie de página",
+      "name": "page_hide_footer",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 0,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "page"
+      }
+    ],
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "post"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "side",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Cambios de cabecera y pie solo para esta página.",
+  "show_in_rest": 0,
+  "modified": 1792235767
+}

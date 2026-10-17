@@ -26,9 +26,12 @@ function gaia_get_footer_settings() {
     'logo' => gaia_get_option_value('footer_logo', 'main'),
     'shows_contact' => (bool) gaia_get_option_value('footer_show_contact', true),
     'shows_social' => (bool) gaia_get_option_value('footer_show_social', true),
+    'is_hidden' => false,
   ];
 
-  return apply_filters('gaia_footer_settings', $footer_settings);
+  $footer_settings = apply_filters('gaia_footer_settings', $footer_settings);
+
+  return $footer_settings;
 }
 
 function gaia_get_footer_classes() {

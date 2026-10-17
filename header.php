@@ -15,6 +15,7 @@ $header_settings = gaia_get_header_settings();
 $has_mobile_logo = $header_settings['logo_mobile'] !== $header_settings['logo'];
 ?>
 
+<?php if (!$header_settings['is_hidden']) : ?>
 <header
   class="<?php echo esc_attr(gaia_get_header_classes()); ?>"
   data-site-header
@@ -101,5 +102,6 @@ $has_mobile_logo = $header_settings['logo_mobile'] !== $header_settings['logo'];
     </div>
   <?php endif; ?>
 </header>
+<?php endif; ?>
 
 <main class="site-main" id="main">
