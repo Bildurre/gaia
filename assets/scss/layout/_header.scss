@@ -1,28 +1,71 @@
 @use '../abstracts/breakpoints';
 
-// Sticky header, always visible. JS keeps --site-header-height updated
-// (used to place the mobile panel below the header).
+// -----------------------------------------------------------------------------
+// Header (Ajustes de Gaia > Cabecera). One markup for every layout: the
+// layouts only change the grid areas. JS keeps --site-header-height updated
+// (drawer position, transparent header offset).
+// -----------------------------------------------------------------------------
+
 .site-header {
-  position: sticky;
+  position: relative;
   z-index: 100;
-  top: 0;
   background-color: var(--color-header-background);
   border-bottom: 1px solid var(--color-separator);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.3s ease,
+    transform 0.3s ease,
+    visibility 0.3s;
+
+  &.is-sticky {
+    position: sticky;
+    top: 0;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
 }
 
 // The admin bar is fixed above 600px wide only
 @media (min-width: 601px) {
-  .admin-bar .site-header {
+  .admin-bar .site-header.is-sticky,
+  .admin-bar .site-header.is-transparent {
     top: var(--wp-admin--admin-bar--height, 0px);
   }
 }
 
-// Narrow: [toggle] [logo] ... [user]. The panel opens below the header.
-// The first row has the same height on every screen size.
+// Transparent over the hero until the page scrolls (JS removes .scheme-dark
+// and adds .is-scrolled)
+.site-header.is-transparent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  &.is-sticky {
+    position: fixed;
+  }
+
+  &:not(.is-scrolled) {
+    background-color: transparent;
+    border-bottom-color: transparent;
+
+    .site-header__navigation::before {
+      border-top-color: rgb(255 255 255 / 0.2);
+    }
+  }
+}
+
+// Narrow: [toggle] [logo] ... [tools]. The first row has the same height on
+// every screen size.
 .site-header__inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
-  grid-template-areas: 'toggle logo user';
+  grid-template-areas: 'toggle logo tools';
   align-items: center;
   column-gap: var(--space-s);
 }
@@ -90,157 +133,463 @@
 }
 
 .site-header__logo {
+  --site-logo-height: var(--header-logo-height);
+
   grid-area: logo;
   justify-self: start;
   display: flex;
   align-items: center;
-  --site-logo-height: var(--header-logo-height);
-
   padding-block: var(--space-s);
   text-decoration: none;
+
+  &.has-mobile-logo .site-header__logo-main {
+    display: none;
+  }
 }
 
-.site-header__user {
-  grid-area: user;
-  justify-self: end;
-}
-
-// Narrow: drawer that slides in from the left below the header, with a
-// backdrop over the page. The page does not scroll; the drawer does.
-.site-header__backdrop {
-  position: fixed;
-  inset: var(--site-header-height, 3.5rem) 0 0;
-  background-color: rgb(0 0 0 / 0.45);
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.25s ease,
-    visibility 0.25s;
-}
-
-.site-header__panel {
-  position: fixed;
-  top: var(--site-header-height, 3.5rem);
-  bottom: 0;
-  left: 0;
+.site-header__logo-main,
+.site-header__logo-mobile {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-m);
-  width: min(20rem, 85vw);
-  padding: var(--space-m) var(--container-gutter) var(--space-xl);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  background-color: var(--color-header-background);
-  border-right: 1px solid var(--color-separator);
-  transform: translateX(-100%);
-  visibility: hidden;
-  transition:
-    transform 0.25s ease,
-    visibility 0.25s;
 }
 
-.is-menu-open {
+.site-header__tools {
+  grid-area: tools;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.site-header__tool {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+  border-radius: var(--border-radius);
+
+  &:hover {
+    color: var(--color-accent);
+    background-color: color-mix(in srgb, var(--color-text) 8%, transparent);
+  }
+
+  svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
+
+// Light/dark switch: shows the icon of the scheme it switches to
+.site-header__scheme-icon {
+  display: grid;
+}
+
+.site-header__scheme-icon--light,
+:root[data-color-scheme='dark'] .site-header__scheme-icon--dark {
+  display: none;
+}
+
+:root[data-color-scheme='dark'] .site-header__scheme-icon--light {
+  display: grid;
+}
+
+// -----------------------------------------------------------------------------
+// Drawer (narrow screens and the minimal layout)
+// -----------------------------------------------------------------------------
+
+@mixin drawer {
   .site-header__backdrop {
-    opacity: 1;
-    visibility: visible;
+    position: fixed;
+    inset: var(--site-header-height, 3.5rem) 0 0;
+    background-color: rgb(0 0 0 / 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s;
   }
 
   .site-header__panel {
-    transform: none;
-    visibility: visible;
-  }
-}
-
-.site-header__menu {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
-  list-style: none;
-
-  a {
-    display: block;
-    padding-block: var(--space-s);
-    font-family: var(--font-family-heading);
-    font-size: var(--font-size-base);
-    font-weight: 600;
+    position: fixed;
+    top: var(--site-header-height, 3.5rem);
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+    width: min(20rem, 85vw);
+    padding: var(--space-m) var(--container-gutter) var(--space-xl);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     color: var(--color-text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--color-separator);
+    background-color: var(--color-header-background);
+    border-right: 1px solid var(--color-separator);
+    transform: translateX(-100%);
+    visibility: hidden;
+    transition:
+      transform 0.25s ease,
+      visibility 0.25s;
+  }
 
-    &:hover {
-      color: var(--color-link);
+  &.site-header--menu-right .site-header__panel {
+    right: 0;
+    left: auto;
+    border-right: 0;
+    border-left: 1px solid var(--color-separator);
+    transform: translateX(100%);
+  }
+
+  &.site-header--menu-fullscreen .site-header__panel {
+    right: 0;
+    width: auto;
+    border-right: 0;
+    transform: translateY(-1rem);
+    opacity: 0;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease,
+      visibility 0.25s;
+  }
+
+  &.is-menu-open {
+    .site-header__backdrop {
+      opacity: 1;
+      visibility: visible;
     }
-  }
 
-  .current-menu-item > a,
-  .current-menu-ancestor > a {
-    color: var(--color-accent);
-  }
-}
-
-// Wide: logo on the left, language switcher and user menu on the right,
-// navigation centered in a second row between two separators.
-@include breakpoints.from('medium') {
-  .site-header__inner {
-    grid-template-columns: auto 1fr auto auto;
-    grid-template-areas:
-      'logo . languages user'
-      'navigation navigation navigation navigation';
-    column-gap: var(--space-m);
-  }
-
-  .site-header__menu-toggle,
-  .site-header__backdrop {
-    display: none;
-  }
-
-  .site-header__panel,
-  .is-menu-open .site-header__panel {
-    display: contents;
-    visibility: visible;
-  }
-
-  .site-header__languages {
-    grid-area: languages;
-  }
-
-  .site-header__navigation {
-    position: relative;
-    grid-area: navigation;
-
-    // Full-width separator between the top row and the navigation
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 100vw;
-      border-top: 1px solid var(--color-separator);
-      transform: translateX(-50%);
+    .site-header__panel {
+      transform: none;
+      opacity: 1;
+      visibility: visible;
     }
-  }
-
-  .site-header {
-    overflow-x: clip;
   }
 
   .site-header__menu {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0 var(--space-l);
+    display: flex;
+    flex-direction: column;
+
+    > li {
+      border-bottom: 1px solid var(--color-separator);
+    }
+
+    > li > a {
+      padding-block: var(--space-s);
+    }
+  }
+
+  // Submenus as accordions
+  .site-header__menu .menu-item-has-children {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+
+  .submenu-toggle {
+    align-self: center;
+  }
+
+  .sub-menu {
+    grid-column: 1 / -1;
+    display: none;
+    padding-inline-start: var(--space-m);
+
+    li {
+      border-top: 1px solid var(--color-separator);
+    }
 
     a {
       padding-block: var(--space-xs);
       font-size: var(--font-size-small);
-      border-bottom: 0;
-      box-shadow: inset 0 -2px 0 transparent;
-      transition: box-shadow 0.15s ease, color 0.15s ease;
+    }
+  }
+
+  .is-submenu-open > .sub-menu {
+    display: block;
+  }
+
+  .is-submenu-open > .submenu-toggle svg {
+    transform: rotate(180deg);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Menu items (shared)
+// -----------------------------------------------------------------------------
+
+.site-header__menu,
+.site-header__menu .sub-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header__menu a {
+  display: block;
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color-link);
+  }
+}
+
+.site-header__menu .current-menu-item > a,
+.site-header__menu .current-menu-ancestor > a {
+  color: var(--color-accent);
+}
+
+.submenu-toggle {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  color: var(--color-text);
+  background: none;
+  border: 0;
+
+  svg {
+    width: 0.875rem;
+    height: 0.875rem;
+    transition: transform 0.15s ease;
+  }
+}
+
+.site-header__navigation,
+.site-header__languages {
+  min-width: 0;
+}
+
+// Narrow screens: every layout uses the drawer
+@media (max-width: 47.999rem) {
+  .site-header {
+    @include drawer;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Wide screens
+// -----------------------------------------------------------------------------
+
+@include breakpoints.from('medium') {
+  .site-header__logo.has-mobile-logo {
+    .site-header__logo-main {
+      display: flex;
     }
 
-    .current-menu-item > a,
-    .current-menu-ancestor > a {
-      box-shadow: inset 0 -2px 0 var(--color-accent);
+    .site-header__logo-mobile {
+      display: none;
     }
+  }
+
+  // Minimal layout: logo, tools and the menu button; the menu stays a drawer
+  .site-header--minimal {
+    @include drawer;
+
+    .site-header__inner {
+      grid-template-columns: auto 1fr auto auto;
+      grid-template-areas: 'logo . tools toggle';
+    }
+
+    .site-header__menu-toggle {
+      margin-inline: 0 calc(var(--space-3xs) * -1);
+    }
+  }
+
+  // Every other layout: the panel is display: contents and its children go
+  // into the header grid
+  .site-header:not(.site-header--minimal) {
+    .site-header__menu-toggle,
+    .site-header__backdrop {
+      display: none;
+    }
+
+    .site-header__panel {
+      display: contents;
+    }
+
+    .site-header__languages {
+      grid-area: languages;
+    }
+
+    .site-header__navigation {
+      grid-area: navigation;
+    }
+
+    .site-header__menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0 var(--space-l);
+
+      > li {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      > li > a {
+        padding-block: var(--space-xs);
+        font-size: var(--font-size-small);
+        box-shadow: inset 0 -2px 0 transparent;
+        transition:
+          box-shadow 0.15s ease,
+          color 0.15s ease;
+      }
+
+      > .current-menu-item > a,
+      > .current-menu-ancestor > a {
+        box-shadow: inset 0 -2px 0 var(--color-accent);
+      }
+    }
+
+    .submenu-toggle {
+      width: 1.25rem;
+      margin-inline-start: var(--space-3xs);
+    }
+
+    // Submenus as dropdowns
+    .sub-menu {
+      position: absolute;
+      z-index: 10;
+      top: 100%;
+      left: 0;
+      min-width: 12rem;
+      padding: var(--space-2xs);
+      background-color: var(--color-background);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-dropdown);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(0.25rem);
+      transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s;
+
+      a {
+        padding: var(--space-2xs) var(--space-xs);
+        font-size: var(--font-size-small);
+        font-weight: 500;
+        border-radius: calc(var(--border-radius) / 2);
+
+        &:hover {
+          background-color: var(--color-surface);
+        }
+      }
+    }
+
+    .is-submenu-open > .sub-menu,
+    .menu-item-has-children:focus-within > .sub-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    @media (hover: hover) {
+      .menu-item-has-children:hover > .sub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+    }
+  }
+
+  // Two rows: logo, languages and tools on top; menu centered below
+  .site-header--two-rows {
+    .site-header__inner {
+      grid-template-columns: auto 1fr auto auto;
+      grid-template-areas:
+        'logo . languages tools'
+        'navigation navigation navigation navigation';
+      column-gap: var(--space-m);
+    }
+
+    .site-header__menu {
+      justify-content: center;
+    }
+  }
+
+  // One row: logo, menu, languages and tools
+  .site-header--one-row {
+    .site-header__inner {
+      grid-template-columns: auto 1fr auto auto;
+      grid-template-areas: 'logo navigation languages tools';
+      column-gap: var(--space-l);
+    }
+
+    .site-header__menu {
+      justify-content: flex-end;
+    }
+  }
+
+  // Centered: logo in the middle, languages left, tools right, menu below
+  .site-header--centered {
+    .site-header__inner {
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas:
+        'languages logo tools'
+        'navigation navigation navigation';
+      column-gap: var(--space-m);
+    }
+
+    .site-header__logo {
+      justify-self: center;
+    }
+
+    .site-header__languages {
+      justify-self: start;
+    }
+
+    .site-header__menu {
+      justify-content: center;
+    }
+  }
+
+  // Full-width separator above the menu on the two-row layouts
+  .site-header--two-rows,
+  .site-header--centered {
+    overflow-x: clip;
+
+    .site-header__navigation {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        border-top: 1px solid var(--color-separator);
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Search panel
+// -----------------------------------------------------------------------------
+
+.site-header__search {
+  padding-block: var(--space-s);
+  border-top: 1px solid var(--color-separator);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.search-form {
+  display: flex;
+  gap: var(--space-xs);
+
+  .search-form__input {
+    flex: 1;
   }
 }

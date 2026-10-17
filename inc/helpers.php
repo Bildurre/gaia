@@ -175,3 +175,13 @@ function gaia_get_current_url() {
 
   return home_url(add_query_arg([], $wp->request ?? ''));
 }
+
+/**
+ * Option value with a default for options that were never saved
+ * (get_field() returns null for them).
+ */
+function gaia_get_option_value($field_name, $default_value) {
+  $field_value = gaia_get_option_field($field_name);
+
+  return $field_value === null || $field_value === '' ? $default_value : $field_value;
+}
