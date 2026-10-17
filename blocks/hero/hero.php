@@ -72,7 +72,8 @@ $hero_end_id = 'hero-end-' . ($block['id'] ?? wp_unique_id());
               continue;
             }
 
-            $button_style = $button['style'] ?? 'accent';
+            // Old values: "accent" (now primary) and "outline" (now secondary)
+            $button_style = str_replace(['accent', 'outline'], ['primary', 'secondary'], $button['style'] ?? 'primary');
             ?>
             <a
               class="button button--<?php echo esc_attr($button_style); ?>"

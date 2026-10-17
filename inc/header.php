@@ -68,15 +68,38 @@ function gaia_is_header_transparent() {
   return (bool) apply_filters('gaia_header_transparent', $is_enabled && gaia_page_starts_with_hero());
 }
 
-function gaia_get_header_classes() {
+/**
+ * Scheme class of the header background ('' when it follows the page).
+ */
+function gaia_get_header_scheme_class() {
+  $background_classes = gaia_get_option_classes(['header_background']);
+
+  return array_values(array_intersect($background_classes, ['scheme-dark', 'scheme-light']))[0] ?? '';
+}
+
+/**
+ * @param bool $is_sample Header sample on the options pages: never sticky
+ *                        nor transparent.
+ */
+function gaia_get_header_classes($is_sample = false) {
   $header_settings = gaia_get_header_settings();
-  $header_classes = [
+  $is_transparent = $header_settings['is_transparent'] && !$is_sample;
+  $option_classes = array_diff(
+    gaia_get_option_classes(['header_background', 'header_text_color', 'header_menu_indicator', 'header_shadow']),
+    ['scheme-dark', 'scheme-light']
+  );
+
+  // Transparent: dark scheme over the hero; JS switches to the background
+  // scheme (data-solid-scheme) once the page scrolls.
+  $scheme_class = $is_transparent ? 'is-transparent scheme-dark' : gaia_get_header_scheme_class();
+
+  $header_classes = array_merge([
     'site-header',
     'site-header--' . $header_settings['layout'],
     'site-header--menu-' . $header_settings['mobile_menu'],
-    $header_settings['is_sticky'] ? 'is-sticky' : '',
-    $header_settings['is_transparent'] ? 'is-transparent scheme-dark' : '',
-  ];
+    $header_settings['is_sticky'] && !$is_sample ? 'is-sticky' : '',
+    $scheme_class,
+  ], $option_classes);
 
   return implode(' ', array_filter($header_classes));
 }

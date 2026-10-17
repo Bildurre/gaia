@@ -6,7 +6,9 @@
   --color-primary: #1d6ff2;
   --color-primary-light: color-mix(in oklab, var(--color-primary) 35%, var(--color-white)); // automatic unless set
   --color-primary-dark: color-mix(in oklab, var(--color-primary) 40%, var(--color-black)); // automatic unless set
+  --color-on-primary: #ffffff; // text on the primary color (automatic contrast unless set)
   --color-highlight: #ffcc00; // decorative only
+  --color-on-highlight: #15181c;
   --color-white: #ffffff;
   --color-black: #050507;
 
@@ -22,7 +24,11 @@
   --color-dark-text: #f1f3f5;
   --color-dark-accent: var(--color-primary-light);
 
-  // Typography (font families and @font-face come from inc/appearance.php)
+  // Typography (font families and @font-face come from inc/appearance.php).
+  // --root-font-size scales the whole design (Tipografía > Tamaño).
+  --root-font-size: 100%;
+  --link-decoration: underline;
+  --link-hover-decoration: underline;
   --font-family-heading: system-ui, sans-serif;
   --font-family-body: system-ui, sans-serif;
 
@@ -54,8 +60,23 @@
   --container-width: 75rem;
   --container-gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
   --border-radius: 0.375rem;
-  --button-radius: var(--border-radius);
+  --shadow-strength: 1;
   --header-logo-height: 2rem;
+  --footer-logo-height: 3.375rem;
+
+  // Buttons (Ajustes de Gaia > Estilo; colors in components/_buttons.scss)
+  --button-radius: var(--border-radius);
+  --button-padding-block: var(--control-padding-block);
+  --button-padding-inline: 1rem;
+  --button-font-size: var(--control-font-size);
+  --button-font-weight: 700;
+  --button-text-transform: none;
+  --button-letter-spacing: normal;
+  --button-border-width: 1px;
+  --button-hover-transform: none;
+  --button-hover-shadow: none;
+  --button-primary-outline: 0;
+  --button-secondary-outline: 1;
 
   // Headings (Ajustes de Gaia > Tipografía)
   --heading-font-weight: 700;

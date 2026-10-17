@@ -1,64 +1,65 @@
+// Buttons. Colors from Ajustes de Gaia > Colores > Botones, shape and size
+// from Estilo (tokens in base/_tokens.scss). Every option is a custom
+// property that may be missing, so each one has its default here.
+// Solid or outline is a number (0 / 1) mixed into the colors:
+// outline = transparent background and the button color as text.
 .button {
+  --button-color: var(--button-primary-color, var(--color-primary));
+  --button-text: var(--button-primary-text, var(--color-on-primary));
+  --button-outline: var(--button-primary-outline);
+  --button-hover-color: var(--button-primary-hover-color, color-mix(in srgb, var(--button-color) calc(100% - 15% * (1 - var(--button-outline))), #000));
+  --button-hover-text: var(--button-primary-hover-text, var(--button-text));
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2xs);
-  padding: var(--control-padding-block) var(--space-m);
+  padding: calc(var(--button-padding-block) + 1px - var(--button-border-width)) var(--button-padding-inline);
   font-family: var(--font-family-heading);
-  font-size: var(--control-font-size);
-  font-weight: 700;
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
   line-height: var(--control-line-height);
-  color: var(--color-background);
+  letter-spacing: var(--button-letter-spacing);
+  text-transform: var(--button-text-transform);
   text-decoration: none;
-  background-color: var(--color-text);
-  border: 1px solid var(--color-text);
+  color: color-mix(in srgb, var(--button-color) calc(var(--button-outline) * 100%), var(--button-text));
+  background-color: color-mix(in srgb, var(--button-color) calc((1 - var(--button-outline)) * 100%), transparent);
+  border: var(--button-border-width) solid var(--button-color);
   border-radius: var(--button-radius);
+  cursor: pointer;
   transition:
     color 0.15s ease,
     background-color 0.15s ease,
-    border-color 0.15s ease;
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
 
-  &:hover {
-    color: var(--color-background);
-    background-color: var(--color-link);
-    border-color: var(--color-link);
+  &:hover,
+  &.is-hover {
+    color: var(--button-hover-text);
+    text-decoration: none;
+    background-color: var(--button-hover-color);
+    border-color: var(--button-hover-color);
+    box-shadow: var(--button-hover-shadow);
+    transform: var(--button-hover-transform);
   }
 }
 
-// Primary color button with ink text
-.button--accent {
-  color: var(--color-light-text);
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-
-  &:hover {
-    color: var(--color-light-text);
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
-  }
-}
-
-.button--light {
-  color: var(--color-light-text);
-  background-color: var(--color-white);
-  border-color: var(--color-white);
-
-  &:hover {
-    color: var(--color-light-text);
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
-  }
-}
-
-// Transparent with a border in the current text color
+// Secondary: the text color unless a secondary color is set
+.button--secondary,
 .button--outline {
-  color: var(--color-text);
-  background-color: transparent;
-  border-color: currentColor;
+  --button-color: var(--button-secondary-color, var(--color-secondary, var(--color-text)));
+  --button-text: var(--button-secondary-text, var(--color-on-secondary, var(--color-background)));
+  --button-outline: var(--button-secondary-outline);
+  --button-hover-color: var(--button-secondary-hover-color, color-mix(in srgb, var(--button-color) calc(100% - 15% * (1 - var(--button-outline))), #000));
+  --button-hover-text: var(--button-secondary-hover-text, var(--button-text));
+}
 
-  &:hover {
-    color: var(--color-text);
-    background-color: color-mix(in srgb, var(--color-text) 12%, transparent);
-    border-color: currentColor;
-  }
+// White button for dark images and areas
+.button--light {
+  --button-color: var(--color-white);
+  --button-text: var(--color-black);
+  --button-outline: 0;
+  --button-hover-color: var(--color-primary-light);
+  --button-hover-text: var(--color-black);
 }

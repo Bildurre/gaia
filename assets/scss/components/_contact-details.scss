@@ -1,0 +1,53 @@
+// Contact detail icons (Contacto > Iconos): hidden, plain, or inside a
+// circle / square, outlined or solid (icon in the background color).
+.contact-details__icon,
+.contact-details__icon-variants {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+}
+
+.contact-details__icon {
+  --contact-icon-size: 1rem;
+
+  margin-top: 0.15em;
+  color: var(--contact-icon-color, var(--contact-details-icon-color, var(--color-accent)));
+
+  &[hidden] {
+    display: none;
+  }
+
+  svg {
+    width: var(--contact-icon-size);
+    height: var(--contact-icon-size);
+  }
+}
+
+.contact-details--icons-0 :is(.contact-details__icon, .contact-details__icon-variants) {
+  display: none;
+}
+
+:is(.contact-details--shape-circle, .contact-details--shape-square) .contact-details__icon {
+  --contact-icon-size: 0.875rem;
+
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-top: -0.2em;
+  border: 1px solid currentColor;
+}
+
+.contact-details--shape-circle .contact-details__icon {
+  border-radius: 50%;
+}
+
+.contact-details--shape-square .contact-details__icon {
+  border-radius: max(var(--border-radius) / 1.5, 3px);
+}
+
+:is(.contact-details--shape-circle, .contact-details--shape-square).contact-details--fill-solid .contact-details__icon {
+  background-color: currentColor;
+
+  svg {
+    color: var(--color-background);
+  }
+}

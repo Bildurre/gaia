@@ -18,6 +18,22 @@
       "endpoint": 0
     },
     {
+      "key": "field_gaia_extras_sample_announcement",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
       "key": "field_gaia_extras_announcement_enabled",
       "label": "Mostrar barra de aviso",
       "name": "extras_announcement_enabled",
@@ -36,6 +52,24 @@
       "ui_off_text": ""
     },
     {
+      "key": "field_gaia_extras_announcement_dismissible",
+      "label": "Se puede cerrar",
+      "name": "extras_announcement_dismissible",
+      "type": "true_false",
+      "instructions": "Cada visitante puede cerrarla; vuelve a aparecer si cambias el mensaje.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 1,
+      "ui": 1,
+      "message": "",
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
       "key": "field_gaia_extras_announcement_style",
       "label": "Estilo",
       "name": "extras_announcement_style",
@@ -43,7 +77,7 @@
       "instructions": "",
       "required": 0,
       "wrapper": {
-        "width": "50",
+        "width": "",
         "class": "gaia-visual-choices",
         "id": ""
       },
@@ -76,10 +110,10 @@
     },
     {
       "key": "field_gaia_extras_announcement_link",
-      "label": "Enlace",
+      "label": "Enlace del botón",
       "name": "extras_announcement_link",
       "type": "link",
-      "instructions": "Opcional. Todo el mensaje enlaza aquí.",
+      "instructions": "Opcional. Si hay enlace, aparece un botón junto al mensaje.",
       "required": 0,
       "wrapper": {
         "width": "50",
@@ -89,8 +123,39 @@
       "return_format": "array"
     },
     {
+      "key": "field_gaia_extras_announcement_button_text",
+      "label": "Texto del botón",
+      "name": "extras_announcement_button_text",
+      "type": "group",
+      "instructions": "Vacío = «Más información».",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "sub_fields": []
+    },
+    {
+      "key": "field_gaia_extras_announcement_start",
+      "label": "Mostrar a partir de",
+      "name": "extras_announcement_start",
+      "type": "date_time_picker",
+      "instructions": "Opcional. La barra aparece en esta fecha.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "display_format": "d/m/Y H:i",
+      "return_format": "Y-m-d H:i:s",
+      "first_day": 1
+    },
+    {
       "key": "field_gaia_extras_announcement_expiry",
-      "label": "Ocultar a partir de",
+      "label": "Mostrar hasta",
       "name": "extras_announcement_expiry",
       "type": "date_time_picker",
       "instructions": "Opcional. La barra deja de mostrarse en esta fecha.",
@@ -103,24 +168,6 @@
       "display_format": "d/m/Y H:i",
       "return_format": "Y-m-d H:i:s",
       "first_day": 1
-    },
-    {
-      "key": "field_gaia_extras_announcement_dismissible",
-      "label": "Se puede cerrar",
-      "name": "extras_announcement_dismissible",
-      "type": "true_false",
-      "instructions": "Cada visitante puede cerrarla; vuelve a aparecer si cambias el mensaje.",
-      "required": 0,
-      "wrapper": {
-        "width": "50",
-        "class": "",
-        "id": ""
-      },
-      "default_value": 1,
-      "ui": 1,
-      "message": "",
-      "ui_on_text": "",
-      "ui_off_text": ""
     },
     {
       "key": "field_gaia_extras_tab_maintenance",
@@ -300,5 +347,5 @@
   "active": true,
   "description": "Barra de aviso, modo mantenimiento, migas de pan, volver arriba y página 404.",
   "show_in_rest": 0,
-  "modified": 1792250427
+  "modified": 1792252826
 }

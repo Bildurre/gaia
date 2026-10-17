@@ -1,8 +1,7 @@
 <?php
 /**
- * Appearance options (Ajustes del sitio > Apariencia): colors, fonts and
- * favicon. Printed as CSS custom properties and @font-face rules on the site
- * and in the block editor.
+ * Appearance: fonts, color mode and the CSS of the design options (see
+ * inc/option-styles.php), printed on the site and in the block editor.
  */
 
 if (!defined('ABSPATH')) {
@@ -91,50 +90,10 @@ function gaia_get_color_mode() {
 }
 
 /**
- * Color options mapped to the palette custom properties they override.
+ * @font-face rules for the selected fonts and the :root custom properties of
+ * the design options ($excluded_options: see gaia_get_option_style_properties()).
  */
-function gaia_get_color_option_properties() {
-  return [
-    'colors_primary' => '--color-primary',
-    'colors_primary_light' => '--color-primary-light',
-    'colors_primary_dark' => '--color-primary-dark',
-    'colors_highlight' => '--color-highlight',
-    'colors_light_background' => '--color-light-background',
-    'colors_light_surface' => '--color-light-surface',
-    'colors_light_text' => '--color-light-text',
-    'colors_light_accent' => '--color-light-accent',
-    'colors_dark_background' => '--color-dark-background',
-    'colors_dark_surface' => '--color-dark-surface',
-    'colors_dark_text' => '--color-dark-text',
-    'colors_dark_accent' => '--color-dark-accent',
-  ];
-}
-
-/**
- * Style options (Ajustes de Gaia > Estilo and Tipografía) as custom properties.
- */
-function gaia_get_style_properties() {
-  $border_radius_values = ['none' => '0', 'soft' => '0.375rem', 'round' => '0.875rem'];
-  $container_width_values = ['narrow' => '62rem', 'normal' => '75rem', 'wide' => '90rem'];
-  $heading_weight_values = ['regular' => '500', 'bold' => '700', 'extra-bold' => '800'];
-
-  $border_radius = $border_radius_values[gaia_get_option_field('style_radius')] ?? $border_radius_values['soft'];
-  $container_width = $container_width_values[gaia_get_option_field('style_container_width')] ?? $container_width_values['normal'];
-  $heading_weight = $heading_weight_values[gaia_get_option_field('typography_heading_weight')] ?? $heading_weight_values['bold'];
-  $has_pill_buttons = gaia_get_option_field('style_buttons') === 'pill';
-  $has_uppercase_headings = (bool) gaia_get_option_field('typography_heading_uppercase');
-
-  return [
-    '--border-radius' => $border_radius,
-    '--button-radius' => $has_pill_buttons ? '999px' : 'var(--border-radius)',
-    '--container-width' => $container_width,
-    '--heading-font-weight' => $heading_weight,
-    '--heading-text-transform' => $has_uppercase_headings ? 'uppercase' : 'none',
-    '--heading-letter-spacing' => $has_uppercase_headings ? '0.03em' : 'normal',
-  ];
-}
-
-function gaia_get_appearance_css($context = 'site') {
+function gaia_get_appearance_css($context = 'site', $excluded_options = []) {
   $fonts_directory_uri = get_template_directory_uri() . '/assets/fonts/';
   $selected_fonts = gaia_get_selected_fonts();
   $css_rules = [];
@@ -158,23 +117,12 @@ function gaia_get_appearance_css($context = 'site') {
     }
   }
 
-  $custom_properties = [
-    '--font-family-heading' => gaia_get_font_stack($selected_fonts['heading']),
-    '--font-family-body' => gaia_get_font_stack($selected_fonts['body']),
-  ] + gaia_get_style_properties();
-
-  foreach (gaia_get_color_option_properties() as $option_name => $custom_property) {
-    $color = sanitize_hex_color((string) gaia_get_option_field($option_name));
-
-    if ($color) {
-      $custom_properties[$custom_property] = $color;
-    }
-  }
+  $custom_properties = gaia_get_option_style_properties($excluded_options);
 
   // The block editor has no page scheme switch: show it in dark colors when
   // the site is dark only.
   if ($context === 'editor' && gaia_get_color_mode() === 'dark') {
-    foreach (['background', 'surface', 'text', 'accent'] as $color_role) {
+    foreach (['background', 'surface', 'text', 'heading', 'accent', 'link'] as $color_role) {
       $custom_properties['--color-light-' . $color_role] = $custom_properties['--color-dark-' . $color_role] ?? 'var(--color-dark-' . $color_role . ')';
     }
   }
@@ -241,7 +189,7 @@ function gaia_print_color_scheme_script() {
     return;
   }
 
-  echo "<script>(function(){var savedScheme=null;try{savedScheme=localStorage.getItem('gaia-color-scheme');}catch(error){}var scheme=savedScheme==='dark'||savedScheme==='light'?savedScheme:(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-color-scheme',scheme);})();</script>\n";
+  echo "<script>(function(){var savedScheme=null;try{savedScheme=localStorage.getItem('gaia-color-scheme');}catch(error){}var preference=savedScheme==='dark'||savedScheme==='light'?savedScheme:'system';var scheme=preference==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):preference;document.documentElement.setAttribute('data-color-preference',preference);document.documentElement.setAttribute('data-color-scheme',scheme);})();</script>\n";
 }
 add_action('wp_head', 'gaia_print_color_scheme_script', 0);
 

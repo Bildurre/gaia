@@ -13,7 +13,7 @@ get_header();
   <h1 class="not-found__title"><?php echo esc_html($not_found_texts['title']); ?></h1>
   <p class="not-found__text"><?php echo nl2br(esc_html($not_found_texts['text'])); ?></p>
   <?php get_template_part('template-parts/search-form', null, ['id' => 'not-found-search']); ?>
-  <p><a class="button button--accent" href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Go to the home page', 'gaia'); ?></a></p>
+  <p><a class="button" href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Go to the home page', 'gaia'); ?></a></p>
 </div>
 
 <?php

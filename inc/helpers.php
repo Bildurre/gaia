@@ -166,6 +166,56 @@ function gaia_get_icon_svg($icon_path, $fallback_icon_path = '') {
   return '';
 }
 
+/**
+ * Contact icon collections (assets/icons/contact/<collection>/), all free:
+ * Lucide (ISC), Tabler (MIT), Phosphor (MIT) and Heroicons (MIT).
+ */
+function gaia_get_contact_icon_collections() {
+  return [
+    'lucide' => 'Lucide',
+    'tabler' => 'Tabler',
+    'phosphor' => 'Phosphor',
+    'heroicons' => 'Heroicons',
+  ];
+}
+
+/**
+ * Contact icon ('address', 'phone' or 'email') of the chosen collection.
+ */
+function gaia_get_contact_icon_svg($contact_type, $collection = '') {
+  $collection = $collection ?: gaia_get_option_value('contact_icons_collection', 'lucide');
+
+  if (!array_key_exists($collection, gaia_get_contact_icon_collections())) {
+    $collection = 'lucide';
+  }
+
+  return gaia_get_icon_svg('contact/' . $collection . '/' . $contact_type, 'contact/lucide/' . $contact_type);
+}
+
+/**
+ * Icon wrapper of a contact item. Samples print every collection so they can
+ * switch without reloading.
+ */
+function gaia_get_contact_icon_markup($contact_type, $is_sample = false) {
+  if (!$is_sample) {
+    return '<span class="contact-details__icon">' . gaia_get_contact_icon_svg($contact_type) . '</span>';
+  }
+
+  $selected_collection = gaia_get_option_value('contact_icons_collection', 'lucide');
+  $icon_variants = '';
+
+  foreach (array_keys(gaia_get_contact_icon_collections()) as $collection) {
+    $icon_variants .= sprintf(
+      '<span class="contact-details__icon" data-variant-value="%s"%s>%s</span>',
+      esc_attr($collection),
+      $collection === $selected_collection ? '' : ' hidden',
+      gaia_get_contact_icon_svg($contact_type, $collection)
+    );
+  }
+
+  return '<span class="contact-details__icon-variants" data-sample-variants="contact_icons_collection">' . $icon_variants . '</span>';
+}
+
 function gaia_get_social_icon_svg($network_slug) {
   return gaia_get_icon_svg('social/' . sanitize_file_name($network_slug), 'ui/link');
 }

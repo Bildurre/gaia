@@ -3,6 +3,21 @@
   "title": "Estilo",
   "fields": [
     {
+      "key": "field_gaia_style_tab_general",
+      "label": "General",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
       "key": "field_gaia_style_radius",
       "label": "Esquinas",
       "name": "style_radius",
@@ -20,29 +35,6 @@
         "round": "Redondeadas"
       },
       "default_value": "soft",
-      "return_format": "value",
-      "allow_null": 0,
-      "other_choice": 0,
-      "save_other_choice": 0,
-      "layout": "horizontal"
-    },
-    {
-      "key": "field_gaia_style_buttons",
-      "label": "Forma de los botones",
-      "name": "style_buttons",
-      "type": "radio",
-      "instructions": "",
-      "required": 0,
-      "wrapper": {
-        "width": "50",
-        "class": "gaia-visual-choices",
-        "id": ""
-      },
-      "choices": {
-        "rectangular": "Como las esquinas",
-        "pill": "Píldora"
-      },
-      "default_value": "rectangular",
       "return_format": "value",
       "allow_null": 0,
       "other_choice": 0,
@@ -72,6 +64,243 @@
       "other_choice": 0,
       "save_other_choice": 0,
       "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_shadows",
+      "label": "Sombras",
+      "name": "style_shadows",
+      "type": "radio",
+      "instructions": "Tarjetas, menús desplegables y cabecera.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "none": "Sin sombra",
+        "soft": "Suaves",
+        "strong": "Marcadas"
+      },
+      "default_value": "soft",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_tab_buttons",
+      "label": "Botones",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_style_sample_buttons",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "Los colores están en Colores > Botones.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
+      "key": "field_gaia_style_button_primary_type",
+      "label": "Botón principal",
+      "name": "style_button_primary_type",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "solid": "Relleno",
+        "outline": "Contorno"
+      },
+      "default_value": "solid",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_button_secondary_type",
+      "label": "Botón secundario",
+      "name": "style_button_secondary_type",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "solid": "Relleno",
+        "outline": "Contorno"
+      },
+      "default_value": "outline",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_buttons",
+      "label": "Forma",
+      "name": "style_buttons",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "rectangular": "Como las esquinas",
+        "pill": "Píldora"
+      },
+      "default_value": "rectangular",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_button_size",
+      "label": "Tamaño",
+      "name": "style_button_size",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "small": "Pequeño",
+        "medium": "Mediano",
+        "large": "Grande"
+      },
+      "default_value": "medium",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_button_weight",
+      "label": "Grosor del texto",
+      "name": "style_button_weight",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "regular": "Normal",
+        "semibold": "Seminegrita",
+        "bold": "Negrita"
+      },
+      "default_value": "bold",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_button_border",
+      "label": "Borde",
+      "name": "style_button_border",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "thin": "Fino",
+        "thick": "Grueso"
+      },
+      "default_value": "thin",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_button_hover",
+      "label": "Al pasar el ratón",
+      "name": "style_button_hover",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "color": "Solo color",
+        "lift": "Se eleva",
+        "grow": "Crece"
+      },
+      "default_value": "color",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_style_button_uppercase",
+      "label": "Texto en mayúsculas",
+      "name": "style_button_uppercase",
+      "type": "true_false",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
     }
   ],
   "location": [
@@ -92,5 +321,5 @@
   "active": true,
   "description": "Forma de los elementos y ancho del contenido.",
   "show_in_rest": 0,
-  "modified": 1792250428
+  "modified": 1792252826
 }

@@ -73,6 +73,9 @@ function gaia_get_translatable_option_fields() {
     'field_gaia_extras_announcement_text' => [
       'type' => 'text',
     ],
+    'field_gaia_extras_announcement_button_text' => [
+      'type' => 'text',
+    ],
     'field_gaia_extras_maintenance_title' => [
       'type' => 'text',
     ],

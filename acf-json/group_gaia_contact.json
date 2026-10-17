@@ -3,6 +3,21 @@
   "title": "Contacto",
   "fields": [
     {
+      "key": "field_gaia_contact_tab_details",
+      "label": "Datos",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
       "key": "field_gaia_contact_phones",
       "label": "Teléfonos",
       "name": "contact_phones",
@@ -194,6 +209,230 @@
           "parent_repeater": "field_gaia_contact_social_networks"
         }
       ]
+    },
+    {
+      "key": "field_gaia_contact_tab_icons",
+      "label": "Iconos",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_contact_sample_icons",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "Con el fondo del pie de página.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
+      "key": "field_gaia_contact_icons_show",
+      "label": "Iconos en los datos de contacto",
+      "name": "contact_icons_show",
+      "type": "true_false",
+      "instructions": "Dirección, teléfonos y emails.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_contact_icons_color",
+      "label": "Color de los iconos",
+      "name": "contact_icons_color",
+      "type": "color_picker",
+      "instructions": "Vacío = automático.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_contact_icons_collection",
+      "label": "Colección de iconos",
+      "name": "contact_icons_collection",
+      "type": "radio",
+      "instructions": "Todas libres (licencias ISC y MIT).",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "lucide": "Lucide",
+        "tabler": "Tabler",
+        "phosphor": "Phosphor",
+        "heroicons": "Heroicons"
+      },
+      "default_value": "lucide",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_contact_icons_shape",
+      "label": "Forma",
+      "name": "contact_icons_shape",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "none": "Sin forma",
+        "circle": "Círculo",
+        "square": "Cuadrado"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_contact_icons_fill",
+      "label": "Relleno",
+      "name": "contact_icons_fill",
+      "type": "radio",
+      "instructions": "Con forma de círculo o cuadrado.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "outline": "Contorno",
+        "solid": "Relleno (invertido)"
+      },
+      "default_value": "outline",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_social_icons_shape",
+      "label": "Redes sociales: forma",
+      "name": "social_icons_shape",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "none": "Sin forma",
+        "circle": "Círculo",
+        "square": "Cuadrado"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_social_icons_fill",
+      "label": "Redes sociales: relleno",
+      "name": "social_icons_fill",
+      "type": "radio",
+      "instructions": "Con forma de círculo o cuadrado.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "outline": "Contorno",
+        "solid": "Relleno (invertido)"
+      },
+      "default_value": "outline",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_social_icons_size",
+      "label": "Redes sociales: tamaño",
+      "name": "social_icons_size",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "small": "Pequeño",
+        "medium": "Mediano",
+        "large": "Grande"
+      },
+      "default_value": "medium",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_social_icons_color",
+      "label": "Redes sociales: color",
+      "name": "social_icons_color",
+      "type": "color_picker",
+      "instructions": "Vacío = el color del texto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
     }
   ],
   "location": [
@@ -214,5 +453,5 @@
   "active": true,
   "description": "Datos de contacto y redes sociales. Se reutilizan en el footer y en los bloques.",
   "show_in_rest": 0,
-  "modified": 1792183193
+  "modified": 1792252826
 }

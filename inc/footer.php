@@ -22,7 +22,7 @@ function gaia_get_footer_settings() {
 
   $footer_settings = [
     'layout' => in_array($layout, ['brand-contact', 'columns', 'minimal'], true) ? $layout : 'brand-contact',
-    'background' => in_array($background, ['dark', 'light', 'primary'], true) ? $background : 'dark',
+    'background' => in_array($background, ['dark', 'light', 'primary', 'custom'], true) ? $background : 'dark',
     'logo' => gaia_get_option_value('footer_logo', 'main'),
     'shows_contact' => (bool) gaia_get_option_value('footer_show_contact', true),
     'shows_social' => (bool) gaia_get_option_value('footer_show_social', true),
@@ -34,19 +34,17 @@ function gaia_get_footer_settings() {
   return $footer_settings;
 }
 
-function gaia_get_footer_classes() {
+/**
+ * @param string $layout Layout to use instead of the setting (samples).
+ */
+function gaia_get_footer_classes($layout = '') {
   $footer_settings = gaia_get_footer_settings();
-  $background_classes = [
-    'dark' => 'scheme-dark',
-    'light' => 'scheme-light site-footer--light',
-    'primary' => 'scheme-light site-footer--primary',
-  ];
 
-  return implode(' ', [
-    'site-footer',
-    'site-footer--' . $footer_settings['layout'],
-    $background_classes[$footer_settings['background']],
-  ]);
+  return implode(' ', array_merge(
+    ['site-footer', 'site-footer--' . ($layout ?: $footer_settings['layout'])],
+    gaia_get_background_classes('footer_background', $footer_settings['background']),
+    gaia_get_option_classes(['footer_text_color', 'footer_accent_color'])
+  ));
 }
 
 /**

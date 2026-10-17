@@ -3,6 +3,22 @@
   "title": "Tipografía",
   "fields": [
     {
+      "key": "field_gaia_typography_sample_text",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
       "key": "field_gaia_typography_font_heading",
       "label": "Fuente de los títulos",
       "name": "typography_font_heading",
@@ -83,6 +99,55 @@
       "message": "",
       "ui_on_text": "",
       "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_typography_scale",
+      "label": "Tamaño del texto",
+      "name": "typography_scale",
+      "type": "radio",
+      "instructions": "Escala todo el diseño: textos, espacios y controles.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "small": "Pequeño",
+        "normal": "Normal",
+        "large": "Grande",
+        "larger": "Muy grande"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_typography_link_underline",
+      "label": "Subrayado de los enlaces",
+      "name": "typography_link_underline",
+      "type": "radio",
+      "instructions": "Enlaces dentro de los textos.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "always": "Siempre",
+        "hover": "Al pasar el ratón",
+        "never": "Nunca"
+      },
+      "default_value": "always",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
     }
   ],
   "location": [
@@ -103,5 +168,5 @@
   "active": true,
   "description": "Fuentes y estilo de los títulos.",
   "show_in_rest": 0,
-  "modified": 1792250428
+  "modified": 1792252826
 }

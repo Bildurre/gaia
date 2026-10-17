@@ -1,12 +1,14 @@
 @use '../abstracts/breakpoints';
 
 // Footer colors follow its scheme (.scheme-dark / .scheme-light, from the
-// "Fondo" option); on dark the brand colors are used as accents.
+// "Fondo" option and the brightness of the background); on dark the brand
+// colors are used as accents. Options in Pie de página > Colores.
 .site-footer {
   --footer-separator-color: var(--color-separator);
   --footer-label-color: var(--color-accent);
   --footer-icon-color: var(--color-accent);
   --footer-credits-color: var(--color-text-muted);
+  --footer-separator: var(--footer-separator-width, 1px) solid var(--footer-separator-custom, var(--footer-separator-color));
 
   font-size: var(--font-size-small);
   color: var(--color-text);
@@ -32,19 +34,36 @@
 }
 
 // Light footer: the surface color separates it from the page
-.site-footer--light {
+.site-footer.site-footer--background-light {
   background-color: var(--color-surface);
 }
 
-// Footer on the brand color, with light-scheme text
-.site-footer--primary {
+// Footer on the brand color: text and details from the text-on-primary color
+.site-footer.site-footer--background-primary {
   --color-background: var(--color-primary);
-  --color-text: var(--color-light-text);
-  --color-accent: var(--color-primary-dark);
-  --footer-separator-color: color-mix(in srgb, var(--color-light-text) 25%, var(--color-primary));
-  --footer-icon-color: var(--color-primary-dark);
-  --footer-label-color: var(--color-primary-dark);
-  --footer-credits-color: color-mix(in srgb, var(--color-light-text) 75%, var(--color-primary));
+  --color-text: var(--color-on-primary);
+  --color-accent: var(--color-on-primary);
+  --color-link: var(--color-on-primary);
+  --footer-separator-color: color-mix(in srgb, var(--color-on-primary) 25%, var(--color-primary));
+  --footer-icon-color: color-mix(in srgb, var(--color-on-primary) 85%, var(--color-primary));
+  --footer-label-color: color-mix(in srgb, var(--color-on-primary) 85%, var(--color-primary));
+  --footer-credits-color: color-mix(in srgb, var(--color-on-primary) 70%, var(--color-primary));
+}
+
+.site-footer.site-footer--background-custom {
+  --color-background: var(--footer-background-custom, var(--color-dark-background));
+}
+
+.site-footer.has-custom-text-color {
+  --color-text: var(--footer-text-color);
+  --footer-credits-color: color-mix(in srgb, var(--footer-text-color) 70%, var(--color-background));
+}
+
+.site-footer.has-custom-accent-color {
+  --color-accent: var(--footer-accent-color);
+  --color-link: var(--footer-accent-color);
+  --footer-label-color: var(--footer-accent-color);
+  --footer-icon-color: var(--footer-accent-color);
 }
 
 .site-footer__inner {
@@ -61,7 +80,7 @@
 }
 
 .site-footer__logo {
-  --site-logo-height: 3.375rem;
+  --site-logo-height: var(--footer-logo-height);
 
   text-decoration: none;
 }
@@ -88,18 +107,14 @@
   gap: var(--space-s) var(--space-l);
 }
 
+.site-footer__contact {
+  --contact-details-icon-color: var(--footer-icon-color);
+}
+
 .site-footer__contact-item {
   display: flex;
   align-items: flex-start;
   gap: var(--space-2xs);
-
-  svg {
-    flex-shrink: 0;
-    width: 1rem;
-    height: 1rem;
-    margin-top: 0.15em;
-    color: var(--footer-icon-color);
-  }
 
   a {
     overflow-wrap: anywhere;
@@ -159,14 +174,14 @@
   gap: var(--space-2xs);
   padding-block: var(--space-s);
   text-align: center;
-  border-top: 1px solid var(--footer-separator-color);
+  border-top: var(--footer-separator);
 }
 
 // Brand and contact: brand and social networks on top, contact below
 .site-footer--brand-contact {
   .site-footer__contact {
     padding-top: var(--space-l);
-    border-top: 1px solid var(--footer-separator-color);
+    border-top: var(--footer-separator);
   }
 
   @include breakpoints.from('medium') {
@@ -214,7 +229,7 @@
 
 // Minimal: one line with logo, legal menu, social networks and credits
 .site-footer--minimal {
-  --site-logo-height: 2rem;
+  --site-logo-height: calc(var(--footer-logo-height) * 0.6);
 
   .site-footer__inner {
     display: flex;
@@ -226,7 +241,7 @@
   }
 
   .site-footer__logo {
-    --site-logo-height: 2rem;
+    --site-logo-height: calc(var(--footer-logo-height) * 0.6);
   }
 
   .site-footer__legal-list {

@@ -9,14 +9,16 @@
   --color-text: var(--color-light-text);
   --color-accent: var(--color-light-accent);
   --color-header-background: color-mix(in srgb, var(--color-primary-light) 8%, var(--color-light-background));
-  --color-success-background: color-mix(in srgb, var(--color-primary-light) 40%, var(--color-light-background));
-  --color-error: #b3261e;
-  --color-error-background: #fdecea;
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 4px 16px rgb(0 0 0 / 0.05);
-  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / 0.12), 0 0 0 1px rgb(0 0 0 / 0.05);
+  --color-success: var(--color-success-custom, var(--color-light-accent));
+  --color-error: var(--color-error-custom, #b3261e);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / calc(0.04 * var(--shadow-strength))), 0 4px 16px rgb(0 0 0 / calc(0.05 * var(--shadow-strength)));
+  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / calc(0.12 * var(--shadow-strength))), 0 0 0 1px rgb(0 0 0 / 0.05);
   --show-on-light: block;
   --show-on-dark: none;
   @include derived;
+
+  --color-heading: var(--color-light-heading, var(--color-light-text));
+  --color-link: var(--color-light-link, var(--color-light-accent));
 }
 
 @mixin dark {
@@ -26,14 +28,16 @@
   --color-text: var(--color-dark-text);
   --color-accent: var(--color-dark-accent);
   --color-header-background: color-mix(in srgb, var(--color-primary) 6%, var(--color-dark-background));
-  --color-success-background: color-mix(in srgb, var(--color-primary) 22%, var(--color-dark-background));
-  --color-error: #f2b8b5;
-  --color-error-background: #3c1d1b;
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.35);
-  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / 0.5), 0 0 0 1px rgb(255 255 255 / 0.08);
+  --color-success: var(--color-success-custom, var(--color-dark-accent));
+  --color-error: var(--color-error-custom, #f2b8b5);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / calc(0.3 * var(--shadow-strength))), 0 4px 16px rgb(0 0 0 / calc(0.35 * var(--shadow-strength)));
+  --shadow-dropdown: 0 0.5rem 1.5rem rgb(0 0 0 / calc(0.5 * var(--shadow-strength))), 0 0 0 1px rgb(255 255 255 / 0.08);
   --show-on-light: none;
   --show-on-dark: block;
   @include derived;
+
+  --color-heading: var(--color-dark-heading, var(--color-dark-text));
+  --color-link: var(--color-dark-link, var(--color-dark-accent));
 }
 
 // Tokens derived from the scheme colors (redeclared so they follow the
@@ -46,4 +50,6 @@
   --color-text-muted: color-mix(in srgb, var(--color-text) 68%, var(--color-background));
   --color-separator: color-mix(in srgb, var(--color-text) 12%, var(--color-background));
   --color-input-border: color-mix(in srgb, var(--color-text) 25%, var(--color-background));
+  --color-success-background: color-mix(in srgb, var(--color-success) 16%, var(--color-background));
+  --color-error-background: color-mix(in srgb, var(--color-error) 12%, var(--color-background));
 }

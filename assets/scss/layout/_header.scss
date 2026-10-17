@@ -1,4 +1,5 @@
 @use '../abstracts/breakpoints';
+@use '../abstracts/schemes';
 
 // -----------------------------------------------------------------------------
 // Header (Ajustes de Gaia > Cabecera). One markup for every layout: the
@@ -7,10 +8,13 @@
 // -----------------------------------------------------------------------------
 
 .site-header {
+  --header-separator: var(--header-separator-color, var(--color-separator));
+
   position: relative;
   z-index: 100;
+  color: var(--color-text);
   background-color: var(--color-header-background);
-  border-bottom: 1px solid var(--color-separator);
+  border-bottom: var(--header-border-width, 1px) solid var(--header-separator);
   transition:
     background-color 0.25s ease,
     border-color 0.25s ease,
@@ -28,6 +32,36 @@
     transform: translateY(-100%);
     visibility: hidden;
   }
+}
+
+// Background (Cabecera > Colores). "auto" keeps the scheme header color;
+// primary and custom get .scheme-dark / .scheme-light from PHP or JS.
+.site-header--background-surface {
+  background-color: var(--color-surface);
+}
+
+.site-header--background-primary {
+  background-color: var(--color-primary);
+}
+
+.site-header--background-dark {
+  background-color: var(--color-background);
+}
+
+.site-header--background-custom {
+  background-color: var(--header-background-custom, var(--color-header-background));
+}
+
+.site-header.has-custom-text-color {
+  --color-text: var(--header-text-color);
+  --color-accent: var(--header-text-color);
+  @include schemes.derived;
+}
+
+// Shadow: always, or once the page scrolls (JS adds .is-page-scrolled)
+.site-header--shadow-always,
+.site-header--shadow-scrolled.is-page-scrolled {
+  box-shadow: 0 2px 12px rgb(0 0 0 / calc(0.08 * var(--shadow-strength)));
 }
 
 // The admin bar is fixed above 600px wide only
@@ -53,6 +87,7 @@
   &:not(.is-scrolled) {
     background-color: transparent;
     border-bottom-color: transparent;
+    box-shadow: none;
 
     .site-header__navigation::before {
       border-top-color: rgb(255 255 255 / 0.2);
@@ -182,18 +217,70 @@
   }
 }
 
-// Light/dark switch: shows the icon of the scheme it switches to
-.site-header__scheme-icon {
-  display: grid;
+// Light / dark / browser switcher: the toggle shows the current preference
+.scheme-switcher {
+  position: relative;
 }
 
-.site-header__scheme-icon--light,
-:root[data-color-scheme='dark'] .site-header__scheme-icon--dark {
+.scheme-switcher__icon {
   display: none;
 }
 
-:root[data-color-scheme='dark'] .site-header__scheme-icon--light {
+:root:not([data-color-preference]) .scheme-switcher__icon--system,
+:root[data-color-preference='system'] .scheme-switcher__icon--system,
+:root[data-color-preference='light'] .scheme-switcher__icon--light,
+:root[data-color-preference='dark'] .scheme-switcher__icon--dark {
   display: grid;
+}
+
+.scheme-switcher__menu {
+  position: absolute;
+  z-index: 110;
+  top: calc(100% + var(--space-2xs));
+  right: 0;
+  width: max-content;
+  min-width: 9rem;
+  margin: 0;
+  padding: var(--space-3xs);
+  list-style: none;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-dropdown);
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.scheme-switcher__choice {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: var(--space-2xs) var(--space-xs);
+  font-size: var(--font-size-small);
+  color: var(--color-text);
+  text-align: start;
+  background: none;
+  border: 0;
+  border-radius: calc(var(--border-radius) / 2);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-surface);
+  }
+
+  &[aria-pressed='true'] {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -326,6 +413,10 @@
   list-style: none;
 }
 
+.site-header {
+  --header-menu-highlight: var(--header-menu-accent, var(--color-accent));
+}
+
 .site-header__menu a {
   display: block;
   font-family: var(--font-family-heading);
@@ -335,13 +426,13 @@
   text-decoration: none;
 
   &:hover {
-    color: var(--color-link);
+    color: var(--header-menu-highlight);
   }
 }
 
 .site-header__menu .current-menu-item > a,
 .site-header__menu .current-menu-ancestor > a {
-  color: var(--color-accent);
+  color: var(--header-menu-highlight);
 }
 
 .submenu-toggle {
@@ -436,15 +527,35 @@
       > li > a {
         padding-block: var(--space-xs);
         font-size: var(--font-size-small);
+        border-radius: var(--border-radius);
         box-shadow: inset 0 -2px 0 transparent;
         transition:
+          background-color 0.15s ease,
           box-shadow 0.15s ease,
           color 0.15s ease;
       }
+    }
 
+    // Active item indicator (Cabecera > Colores): underline, color only or
+    // a soft background
+    &.site-header--indicator-underline .site-header__menu {
       > .current-menu-item > a,
       > .current-menu-ancestor > a {
-        box-shadow: inset 0 -2px 0 var(--color-accent);
+        box-shadow: inset 0 -2px 0 var(--header-menu-highlight);
+      }
+    }
+
+    &.site-header--indicator-pill .site-header__menu {
+      gap: 0 var(--space-2xs);
+
+      > li > a {
+        padding-inline: var(--space-s);
+      }
+
+      > li > a:hover,
+      > .current-menu-item > a,
+      > .current-menu-ancestor > a {
+        background-color: color-mix(in srgb, var(--header-menu-highlight) 14%, transparent);
       }
     }
 
@@ -565,7 +676,7 @@
         top: 0;
         left: 50%;
         width: 100vw;
-        border-top: 1px solid var(--color-separator);
+        border-top: var(--header-navigation-border-width, 1px) solid var(--header-separator);
         transform: translateX(-50%);
       }
     }

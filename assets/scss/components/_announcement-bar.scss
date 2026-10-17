@@ -1,67 +1,86 @@
-@use '../abstracts/schemes';
-
+// Announcement bar (Extras > Barra de aviso): text and optional button
+// centered, close button at the far right of the bar.
 .announcement-bar {
+  position: relative;
   font-size: var(--font-size-small);
   font-weight: 500;
-  color: var(--color-light-text);
+  color: var(--color-on-primary);
   background-color: var(--color-primary);
 
   &--dark {
-    @include schemes.dark;
-
-    color: var(--color-text);
-    background-color: var(--color-background);
+    color: var(--color-white);
+    background-color: var(--color-black);
   }
 
   &--highlight {
+    color: var(--color-on-highlight);
     background-color: var(--color-highlight);
   }
 }
 
 .announcement-bar__inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: var(--space-s);
-  min-height: 2.25rem;
+  gap: var(--space-2xs) var(--space-s);
+  min-height: 2.5rem;
   padding-block: var(--space-2xs);
+  padding-inline: calc(var(--container-gutter) + 2rem);
 }
 
 .announcement-bar__text {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2xs);
-  color: inherit;
+  margin: 0;
   text-align: center;
+}
+
+// Small outlined button in the bar text color, filled on hover
+.announcement-bar__button {
+  padding: 0.1875rem var(--space-s);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-smaller);
+  font-weight: 700;
+  line-height: 1.4;
+  color: inherit;
   text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid currentColor;
+  border-radius: var(--button-radius);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
 
-  svg {
-    flex-shrink: 0;
-    width: 1rem;
-    height: 1rem;
-  }
-
-  &:is(a):hover {
+  &:hover {
     color: inherit;
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: color-mix(in srgb, currentColor 18%, transparent);
   }
 }
 
 .announcement-bar__close {
+  position: absolute;
+  top: 50%;
+  right: var(--space-xs);
   display: grid;
   place-items: center;
   width: 1.75rem;
   height: 1.75rem;
   padding: 0;
-  font-size: 1.25rem;
-  line-height: 1;
   color: inherit;
   background: none;
   border: 0;
   border-radius: var(--border-radius);
   opacity: 0.75;
+  transform: translateY(-50%);
+  cursor: pointer;
 
   &:hover {
     opacity: 1;
+    background-color: color-mix(in srgb, currentColor 14%, transparent);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
   }
 }

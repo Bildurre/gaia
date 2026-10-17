@@ -43,11 +43,13 @@ h6 {
 
 a {
   color: var(--color-link);
+  text-decoration-line: var(--link-decoration);
   text-underline-offset: 0.2em;
   transition: color 0.15s ease;
 
   &:hover {
     color: var(--color-link-hover);
+    text-decoration-line: var(--link-hover-decoration);
   }
 }
 

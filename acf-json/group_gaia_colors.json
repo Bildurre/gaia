@@ -57,6 +57,22 @@
       "endpoint": 0
     },
     {
+      "key": "field_gaia_colors_sample_brand",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
       "key": "field_gaia_colors_primary",
       "label": "Color principal",
       "name": "colors_primary",
@@ -73,18 +89,18 @@
       "return_format": "string"
     },
     {
-      "key": "field_gaia_colors_highlight",
-      "label": "Color de realce",
-      "name": "colors_highlight",
+      "key": "field_gaia_colors_on_primary",
+      "label": "Texto sobre el principal",
+      "name": "colors_on_primary",
       "type": "color_picker",
-      "instructions": "Solo decorativo (selección de texto, pequeños detalles).",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
       "required": 0,
       "wrapper": {
         "width": "50",
         "class": "",
         "id": ""
       },
-      "default_value": "#ffcc00",
+      "default_value": "",
       "enable_opacity": 0,
       "return_format": "string"
     },
@@ -121,6 +137,133 @@
       "return_format": "string"
     },
     {
+      "key": "field_gaia_colors_secondary",
+      "label": "Color secundario",
+      "name": "colors_secondary",
+      "type": "color_picker",
+      "instructions": "Opcional. Botones secundarios y detalles; vacío = el color del texto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_on_secondary",
+      "label": "Texto sobre el secundario",
+      "name": "colors_on_secondary",
+      "type": "color_picker",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_highlight",
+      "label": "Color de realce",
+      "name": "colors_highlight",
+      "type": "color_picker",
+      "instructions": "Solo decorativo (selección de texto, pequeños detalles).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "#ffcc00",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_on_highlight",
+      "label": "Texto sobre el realce",
+      "name": "colors_on_highlight",
+      "type": "color_picker",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_tab_states",
+      "label": "Estados",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_sample_states",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
+      "key": "field_gaia_colors_success",
+      "label": "Éxito",
+      "name": "colors_success",
+      "type": "color_picker",
+      "instructions": "Avisos de confirmación. Vacío = el color de acento.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_error",
+      "label": "Error",
+      "name": "colors_error",
+      "type": "color_picker",
+      "instructions": "Avisos y campos con errores. Vacío = rojo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
       "key": "field_gaia_colors_tab_light",
       "label": "Tema claro",
       "name": "",
@@ -134,6 +277,22 @@
       },
       "placement": "top",
       "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_sample_light",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
     },
     {
       "key": "field_gaia_colors_light_background",
@@ -184,11 +343,43 @@
       "return_format": "string"
     },
     {
+      "key": "field_gaia_colors_light_heading",
+      "label": "Títulos",
+      "name": "colors_light_heading",
+      "type": "color_picker",
+      "instructions": "Vacío = el color del texto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
       "key": "field_gaia_colors_light_accent",
       "label": "Acento",
       "name": "colors_light_accent",
       "type": "color_picker",
       "instructions": "Enlaces, títulos de acento y detalles sobre fondo claro. Debe contrastar con el fondo. Vacío: principal oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_light_link",
+      "label": "Enlaces",
+      "name": "colors_light_link",
+      "type": "color_picker",
+      "instructions": "Vacío = el color de acento.",
       "required": 0,
       "wrapper": {
         "width": "50",
@@ -213,6 +404,22 @@
       },
       "placement": "top",
       "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_sample_dark",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
     },
     {
       "key": "field_gaia_colors_dark_background",
@@ -263,11 +470,202 @@
       "return_format": "string"
     },
     {
+      "key": "field_gaia_colors_dark_heading",
+      "label": "Títulos",
+      "name": "colors_dark_heading",
+      "type": "color_picker",
+      "instructions": "Vacío = el color del texto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
       "key": "field_gaia_colors_dark_accent",
       "label": "Acento",
       "name": "colors_dark_accent",
       "type": "color_picker",
       "instructions": "Enlaces, títulos de acento y detalles sobre fondo oscuro. Vacío: principal claro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_dark_link",
+      "label": "Enlaces",
+      "name": "colors_dark_link",
+      "type": "color_picker",
+      "instructions": "Vacío = el color de acento.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_tab_buttons",
+      "label": "Botones",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_colors_sample_buttons",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "Normal y al pasar el ratón, sobre fondo claro y oscuro. La forma y el tamaño están en Estilo.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
+      "key": "field_gaia_colors_button_primary_color",
+      "label": "Principal: color",
+      "name": "colors_button_primary_color",
+      "type": "color_picker",
+      "instructions": "Vacío = color principal.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_primary_text",
+      "label": "Principal: texto",
+      "name": "colors_button_primary_text",
+      "type": "color_picker",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_primary_hover_color",
+      "label": "Principal: color al pasar el ratón",
+      "name": "colors_button_primary_hover_color",
+      "type": "color_picker",
+      "instructions": "Vacío = un poco más oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_primary_hover_text",
+      "label": "Principal: texto al pasar el ratón",
+      "name": "colors_button_primary_hover_text",
+      "type": "color_picker",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_secondary_color",
+      "label": "Secundario: color",
+      "name": "colors_button_secondary_color",
+      "type": "color_picker",
+      "instructions": "Vacío = color secundario, o el del texto.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_secondary_text",
+      "label": "Secundario: texto",
+      "name": "colors_button_secondary_text",
+      "type": "color_picker",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_secondary_hover_color",
+      "label": "Secundario: color al pasar el ratón",
+      "name": "colors_button_secondary_hover_color",
+      "type": "color_picker",
+      "instructions": "Vacío = un poco más oscuro.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_colors_button_secondary_hover_text",
+      "label": "Secundario: texto al pasar el ratón",
+      "name": "colors_button_secondary_hover_text",
+      "type": "color_picker",
+      "instructions": "Vacío = automático (texto claro u oscuro según el contraste).",
       "required": 0,
       "wrapper": {
         "width": "50",
@@ -297,5 +695,5 @@
   "active": true,
   "description": "Modo de color y paletas clara y oscura.",
   "show_in_rest": 0,
-  "modified": 1792250427
+  "modified": 1792252826
 }

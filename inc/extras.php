@@ -15,27 +15,31 @@ if (!defined('ABSPATH')) {
 /**
  * Announcement bar data, or null when it should not be shown.
  */
-function gaia_get_announcement() {
-  if (!gaia_get_option_field('extras_announcement_enabled')) {
+function gaia_get_announcement($is_sample = false) {
+  if (!$is_sample && !gaia_get_option_field('extras_announcement_enabled')) {
     return null;
   }
 
   $announcement_text = gaia_get_translated_option_text('extras_announcement_text');
+  $current_time = current_time('Y-m-d H:i:s');
+  $start_date = (string) gaia_get_option_field('extras_announcement_start');
   $expiry_date = (string) gaia_get_option_field('extras_announcement_expiry');
+  $is_scheduled_out = ($start_date !== '' && $current_time < $start_date) || ($expiry_date !== '' && $current_time >= $expiry_date);
 
-  if ($announcement_text === '' || ($expiry_date !== '' && current_time('Y-m-d H:i:s') >= $expiry_date)) {
+  if (!$is_sample && ($announcement_text === '' || $is_scheduled_out)) {
     return null;
   }
 
-  $announcement_style = gaia_get_option_value('extras_announcement_style', 'primary');
   $announcement_link = gaia_get_option_field('extras_announcement_link');
+  $button_text = gaia_get_translated_option_text('extras_announcement_button_text');
 
   return [
     'id' => substr(md5($announcement_text), 0, 10),
     'text' => $announcement_text,
     'url' => is_array($announcement_link) ? ($announcement_link['url'] ?? '') : '',
     'target' => is_array($announcement_link) ? ($announcement_link['target'] ?? '') : '',
-    'style' => in_array($announcement_style, ['primary', 'dark', 'highlight'], true) ? $announcement_style : 'primary',
+    'button_text' => $button_text !== '' ? $button_text : __('More information', 'gaia'),
+    'classes' => array_merge(['announcement-bar'], gaia_get_option_classes(['extras_announcement_style'])),
     'is_dismissible' => (bool) gaia_get_option_value('extras_announcement_dismissible', true),
   ];
 }
@@ -46,8 +50,7 @@ function gaia_get_announcement() {
 function gaia_print_announcement_script() {
   $announcement = gaia_get_announcement();
 
-  // The options preview always shows the bar, even if it was dismissed
-  if (!$announcement || !$announcement['is_dismissible'] || gaia_is_options_preview_request()) {
+  if (!$announcement || !$announcement['is_dismissible']) {
     return;
   }
 

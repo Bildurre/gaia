@@ -3,6 +3,22 @@
   "title": "Cabecera",
   "fields": [
     {
+      "key": "field_gaia_header_sample",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "Así se ve la cabecera en escritorio con los ajustes de esta página.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
       "key": "field_gaia_header_tab_layout",
       "label": "Distribución",
       "name": "",
@@ -76,6 +92,223 @@
       },
       "choices": {},
       "default_value": "main",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_header_logo_height",
+      "label": "Altura del logo",
+      "name": "header_logo_height",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 32,
+      "min": 20,
+      "max": 72,
+      "step": 1,
+      "prepend": "",
+      "append": "px"
+    },
+    {
+      "key": "field_gaia_header_tab_colors",
+      "label": "Colores",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_header_background",
+      "label": "Fondo",
+      "name": "header_background",
+      "type": "radio",
+      "instructions": "Automático: casi el fondo de la página, en claro y en oscuro. El texto se adapta solo al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "auto": "Automático",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro",
+        "custom": "Personalizado"
+      },
+      "default_value": "auto",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_header_background_color",
+      "label": "Color de fondo",
+      "name": "header_background_color",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_gaia_header_background",
+            "operator": "==",
+            "value": "custom"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_gaia_header_text_color",
+      "label": "Color del texto",
+      "name": "header_text_color",
+      "type": "color_picker",
+      "instructions": "Opcional. Vacío = el que corresponde al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_header_menu_accent_color",
+      "label": "Color del menú activo y al pasar el ratón",
+      "name": "header_menu_accent_color",
+      "type": "color_picker",
+      "instructions": "Vacío = color de acento.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_header_menu_indicator",
+      "label": "Indicador del menú activo",
+      "name": "header_menu_indicator",
+      "type": "radio",
+      "instructions": "En escritorio.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "underline": "Subrayado",
+        "color": "Solo color",
+        "pill": "Fondo"
+      },
+      "default_value": "underline",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_header_border_bottom",
+      "label": "Separador inferior",
+      "name": "header_border_bottom",
+      "type": "true_false",
+      "instructions": "Línea debajo de la cabecera.",
+      "required": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_border_navigation",
+      "label": "Separador del menú",
+      "name": "header_border_navigation",
+      "type": "true_false",
+      "instructions": "Línea encima del menú (distribuciones de dos filas).",
+      "required": 0,
+      "wrapper": {
+        "width": "33",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_header_separator_color",
+      "label": "Color de los separadores",
+      "name": "header_separator_color",
+      "type": "color_picker",
+      "instructions": "Vacío = automático.",
+      "required": 0,
+      "wrapper": {
+        "width": "34",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_header_shadow",
+      "label": "Sombra",
+      "name": "header_shadow",
+      "type": "radio",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "none": "Sin sombra",
+        "scrolled": "Al hacer scroll",
+        "always": "Siempre"
+      },
+      "default_value": "none",
       "return_format": "value",
       "allow_null": 0,
       "other_choice": 0,
@@ -296,5 +529,5 @@
   "active": true,
   "description": "Distribución, logo, comportamiento y menú móvil de la cabecera.",
   "show_in_rest": 0,
-  "modified": 1792250428
+  "modified": 1792252826
 }

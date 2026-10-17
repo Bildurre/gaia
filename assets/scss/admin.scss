@@ -1,5 +1,7 @@
 // Ajustes de Gaia pages: visual choices (thumbnails drawn with CSS from the
-// site palette) and the live preview panel. Loaded only on those pages.
+// site palette, centered on the element each option changes) and the sample
+// fields. Loaded only on those pages; the custom properties of the design
+// options are set on :root by options-admin.js.
 @use 'base/tokens';
 
 $thumbnail-width: 7rem;
@@ -229,10 +231,14 @@ $thumbnail-height: 4.5rem;
     flex-direction: row;
   }
 
-  // Fonts and heading weight
-  &--type {
+  // Centered element (fonts, buttons, icons…)
+  &--center {
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    gap: 6px;
+    padding: 6px;
   }
 
   &__sample {
@@ -258,56 +264,311 @@ $thumbnail-height: 4.5rem;
     font-weight: 800;
   }
 
-  // Corners and buttons
+  &--typography_scale &__sample {
+    font-family: var(--font-family-body);
+    font-weight: 500;
+  }
+
+  &--typography_scale-small &__sample {
+    font-size: 1.125rem;
+  }
+
+  &--typography_scale-normal &__sample {
+    font-size: 1.375rem;
+  }
+
+  &--typography_scale-large &__sample {
+    font-size: 1.625rem;
+  }
+
+  &--typography_scale-larger &__sample {
+    font-size: 1.875rem;
+  }
+
+  &__text {
+    font-family: var(--font-family-body);
+    font-size: 12px;
+  }
+
+  &__link {
+    display: inline;
+    color: var(--color-link);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  &--typography_link_underline-hover &__link {
+    text-decoration-style: dotted;
+    text-decoration-color: color-mix(in srgb, var(--color-link) 50%, transparent);
+  }
+
+  &--typography_link_underline-never &__link {
+    text-decoration: none;
+  }
+
+  // Corners: one big corner, exaggerated so the difference shows
   &--style_radius {
-    justify-content: center;
-    padding: 8px;
+    background-color: var(--color-surface);
+  }
+
+  &__corner {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    width: 140%;
+    height: 140%;
+    background-color: var(--color-background);
+    border: 2px solid var(--color-primary);
+  }
+
+  &--style_radius-soft &__corner {
+    border-top-left-radius: 12px;
+  }
+
+  &--style_radius-round &__corner {
+    border-top-left-radius: 32px;
+  }
+
+  // Shadows
+  &--style_shadows {
     background-color: var(--color-surface);
   }
 
   &__card {
     display: flex;
-    flex: 1;
     flex-direction: column;
     gap: 4px;
-    padding: 6px;
+    width: 64%;
+    padding: 7px;
     background-color: var(--color-background);
-    border: 1px solid var(--color-separator);
-  }
-
-  &--style_radius-none &__card,
-  &--style_radius-none &__button {
-    border-radius: 0;
-  }
-
-  &--style_radius-soft &__card {
-    border-radius: 3px;
-  }
-
-  &--style_radius-round &__card {
-    border-radius: 8px;
-  }
-
-  &--style_radius-round &__button {
     border-radius: 4px;
   }
 
-  &--style_buttons {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
+  &--style_shadows-soft &__card {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 0.06), 0 4px 10px rgb(0 0 0 / 0.1);
   }
 
-  &--style_buttons &__button {
-    width: 34px;
-    height: 13px;
-    margin: 0;
-    border-radius: 2px;
+  &--style_shadows-strong &__card {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 0.14), 0 8px 18px rgb(0 0 0 / 0.24);
   }
 
-  &--style_buttons-pill &__button {
+  // Buttons: one button with the current button options, except the one
+  // each choice shows
+  &__sample-button {
+    padding: 5px 12px;
+    font-family: var(--font-family-heading);
+    font-size: 12px;
+    font-weight: var(--button-font-weight);
+    line-height: 1.25;
+    letter-spacing: var(--button-letter-spacing);
+    text-transform: var(--button-text-transform);
+    color: var(--button-primary-text, var(--color-on-primary));
+    background-color: var(--button-primary-color, var(--color-primary));
+    border: var(--button-border-width) solid var(--button-primary-color, var(--color-primary));
+    border-radius: var(--button-radius);
+  }
+
+  &--style_button_primary_type-outline &__sample-button,
+  &--style_button_border &__sample-button {
+    color: var(--button-primary-color, var(--color-primary));
+    background-color: transparent;
+  }
+
+  &--style_button_secondary_type &__sample-button {
+    color: var(--button-secondary-text, var(--color-on-secondary, var(--color-background)));
+    background-color: var(--button-secondary-color, var(--color-secondary, var(--color-text)));
+    border-color: var(--button-secondary-color, var(--color-secondary, var(--color-text)));
+  }
+
+  &--style_button_secondary_type-outline &__sample-button {
+    color: var(--button-secondary-color, var(--color-secondary, var(--color-text)));
+    background-color: transparent;
+  }
+
+  &--style_buttons-rectangular &__sample-button {
+    border-radius: var(--border-radius);
+  }
+
+  &--style_buttons-pill &__sample-button {
     border-radius: 999px;
+  }
+
+  &--style_button_size-small &__sample-button {
+    padding: 3px 8px;
+    font-size: 10px;
+  }
+
+  &--style_button_size-large &__sample-button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  &--style_button_weight-regular &__sample-button {
+    font-weight: 500;
+  }
+
+  &--style_button_weight-semibold &__sample-button {
+    font-weight: 600;
+  }
+
+  &--style_button_weight-bold &__sample-button {
+    font-weight: 700;
+  }
+
+  &--style_button_border-thin &__sample-button {
+    border-width: 1px;
+  }
+
+  &--style_button_border-thick &__sample-button {
+    border-width: 2.5px;
+  }
+
+  &--style_button_hover-color &__sample-button {
+    background-color: var(--button-primary-hover-color, color-mix(in srgb, var(--button-primary-color, var(--color-primary)) 82%, #000));
+  }
+
+  &--style_button_hover-lift &__sample-button {
+    box-shadow: 0 6px 10px rgb(0 0 0 / 0.25);
+    transform: translateY(-4px);
+  }
+
+  &--style_button_hover-grow &__sample-button {
+    transform: scale(1.18);
+  }
+
+  // Header colors
+  &--header_background-surface &__header {
+    background-color: var(--color-surface);
+  }
+
+  &--header_background-primary &__header {
+    background-color: var(--color-primary);
+
+    .gaia-thumb__logo,
+    .gaia-thumb__nav > span {
+      background-color: var(--color-on-primary);
+    }
+  }
+
+  &--header_background-dark &__header {
+    background-color: var(--color-dark-background);
+
+    .gaia-thumb__logo,
+    .gaia-thumb__nav > span {
+      background-color: var(--color-dark-text);
+    }
+  }
+
+  &--header_background-custom &__header {
+    background: linear-gradient(90deg, #f6d365, #fda085, #a18cd1, #84fab0);
+  }
+
+  &--header_background &__header {
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &__menu {
+    display: flex;
+    gap: 3px;
+    font-family: var(--font-family-heading);
+    font-size: 10px;
+    font-weight: 600;
+
+    > span {
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    > .is-current {
+      color: var(--color-accent);
+    }
+  }
+
+  &--header_menu_indicator-underline &__menu > .is-current {
+    box-shadow: inset 0 -2px 0 currentColor;
+    border-radius: 0;
+  }
+
+  &--header_menu_indicator-pill &__menu > .is-current {
+    background-color: color-mix(in srgb, var(--color-accent) 14%, transparent);
+  }
+
+  &--header_shadow &__bar {
+    position: relative;
+    z-index: 1;
+  }
+
+  &--header_shadow-scrolled &__bar,
+  &--header_shadow-always &__bar {
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.22);
+  }
+
+  &--header_shadow-scrolled &__body {
+    margin-top: -8px;
+  }
+
+  &--footer_background-custom &__footer {
+    background: linear-gradient(90deg, #f6d365, #fda085, #a18cd1, #84fab0);
+  }
+
+  // Icons
+  &__icon {
+    display: grid;
+    place-items: center;
+    color: var(--color-accent);
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--contact_icons_shape-circle &__icon,
+  &--contact_icons_shape-square &__icon,
+  &--contact_icons_fill &__icon,
+  &--social_icons_shape-circle &__icon,
+  &--social_icons_shape-square &__icon,
+  &--social_icons_fill &__icon {
+    width: 34px;
+    height: 34px;
+    border: 1.5px solid currentColor;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &--contact_icons_shape-circle &__icon,
+  &--contact_icons_fill &__icon,
+  &--social_icons_shape-circle &__icon,
+  &--social_icons_fill &__icon {
+    border-radius: 50%;
+  }
+
+  &--contact_icons_shape-square &__icon,
+  &--social_icons_shape-square &__icon {
+    border-radius: 6px;
+  }
+
+  &--contact_icons_fill-solid &__icon,
+  &--social_icons_fill-solid &__icon {
+    background-color: currentColor;
+
+    svg {
+      color: var(--color-background);
+    }
+  }
+
+  &--social_icons_size-small &__icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  &--social_icons_size-large &__icon svg {
+    width: 26px;
+    height: 26px;
   }
 
   // Content width
@@ -569,158 +830,17 @@ $thumbnail-height: 4.5rem;
   }
 }
 
-// Live preview panel -------------------------------------------------------
+// Sample fields -------------------------------------------------------------
 
-.gaia-options-preview-toggle .dashicons {
-  margin-top: 2px;
-  font-size: 16px;
-  vertical-align: text-top;
+.gaia-sample-field > .acf-label {
+  margin-bottom: 6px;
 }
 
-.gaia-options-preview {
-  --gaia-preview-top: var(--wp-admin--admin-bar--height, 32px);
-
-  position: fixed;
-  z-index: 9990;
-  top: var(--gaia-preview-top);
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+// The header sample stays visible while the header options are edited
+.acf-fields > .acf-field[data-key='field_gaia_header_sample'] {
+  position: sticky;
+  z-index: 5;
+  top: var(--wp-admin--admin-bar--height, 32px);
+  padding-bottom: 12px !important;
   background-color: #f0f0f1;
-  border-left: 1px solid #c3c4c7;
-  box-shadow: -4px 0 16px rgb(0 0 0 / 0.08);
-
-  &[hidden] {
-    display: none;
-  }
-
-  &__toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    background-color: #fff;
-    border-bottom: 1px solid #c3c4c7;
-  }
-
-  &__title {
-    margin-right: auto;
-    font-size: 14px;
-  }
-
-  &__devices {
-    display: flex;
-    gap: 2px;
-
-    .button {
-      display: grid;
-      place-items: center;
-      min-height: 30px;
-      padding: 0 6px;
-    }
-
-    .button[aria-pressed='true'] {
-      color: #fff;
-      background-color: var(--wp-admin-theme-color, #2271b1);
-      border-color: var(--wp-admin-theme-color, #2271b1);
-    }
-  }
-
-  &__status {
-    min-width: 6.5rem;
-    color: #646970;
-    font-size: 12px;
-  }
-
-  &__close {
-    display: grid;
-    place-items: center;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    color: #50575e;
-    background: none;
-    border: 0;
-    border-radius: 3px;
-    cursor: pointer;
-
-    &:hover,
-    &:focus-visible {
-      color: #1d2327;
-      background-color: #f0f0f1;
-    }
-  }
-
-  &__viewport {
-    position: relative;
-    flex: 1;
-    overflow: hidden;
-  }
-
-  &__frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    border: 0;
-    transform-origin: top left;
-    transition: opacity 0.2s ease;
-  }
-
-  &.is-loading &__frame {
-    opacity: 0.6;
-  }
-
-  &__note {
-    margin: 0;
-    padding: 6px 12px;
-    color: #646970;
-    font-size: 12px;
-    background-color: #fff;
-    border-top: 1px solid #c3c4c7;
-  }
-}
-
-@media (max-width: 782px) {
-  .gaia-options-preview {
-    --gaia-preview-top: 46px;
-  }
-}
-
-// Wide screens: the panel sits on the right and the settings use one column
-// on the left, so fields and preview are visible at the same time.
-@media (min-width: 1100px) {
-  body.has-gaia-options-preview {
-    --gaia-preview-width: clamp(380px, 46vw, 900px);
-
-    #wpcontent,
-    #wpfooter {
-      margin-right: var(--gaia-preview-width);
-    }
-
-    #poststuff {
-      min-width: 0;
-    }
-
-    #poststuff #post-body.columns-2 {
-      margin-right: 0;
-    }
-
-    #post-body.columns-2 #side-sortables {
-      min-height: 0;
-    }
-
-    #post-body.columns-2 #postbox-container-1 {
-      float: none;
-      width: auto;
-      margin-right: 0;
-    }
-
-    .gaia-options-preview {
-      width: var(--gaia-preview-width);
-    }
-  }
 }

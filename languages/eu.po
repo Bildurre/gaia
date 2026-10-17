@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gaia 1.0.0\n"
-"POT-Creation-Date: 2026-10-17 15:30+0000\n"
-"PO-Revision-Date: 2026-10-17 15:30+0000\n"
+"POT-Creation-Date: 2026-10-17 16:15+0000\n"
+"PO-Revision-Date: 2026-10-17 16:15+0000\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,45 +19,17 @@ msgstr "Joan hasierako orrira"
 msgid "Hero: fill in the title in the block settings."
 msgstr "Hero: idatzi izenburua blokearen ezarpenetan."
 
-#: blocks/hero/hero.php:90
+#: blocks/hero/hero.php:91
 msgid "Go to content"
 msgstr "Joan edukira"
 
-#: footer.php:18 footer.php:60
-msgid "Legal"
-msgstr "Legala"
-
-#: footer.php:49
-msgid "Footer menu"
-msgstr "Oineko menua"
-
-#: footer.php:75
+#: footer.php:10
 msgid "Back to top"
 msgstr "Gora itzuli"
 
 #: header.php:11
 msgid "Skip to content"
 msgstr "Joan edukira"
-
-#: header.php:40
-msgid "Menu"
-msgstr "Menua"
-
-#: header.php:56 header.php:100 header.php:102 template-parts/search-form.php:13 template-parts/search-form.php:15
-msgid "Search"
-msgstr "Bilatu"
-
-#: header.php:64
-msgid "Dark mode"
-msgstr "Modu iluna"
-
-#: header.php:83
-msgid "Main menu"
-msgstr "Menu nagusia"
-
-#: header.php:101 template-parts/search-form.php:14
-msgid "Search…"
-msgstr "Bilatu…"
 
 #: inc/account.php:214
 msgid "The form has expired. Please try again."
@@ -155,24 +127,28 @@ msgstr "Zure pasahitza aldatu da."
 msgid "The image could not be uploaded. It must be a JPG, PNG, WebP or GIF file of up to 2 MB."
 msgstr "Ezin izan da irudia igo. 2 MB arteko JPG, PNG, WebP edo GIF fitxategia izan behar du."
 
-#: inc/extras.php:103
+#: inc/extras.php:41
+msgid "More information"
+msgstr "Informazio gehiago"
+
+#: inc/extras.php:106
 msgid "Home"
 msgstr "Hasiera"
 
-#: inc/extras.php:135 index.php:11
+#: inc/extras.php:138 index.php:11
 #, php-format
 msgid "Search results for “%s”"
 msgstr "«%s» bilaketaren emaitzak"
 
-#: inc/extras.php:162
+#: inc/extras.php:165
 msgid "Page not found"
 msgstr "Ez da orria aurkitu"
 
-#: inc/extras.php:163
+#: inc/extras.php:166
 msgid "The page you are looking for does not exist or has been moved."
 msgstr "Bilatzen ari zaren orria ez dago edo lekuz aldatu da."
 
-#: inc/header.php:109
+#: inc/header.php:132
 #, php-format
 msgid "Show submenu: %s"
 msgstr "Erakutsi azpimenua: %s"
@@ -195,6 +171,98 @@ msgstr ""
 
 #: inc/logos.php:22
 msgid "Ninguno"
+msgstr ""
+
+#: inc/options-admin.php:116 inc/options-admin.php:357
+msgid "Botón"
+msgstr ""
+
+#: inc/options-admin.php:148
+msgid "Texto con"
+msgstr ""
+
+#: inc/options-admin.php:148 inc/options-admin.php:353
+msgid "enlace"
+msgstr ""
+
+#: inc/options-admin.php:192
+msgid "Inicio"
+msgstr ""
+
+#: inc/options-admin.php:193
+msgid "Agenda"
+msgstr ""
+
+#: inc/options-admin.php:324 inc/options-admin.php:368
+msgid "Principal"
+msgstr ""
+
+#: inc/options-admin.php:325
+msgid "Principal claro"
+msgstr ""
+
+#: inc/options-admin.php:326
+msgid "Principal oscuro"
+msgstr ""
+
+#: inc/options-admin.php:327 inc/options-admin.php:368
+msgid "Secundario"
+msgstr ""
+
+#: inc/options-admin.php:328
+msgid "Realce"
+msgstr ""
+
+#: inc/options-admin.php:343
+msgid "Los cambios se han guardado."
+msgstr ""
+
+#: inc/options-admin.php:344
+msgid "Revisa los campos marcados."
+msgstr ""
+
+#: inc/options-admin.php:352
+msgid "Título de ejemplo"
+msgstr ""
+
+#: inc/options-admin.php:353
+msgid "Texto de lectura con un"
+msgstr ""
+
+#: inc/options-admin.php:353
+msgid "Texto secundario."
+msgstr ""
+
+#: inc/options-admin.php:355
+msgid "Acento"
+msgstr ""
+
+#: inc/options-admin.php:356 inc/options-admin.php:356
+msgid "Campo de formulario"
+msgstr ""
+
+#: inc/options-admin.php:375
+msgid "Cada botón aparece normal y al pasar el ratón."
+msgstr ""
+
+#: inc/options-admin.php:381
+msgid "Energía compartida para el barrio"
+msgstr ""
+
+#: inc/options-admin.php:382
+msgid "Un subtítulo más pequeño"
+msgstr ""
+
+#: inc/options-admin.php:383
+msgid "Así se leen los textos largos de la web, con un"
+msgstr ""
+
+#: inc/options-admin.php:383
+msgid "enlace dentro del texto"
+msgstr ""
+
+#: inc/options-admin.php:383
+msgid "y algunas palabras más para ver el interlineado."
 msgstr ""
 
 #: inc/options-pages.php:12
@@ -231,58 +299,6 @@ msgstr ""
 
 #: inc/options-pages.php:29 inc/options-pages.php:30
 msgid "Ajustes de Gaia"
-msgstr ""
-
-#: inc/options-preview.php:263
-msgid "Inicio"
-msgstr ""
-
-#: inc/options-preview.php:273
-msgid "Última entrada"
-msgstr ""
-
-#: inc/options-preview.php:276
-msgid "Página no encontrada (404)"
-msgstr ""
-
-#: inc/options-preview.php:291
-msgid "Actualizando…"
-msgstr ""
-
-#: inc/options-preview.php:292 inc/options-preview.php:296 inc/options-preview.php:340
-msgid "Vista previa"
-msgstr ""
-
-#: inc/options-preview.php:298
-msgid "Página"
-msgstr ""
-
-#: inc/options-preview.php:303
-msgid "Otra página"
-msgstr ""
-
-#: inc/options-preview.php:306
-msgid "Dispositivo"
-msgstr ""
-
-#: inc/options-preview.php:309
-msgid "Escritorio"
-msgstr ""
-
-#: inc/options-preview.php:313
-msgid "Móvil"
-msgstr ""
-
-#: inc/options-preview.php:321
-msgid "Cerrar vista previa"
-msgstr ""
-
-#: inc/options-preview.php:329
-msgid "Vista previa del sitio"
-msgstr ""
-
-#: inc/options-preview.php:334
-msgid "La vista previa muestra los cambios sin guardar. Pulsa «Actualizar» para guardarlos."
 msgstr ""
 
 #: inc/setup.php:19
@@ -448,13 +464,37 @@ msgstr "Eskatu esteka berria"
 msgid "Save password"
 msgstr "Gorde pasahitza"
 
-#: template-parts/announcement-bar.php:33
+#: template-parts/announcement-bar.php:46
 msgid "Close announcement"
 msgstr "Itxi oharra"
 
 #: template-parts/breadcrumbs.php:16
 msgid "Breadcrumbs"
 msgstr "Nabigazio-bidea"
+
+#: template-parts/footer/site-footer.php:41 template-parts/footer/site-footer.php:83
+msgid "Legal"
+msgstr "Legala"
+
+#: template-parts/footer/site-footer.php:72
+msgid "Footer menu"
+msgstr "Oineko menua"
+
+#: template-parts/header/site-header.php:43
+msgid "Menu"
+msgstr "Menua"
+
+#: template-parts/header/site-header.php:67 template-parts/header/site-header.php:107 template-parts/header/site-header.php:109 template-parts/search-form.php:13 template-parts/search-form.php:15
+msgid "Search"
+msgstr "Bilatu"
+
+#: template-parts/header/site-header.php:90
+msgid "Main menu"
+msgstr "Menu nagusia"
+
+#: template-parts/header/site-header.php:108 template-parts/search-form.php:14
+msgid "Search…"
+msgstr "Bilatu…"
 
 #: template-parts/language-switcher.php:28
 msgid "Language"
@@ -467,6 +507,22 @@ msgstr "Laster itzuliko gara"
 #: template-parts/maintenance.php:11
 msgid "We are working on the website. Please come back in a little while."
 msgstr "Webgunean lanean ari gara. Itzuli pixka bat barru."
+
+#: template-parts/scheme-switcher.php:13
+msgid "Light"
+msgstr "Argia"
+
+#: template-parts/scheme-switcher.php:14
+msgid "Dark"
+msgstr "Iluna"
+
+#: template-parts/scheme-switcher.php:15
+msgid "Browser"
+msgstr "Nabigatzailearena"
+
+#: template-parts/scheme-switcher.php:29
+msgid "Color scheme"
+msgstr "Kolore-gaia"
 
 #: template-parts/user-menu.php:34
 msgid "My area"

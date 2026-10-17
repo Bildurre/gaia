@@ -20,16 +20,22 @@ function initSiteHeader() {
     document.documentElement.style.setProperty('--site-header-height', `${siteHeader.getBoundingClientRect().bottom}px`);
   };
 
-  // Transparent header: solid (normal scheme) once the page scrolls or a
-  // panel is open
+  // Transparent header: dark scheme over the hero, the background scheme
+  // (data-solid-scheme) once the page scrolls or a panel is open
+  const solidSchemeClass = siteHeader.dataset.solidScheme || '';
+
   const updateTransparency = () => {
+    const isPageScrolled = window.scrollY > TRANSPARENT_SCROLL_THRESHOLD;
+    siteHeader.classList.toggle('is-page-scrolled', isPageScrolled);
+
     if (!isTransparentHeader) {
       return;
     }
 
-    const isSolid = window.scrollY > TRANSPARENT_SCROLL_THRESHOLD || siteHeader.classList.contains('is-menu-open') || siteHeader.classList.contains('is-search-open');
+    const isSolid = isPageScrolled || siteHeader.classList.contains('is-menu-open') || siteHeader.classList.contains('is-search-open');
     siteHeader.classList.toggle('is-scrolled', isSolid);
-    siteHeader.classList.toggle('scheme-dark', !isSolid);
+    siteHeader.classList.remove('scheme-dark', 'scheme-light');
+    siteHeader.classList.add(...(isSolid ? [solidSchemeClass] : ['scheme-dark']).filter(Boolean));
   };
 
   // Drawer menu
@@ -113,27 +119,69 @@ function initSiteHeader() {
     setSearchOpen(searchPanel.hidden);
   });
 
-  // Light / dark switch ("both" color mode)
-  const colorSchemeToggleButton = siteHeader.querySelector('[data-color-scheme-toggle]');
+  // Light / dark / browser switch ("auto" color mode)
+  const schemeSwitcher = siteHeader.querySelector('[data-scheme-switcher]');
+  const schemeSwitcherToggle = schemeSwitcher?.querySelector('[data-scheme-switcher-toggle]');
+  const schemeSwitcherMenu = schemeSwitcher?.querySelector('[data-scheme-switcher-menu]');
+  const schemeChoiceButtons = schemeSwitcher ? [...schemeSwitcher.querySelectorAll('[data-scheme-choice]')] : [];
+  const systemDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  const updateColorSchemeToggle = () => {
-    colorSchemeToggleButton?.setAttribute('aria-pressed', String(document.documentElement.dataset.colorScheme === 'dark'));
-  };
+  const isSchemeMenuOpen = () => schemeSwitcherMenu && !schemeSwitcherMenu.hidden;
 
-  colorSchemeToggleButton?.addEventListener('click', () => {
-    const newColorScheme = document.documentElement.dataset.colorScheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.colorScheme = newColorScheme;
-
-    try {
-      localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, newColorScheme);
-    } catch {
-      // Storage unavailable: the choice lasts until the page is reloaded
+  const setSchemeMenuOpen = (shouldOpen) => {
+    if (!schemeSwitcherMenu) {
+      return;
     }
 
-    updateColorSchemeToggle();
+    schemeSwitcherMenu.hidden = !shouldOpen;
+    schemeSwitcherToggle.setAttribute('aria-expanded', String(shouldOpen));
+  };
+
+  const applyColorPreference = (colorPreference) => {
+    const rootElement = document.documentElement;
+    const resolvedScheme = colorPreference === 'system' ? (systemDarkQuery.matches ? 'dark' : 'light') : colorPreference;
+
+    rootElement.dataset.colorPreference = colorPreference;
+    rootElement.dataset.colorScheme = resolvedScheme;
+    schemeChoiceButtons.forEach((choiceButton) => {
+      choiceButton.setAttribute('aria-pressed', String(choiceButton.dataset.schemeChoice === colorPreference));
+    });
+  };
+
+  schemeSwitcherToggle?.addEventListener('click', () => {
+    setSchemeMenuOpen(!isSchemeMenuOpen());
   });
 
-  updateColorSchemeToggle();
+  schemeChoiceButtons.forEach((choiceButton) => {
+    choiceButton.addEventListener('click', () => {
+      const colorPreference = choiceButton.dataset.schemeChoice;
+      applyColorPreference(colorPreference);
+
+      try {
+        if (colorPreference === 'system') {
+          localStorage.removeItem(COLOR_SCHEME_STORAGE_KEY);
+        } else {
+          localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, colorPreference);
+        }
+      } catch {
+        // Storage unavailable: the choice lasts until the page is reloaded
+      }
+
+      setSchemeMenuOpen(false);
+      schemeSwitcherToggle.focus();
+    });
+  });
+
+  // Browser preference changes while the page is open
+  systemDarkQuery.addEventListener('change', () => {
+    if (document.documentElement.dataset.colorPreference === 'system') {
+      applyColorPreference('system');
+    }
+  });
+
+  if (schemeSwitcher) {
+    applyColorPreference(document.documentElement.dataset.colorPreference || 'system');
+  }
 
   // Clicks outside and Escape close menus, submenus and search
   document.addEventListener('click', (clickEvent) => {
@@ -147,6 +195,10 @@ function initSiteHeader() {
 
     if (searchPanel && !searchPanel.hidden && !searchPanel.contains(clickEvent.target) && !searchToggleButton?.contains(clickEvent.target)) {
       setSearchOpen(false);
+    }
+
+    if (isSchemeMenuOpen() && !schemeSwitcher.contains(clickEvent.target)) {
+      setSchemeMenuOpen(false);
     }
   });
 
@@ -163,6 +215,11 @@ function initSiteHeader() {
     if (searchPanel && !searchPanel.hidden) {
       setSearchOpen(false);
       searchToggleButton?.focus();
+    }
+
+    if (isSchemeMenuOpen()) {
+      setSchemeMenuOpen(false);
+      schemeSwitcherToggle.focus();
     }
 
     closeSubmenus();

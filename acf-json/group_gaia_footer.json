@@ -3,6 +3,22 @@
   "title": "Pie de página",
   "fields": [
     {
+      "key": "field_gaia_footer_sample",
+      "label": "Muestra",
+      "name": "",
+      "type": "message",
+      "instructions": "Con los datos reales de Contacto.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-sample-field",
+        "id": ""
+      },
+      "message": "",
+      "new_lines": "",
+      "esc_html": 0
+    },
+    {
       "key": "field_gaia_footer_tab_layout",
       "label": "Distribución",
       "name": "",
@@ -42,30 +58,6 @@
       "layout": "horizontal"
     },
     {
-      "key": "field_gaia_footer_background",
-      "label": "Fondo",
-      "name": "footer_background",
-      "type": "radio",
-      "instructions": "",
-      "required": 0,
-      "wrapper": {
-        "width": "50",
-        "class": "gaia-visual-choices",
-        "id": ""
-      },
-      "choices": {
-        "dark": "Oscuro",
-        "light": "Claro",
-        "primary": "Color principal"
-      },
-      "default_value": "dark",
-      "return_format": "value",
-      "allow_null": 0,
-      "other_choice": 0,
-      "save_other_choice": 0,
-      "layout": "horizontal"
-    },
-    {
       "key": "field_gaia_footer_logo",
       "label": "Logo",
       "name": "footer_logo",
@@ -73,7 +65,7 @@
       "instructions": "",
       "required": 0,
       "wrapper": {
-        "width": "50",
+        "width": "",
         "class": "gaia-visual-choices",
         "id": ""
       },
@@ -84,6 +76,25 @@
       "other_choice": 0,
       "save_other_choice": 0,
       "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_footer_logo_height",
+      "label": "Altura del logo",
+      "name": "footer_logo_height",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 54,
+      "min": 24,
+      "max": 120,
+      "step": 1,
+      "prepend": "",
+      "append": "px"
     },
     {
       "key": "field_gaia_footer_show_contact",
@@ -136,6 +147,137 @@
       "message": "Los menús del pie se asignan en Apariencia > Menús: «Menú del pie» (columna de enlaces) y «Menú legal» (aviso legal, privacidad, cookies…).",
       "new_lines": "wpautop",
       "esc_html": 0
+    },
+    {
+      "key": "field_gaia_footer_tab_colors",
+      "label": "Colores",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_footer_background",
+      "label": "Fondo",
+      "name": "footer_background",
+      "type": "radio",
+      "instructions": "El texto se adapta solo al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "gaia-visual-choices",
+        "id": ""
+      },
+      "choices": {
+        "dark": "Oscuro",
+        "light": "Claro",
+        "primary": "Color principal",
+        "custom": "Personalizado"
+      },
+      "default_value": "dark",
+      "return_format": "value",
+      "allow_null": 0,
+      "other_choice": 0,
+      "save_other_choice": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_footer_background_color",
+      "label": "Color de fondo",
+      "name": "footer_background_color",
+      "type": "color_picker",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_gaia_footer_background",
+            "operator": "==",
+            "value": "custom"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_gaia_footer_text_color",
+      "label": "Color del texto",
+      "name": "footer_text_color",
+      "type": "color_picker",
+      "instructions": "Opcional. Vacío = el que corresponde al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_footer_accent_color",
+      "label": "Color de acento",
+      "name": "footer_accent_color",
+      "type": "color_picker",
+      "instructions": "Frase, etiquetas, iconos y enlaces al pasar el ratón. Vacío = automático.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
+    },
+    {
+      "key": "field_gaia_footer_separators",
+      "label": "Separadores",
+      "name": "footer_separators",
+      "type": "true_false",
+      "instructions": "Líneas entre las filas del pie.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 1,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_gaia_footer_separator_color",
+      "label": "Color de los separadores",
+      "name": "footer_separator_color",
+      "type": "color_picker",
+      "instructions": "Vacío = automático.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "enable_opacity": 0,
+      "return_format": "string"
     },
     {
       "key": "field_gaia_footer_tab_texts",
@@ -201,5 +343,5 @@
   "active": true,
   "description": "Distribución, fondo, logo y textos del pie de página.",
   "show_in_rest": 0,
-  "modified": 1792250428
+  "modified": 1792252826
 }
