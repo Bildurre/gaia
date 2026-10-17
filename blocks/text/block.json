@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/text",
+  "title": "Texto",
+  "description": "Texto con título, en una o dos columnas.",
+  "category": "gaia",
+  "icon": "text",
+  "keywords": [
+    "texto",
+    "párrafo",
+    "contenido"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./text.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "text.php"
+  }
+}

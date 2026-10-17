@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/figures",
+  "title": "Cifras",
+  "description": "Números destacados con su descripción.",
+  "category": "gaia",
+  "icon": "chart-bar",
+  "keywords": [
+    "cifras",
+    "números",
+    "datos",
+    "estadísticas"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./figures.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "figures.php"
+  },
+  "viewScript": [
+    "file:./figures.js"
+  ]
+}

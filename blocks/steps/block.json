@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/steps",
+  "title": "Pasos",
+  "description": "Pasos numerados: cómo unirse, cómo funciona…",
+  "category": "gaia",
+  "icon": "editor-ol",
+  "keywords": [
+    "pasos",
+    "proceso",
+    "cómo funciona"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./steps.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "steps.php"
+  }
+}

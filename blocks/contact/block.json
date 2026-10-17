@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/contact",
+  "title": "Datos de contacto",
+  "description": "Dirección, teléfonos, emails y redes de Ajustes de Gaia > Contacto, junto a un texto.",
+  "category": "gaia",
+  "icon": "email",
+  "keywords": [
+    "contacto",
+    "dirección",
+    "teléfono",
+    "email"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./contact.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "contact.php"
+  }
+}

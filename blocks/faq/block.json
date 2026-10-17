@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/faq",
+  "title": "Preguntas frecuentes",
+  "description": "Preguntas y respuestas desplegables.",
+  "category": "gaia",
+  "icon": "editor-help",
+  "keywords": [
+    "preguntas",
+    "faq",
+    "dudas",
+    "acordeón"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./faq.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "faq.php"
+  }
+}

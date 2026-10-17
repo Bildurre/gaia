@@ -1,0 +1,24 @@
+@use '../../assets/scss/abstracts/breakpoints';
+
+// Contact block: text and contact details side by side from medium screens.
+.contact-block__inner {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@include breakpoints.from('medium') {
+  .contact-block--has-text .contact-block__inner {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--space-2xl);
+  }
+}
+
+.contact-block__details {
+  display: grid;
+  gap: var(--space-l);
+  align-content: start;
+}
+
+.contact-block__social {
+  margin-inline-start: calc(var(--space-3xs) * -1);
+}

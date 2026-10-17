@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gaia 1.0.0\n"
-"POT-Creation-Date: 2026-10-17 16:15+0000\n"
-"PO-Revision-Date: 2026-10-17 16:15+0000\n"
+"POT-Creation-Date: 2026-10-17 16:37+0000\n"
+"PO-Revision-Date: 2026-10-17 16:37+0000\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,46 @@ msgstr ""
 msgid "Go to the home page"
 msgstr "Ir a la página de inicio"
 
+#: blocks/cards/cards.php:21
+msgid "Cards: add cards in the block settings."
+msgstr "Tarjetas: añade tarjetas en los ajustes del bloque."
+
+#: blocks/contact/contact.php:42
+msgid "View on the map"
+msgstr "Ver en el mapa"
+
+#: blocks/cta/cta.php:21
+msgid "Call to action: fill in the title in the block settings."
+msgstr "Llamada a la acción: escribe el título en los ajustes del bloque."
+
+#: blocks/faq/faq.php:20
+msgid "FAQ: add questions in the block settings."
+msgstr "Preguntas frecuentes: añade preguntas en los ajustes del bloque."
+
+#: blocks/figures/figures.php:19
+msgid "Figures: add figures in the block settings."
+msgstr "Cifras: añade cifras en los ajustes del bloque."
+
+#: blocks/gallery/gallery.php:21
+msgid "Gallery: add images in the block settings."
+msgstr "Galería: añade imágenes en los ajustes del bloque."
+
+#: blocks/gallery/gallery.php:57
+msgid "Image viewer"
+msgstr "Visor de imágenes"
+
+#: blocks/gallery/gallery.php:64
+msgid "Previous image"
+msgstr "Imagen anterior"
+
+#: blocks/gallery/gallery.php:68
+msgid "Next image"
+msgstr "Imagen siguiente"
+
+#: blocks/gallery/gallery.php:72
+msgid "Close"
+msgstr "Cerrar"
+
 #: blocks/hero/hero.php:25
 msgid "Hero: fill in the title in the block settings."
 msgstr "Hero: escribe el título en los ajustes del bloque."
@@ -22,6 +62,30 @@ msgstr "Hero: escribe el título en los ajustes del bloque."
 #: blocks/hero/hero.php:91
 msgid "Go to content"
 msgstr "Ir al contenido"
+
+#: blocks/latest-posts/latest-posts.php:40
+msgid "Latest posts: there are no posts yet."
+msgstr "Últimas noticias: todavía no hay noticias."
+
+#: blocks/latest-posts/latest-posts.php:62
+msgid "View all news"
+msgstr "Ver todas las noticias"
+
+#: blocks/people/people.php:19
+msgid "People: add people in the block settings."
+msgstr "Personas: añade personas en los ajustes del bloque."
+
+#: blocks/steps/steps.php:19
+msgid "Steps: add steps in the block settings."
+msgstr "Pasos: añade pasos en los ajustes del bloque."
+
+#: blocks/text-image/text-image.php:22
+msgid "Text and image: add the text and the image in the block settings."
+msgstr "Texto e imagen: añade el texto y la imagen en los ajustes del bloque."
+
+#: blocks/text/text.php:20
+msgid "Text: write the text in the block settings."
+msgstr "Texto: escribe el texto en los ajustes del bloque."
 
 #: footer.php:10
 msgid "Back to top"

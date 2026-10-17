@@ -2,8 +2,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gaia 1.0.0\n"
-"POT-Creation-Date: 2026-10-17 16:15+0000\n"
-"PO-Revision-Date: 2026-10-17 16:15+0000\n"
+"POT-Creation-Date: 2026-10-17 16:37+0000\n"
+"PO-Revision-Date: 2026-10-17 16:37+0000\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +15,46 @@ msgstr ""
 msgid "Go to the home page"
 msgstr "Joan hasierako orrira"
 
+#: blocks/cards/cards.php:21
+msgid "Cards: add cards in the block settings."
+msgstr "Txartelak: gehitu txartelak blokearen ezarpenetan."
+
+#: blocks/contact/contact.php:42
+msgid "View on the map"
+msgstr "Ikusi mapan"
+
+#: blocks/cta/cta.php:21
+msgid "Call to action: fill in the title in the block settings."
+msgstr "Ekintzarako deia: idatzi izenburua blokearen ezarpenetan."
+
+#: blocks/faq/faq.php:20
+msgid "FAQ: add questions in the block settings."
+msgstr "Ohiko galderak: gehitu galderak blokearen ezarpenetan."
+
+#: blocks/figures/figures.php:19
+msgid "Figures: add figures in the block settings."
+msgstr "Zifrak: gehitu zifrak blokearen ezarpenetan."
+
+#: blocks/gallery/gallery.php:21
+msgid "Gallery: add images in the block settings."
+msgstr "Galeria: gehitu irudiak blokearen ezarpenetan."
+
+#: blocks/gallery/gallery.php:57
+msgid "Image viewer"
+msgstr "Irudi-ikustailea"
+
+#: blocks/gallery/gallery.php:64
+msgid "Previous image"
+msgstr "Aurreko irudia"
+
+#: blocks/gallery/gallery.php:68
+msgid "Next image"
+msgstr "Hurrengo irudia"
+
+#: blocks/gallery/gallery.php:72
+msgid "Close"
+msgstr "Itxi"
+
 #: blocks/hero/hero.php:25
 msgid "Hero: fill in the title in the block settings."
 msgstr "Hero: idatzi izenburua blokearen ezarpenetan."
@@ -22,6 +62,30 @@ msgstr "Hero: idatzi izenburua blokearen ezarpenetan."
 #: blocks/hero/hero.php:91
 msgid "Go to content"
 msgstr "Joan edukira"
+
+#: blocks/latest-posts/latest-posts.php:40
+msgid "Latest posts: there are no posts yet."
+msgstr "Azken albisteak: oraindik ez dago albisterik."
+
+#: blocks/latest-posts/latest-posts.php:62
+msgid "View all news"
+msgstr "Ikusi albiste guztiak"
+
+#: blocks/people/people.php:19
+msgid "People: add people in the block settings."
+msgstr "Pertsonak: gehitu pertsonak blokearen ezarpenetan."
+
+#: blocks/steps/steps.php:19
+msgid "Steps: add steps in the block settings."
+msgstr "Urratsak: gehitu urratsak blokearen ezarpenetan."
+
+#: blocks/text-image/text-image.php:22
+msgid "Text and image: add the text and the image in the block settings."
+msgstr "Testua eta irudia: gehitu testua eta irudia blokearen ezarpenetan."
+
+#: blocks/text/text.php:20
+msgid "Text: write the text in the block settings."
+msgstr "Testua: idatzi testua blokearen ezarpenetan."
 
 #: footer.php:10
 msgid "Back to top"

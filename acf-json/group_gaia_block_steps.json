@@ -1,0 +1,319 @@
+{
+  "key": "group_gaia_block_steps",
+  "title": "Bloque: Pasos",
+  "fields": [
+    {
+      "key": "field_gaia_steps_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_steps_eyebrow",
+      "label": "Antetítulo",
+      "name": "steps_eyebrow",
+      "type": "text",
+      "instructions": "Opcional. Una línea corta encima del título.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_steps_title",
+      "label": "Título",
+      "name": "steps_title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_steps_intro",
+      "label": "Introducción",
+      "name": "steps_intro",
+      "type": "textarea",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_steps_items",
+      "label": "Pasos",
+      "name": "steps_items",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "button_label": "Añadir paso",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_steps_items_title",
+          "label": "Título",
+          "name": "title",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_steps_items",
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_gaia_steps_items_text",
+          "label": "Texto",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_steps_items",
+          "default_value": "",
+          "maxlength": "",
+          "rows": 2,
+          "placeholder": "",
+          "new_lines": ""
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_steps_buttons",
+      "label": "Botones",
+      "name": "steps_buttons",
+      "type": "repeater",
+      "instructions": "Hasta 2. El texto del botón es el «Texto del enlace».",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "min": 0,
+      "max": 2,
+      "button_label": "Añadir botón",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_steps_buttons_link",
+          "label": "Enlace",
+          "name": "link",
+          "type": "link",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_steps_buttons",
+          "return_format": "array"
+        },
+        {
+          "key": "field_gaia_steps_buttons_style",
+          "label": "Estilo",
+          "name": "style",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_steps_buttons",
+          "choices": {
+            "primary": "Principal",
+            "secondary": "Secundario",
+            "light": "Blanco"
+          },
+          "default_value": "primary",
+          "return_format": "value",
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_steps_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_steps_layout",
+      "label": "Distribución",
+      "name": "steps_layout",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "columns": "En columnas",
+        "list": "En lista"
+      },
+      "default_value": "columns",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_steps_alignment",
+      "label": "Alineación del título",
+      "name": "steps_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_steps_background",
+      "label": "Fondo",
+      "name": "steps_background",
+      "type": "button_group",
+      "instructions": "El texto se adapta al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Ninguno",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_steps_spacing",
+      "label": "Espaciado vertical",
+      "name": "steps_spacing",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "compact": "Compacto",
+        "normal": "Normal",
+        "large": "Amplio"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/steps"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Pasos.",
+  "show_in_rest": 0,
+  "modified": 1792254668
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/cards",
+  "title": "Tarjetas",
+  "description": "Rejilla de tarjetas con imagen, título, texto y enlace.",
+  "category": "gaia",
+  "icon": "grid-view",
+  "keywords": [
+    "tarjetas",
+    "rejilla",
+    "proyectos",
+    "servicios"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./cards.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "cards.php"
+  }
+}

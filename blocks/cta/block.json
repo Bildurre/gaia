@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/cta",
+  "title": "Llamada a la acción",
+  "description": "Franja destacada con título, texto y botones.",
+  "category": "gaia",
+  "icon": "megaphone",
+  "keywords": [
+    "llamada",
+    "acción",
+    "cta",
+    "únete",
+    "banner"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./cta.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "cta.php"
+  }
+}

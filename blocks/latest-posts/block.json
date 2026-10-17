@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/latest-posts",
+  "title": "Últimas noticias",
+  "description": "Las entradas más recientes, de todas o de una categoría.",
+  "category": "gaia",
+  "icon": "admin-post",
+  "keywords": [
+    "noticias",
+    "entradas",
+    "blog",
+    "actualidad"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./latest-posts.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "latest-posts.php"
+  }
+}

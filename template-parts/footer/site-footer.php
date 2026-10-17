@@ -73,7 +73,7 @@ if (!empty($args['is_sample'])) {
       <?php endif; ?>
 
       <?php if ($footer_settings['shows_contact']) : ?>
-        <?php get_template_part('template-parts/footer/contact'); ?>
+        <?php get_template_part('template-parts/contact-details', null, ['class' => 'site-footer__contact']); ?>
       <?php endif; ?>
     </div>
 

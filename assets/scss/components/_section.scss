@@ -1,0 +1,110 @@
+@use '../abstracts/schemes';
+
+// Content block sections (Ajustes tab of each block): background and
+// vertical spacing. Consecutive sections with the same background share
+// their spacing.
+.section {
+  --section-spacing: var(--space-3xl);
+
+  padding-block: var(--section-spacing);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.section--spacing-compact {
+  --section-spacing: var(--space-xl);
+}
+
+.section--spacing-large {
+  --section-spacing: calc(var(--space-3xl) * 1.5);
+}
+
+.section--background-surface {
+  background-color: var(--color-surface);
+}
+
+.section--background-primary {
+  background-color: var(--color-primary);
+}
+
+.section--background-none + .section--background-none,
+.section--background-surface + .section--background-surface,
+.section--background-primary + .section--background-primary,
+.section--background-dark + .section--background-dark {
+  padding-top: 0;
+}
+
+// Eyebrow, title and intro
+.section-heading {
+  display: grid;
+  gap: var(--space-2xs);
+  max-width: 46rem;
+  margin-bottom: var(--space-xl);
+
+  &--center {
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  > * {
+    margin: 0;
+  }
+}
+
+.section-heading__eyebrow {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-smaller);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.section-heading__title {
+  font-size: var(--font-size-heading-2);
+}
+
+.section-heading__intro {
+  font-size: var(--font-size-large);
+  color: var(--color-text-muted);
+}
+
+.section--background-primary .section-heading__eyebrow {
+  color: inherit;
+  opacity: 0.8;
+}
+
+// Buttons of a block
+.block-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+}
+
+// Rich text written in a block (WYSIWYG fields)
+.block-text {
+  > * {
+    margin: 0;
+  }
+
+  > * + * {
+    margin-top: var(--space-s);
+  }
+
+  > :is(h2, h3, h4) {
+    margin-top: var(--space-l);
+  }
+
+  :is(ul, ol) {
+    padding-inline-start: var(--space-l);
+  }
+}
+
+// On the primary background the primary button would disappear: it takes
+// the text-on-primary color instead
+.section--background-primary {
+  --button-primary-color: var(--color-on-primary);
+  --button-primary-text: var(--color-primary);
+  --button-primary-hover-color: color-mix(in srgb, var(--color-on-primary) 85%, var(--color-primary));
+  --button-primary-hover-text: var(--color-primary);
+}

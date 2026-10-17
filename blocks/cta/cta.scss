@@ -1,0 +1,61 @@
+@use '../../assets/scss/abstracts/breakpoints';
+
+// Call to action block: a box inside the content or a full-width band.
+.cta__box {
+  display: grid;
+  gap: var(--space-l);
+  justify-items: center;
+  text-align: center;
+}
+
+.cta--box .cta__box {
+  padding: var(--space-2xl) var(--space-l);
+  border-radius: calc(var(--border-radius) * 2);
+}
+
+.cta--box .cta__box.section--background-none {
+  border: 1px solid var(--color-separator);
+}
+
+.cta--box .cta__box.section--background-surface {
+  background-color: var(--color-surface);
+}
+
+.cta--box .cta__box.section--background-primary {
+  background-color: var(--color-primary);
+}
+
+.cta__text {
+  display: grid;
+  gap: var(--space-xs);
+  max-width: 40rem;
+}
+
+.cta__title {
+  margin: 0;
+  font-size: var(--font-size-heading-2);
+}
+
+.cta__description {
+  margin: 0;
+  font-size: var(--font-size-large);
+  color: var(--color-text-muted);
+}
+
+.cta__buttons {
+  justify-content: center;
+}
+
+// Split: text on the left, buttons on the right
+@include breakpoints.from('medium') {
+  .cta--split .cta__box {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    justify-items: start;
+    text-align: start;
+  }
+
+  .cta--split.cta--box .cta__box {
+    padding-inline: var(--space-2xl);
+  }
+}

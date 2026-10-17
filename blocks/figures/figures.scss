@@ -1,0 +1,36 @@
+// Figures block: big numbers with their label below (the label comes first
+// in the markup, as the term of the description list).
+.figures__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  gap: var(--space-xl) var(--space-l);
+  margin: 0;
+}
+
+.figures__item {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-3xs);
+}
+
+.section-heading--center + .figures__list .figures__item {
+  text-align: center;
+}
+
+.figures__value {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: calc(var(--font-size-heading-1) * 1.15);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  color: var(--color-accent);
+}
+
+.section--background-primary .figures__value {
+  color: inherit;
+}
+
+.figures__label {
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,241 @@
+{
+  "key": "group_gaia_block_cta",
+  "title": "Bloque: Llamada a la acción",
+  "fields": [
+    {
+      "key": "field_gaia_cta_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_cta_title",
+      "label": "Título",
+      "name": "cta_title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_cta_text",
+      "label": "Texto",
+      "name": "cta_text",
+      "type": "textarea",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_cta_buttons",
+      "label": "Botones",
+      "name": "cta_buttons",
+      "type": "repeater",
+      "instructions": "Hasta 2. El texto del botón es el «Texto del enlace».",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "table",
+      "min": 0,
+      "max": 2,
+      "button_label": "Añadir botón",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_cta_buttons_link",
+          "label": "Enlace",
+          "name": "link",
+          "type": "link",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "70",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_cta_buttons",
+          "return_format": "array"
+        },
+        {
+          "key": "field_gaia_cta_buttons_style",
+          "label": "Estilo",
+          "name": "style",
+          "type": "select",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_cta_buttons",
+          "choices": {
+            "primary": "Principal",
+            "secondary": "Secundario",
+            "light": "Blanco"
+          },
+          "default_value": "primary",
+          "return_format": "value",
+          "allow_null": 0,
+          "multiple": 0,
+          "ui": 0,
+          "ajax": 0,
+          "placeholder": ""
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_cta_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_cta_layout",
+      "label": "Distribución",
+      "name": "cta_layout",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "center": "Centrada",
+        "split": "Texto y botones a los lados"
+      },
+      "default_value": "center",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_cta_style",
+      "label": "Estilo",
+      "name": "cta_style",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "band": "Franja de lado a lado",
+        "box": "Caja dentro del contenido"
+      },
+      "default_value": "box",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_cta_background",
+      "label": "Fondo",
+      "name": "cta_background",
+      "type": "button_group",
+      "instructions": "El texto se adapta al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Ninguno",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro"
+      },
+      "default_value": "primary",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_cta_spacing",
+      "label": "Espaciado vertical",
+      "name": "cta_spacing",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "compact": "Compacto",
+        "normal": "Normal",
+        "large": "Amplio"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/cta"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Llamada a la acción.",
+  "show_in_rest": 0,
+  "modified": 1792254668
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "gaia/text-image",
+  "title": "Texto e imagen",
+  "description": "Texto con título y botones junto a una imagen.",
+  "category": "gaia",
+  "icon": "align-pull-left",
+  "keywords": [
+    "texto",
+    "imagen",
+    "foto"
+  ],
+  "textdomain": "gaia",
+  "supports": {
+    "anchor": true,
+    "align": false,
+    "html": false
+  },
+  "style": [
+    "file:./text-image.css"
+  ],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "text-image.php"
+  }
+}

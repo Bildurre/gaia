@@ -1,0 +1,77 @@
+// Steps block: numbered steps in columns or as a vertical list joined by
+// a line.
+.steps__list {
+  display: grid;
+  gap: var(--space-l);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps--columns .steps__list {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+.steps__item {
+  position: relative;
+  display: grid;
+  gap: var(--space-s);
+  align-content: start;
+}
+
+.steps__number {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.section--background-primary .steps__number {
+  color: var(--color-primary);
+  background-color: var(--color-on-primary);
+}
+
+.steps__title {
+  margin: 0;
+  font-size: var(--font-size-heading-4);
+}
+
+.steps__text {
+  margin: var(--space-3xs) 0 0;
+  color: var(--color-text-muted);
+}
+
+// List: number on the left, a line down to the next step
+.steps--list {
+  .steps__list {
+    max-width: 46rem;
+    gap: var(--space-xl);
+  }
+
+  .steps__item {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-m);
+
+    &:not(:last-child)::before {
+      content: '';
+      position: absolute;
+      top: 2.5rem;
+      bottom: calc(var(--space-xl) * -1);
+      left: 1.25rem;
+      border-left: 2px solid var(--color-separator);
+    }
+  }
+
+  .steps__body {
+    padding-top: 0.4rem;
+  }
+}
+
+.steps__buttons {
+  margin-top: var(--space-xl);
+}

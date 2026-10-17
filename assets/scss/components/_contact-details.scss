@@ -51,3 +51,33 @@
     color: var(--color-background);
   }
 }
+
+// Layout outside the footer (contact block): one item per line
+.contact-details:not(.site-footer__contact) {
+  display: grid;
+  gap: var(--space-s);
+  font-style: normal;
+
+  .contact-details__group {
+    display: grid;
+    gap: var(--space-s);
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-details__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    margin: 0;
+  }
+
+  .contact-details__text {
+    display: grid;
+  }
+
+  .contact-details__label {
+    font-size: var(--font-size-smaller);
+    color: var(--color-text-muted);
+  }
+}

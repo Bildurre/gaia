@@ -1,0 +1,72 @@
+@use '../../assets/scss/abstracts/breakpoints';
+
+// Text and image block: two columns from medium screens, the image on the
+// chosen side; stacked (image first) on narrow screens.
+.text-image__inner {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+
+  @include breakpoints.from('medium') {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-2xl);
+  }
+}
+
+.text-image--align-top .text-image__inner {
+  align-items: start;
+}
+
+.text-image--no-image .text-image__inner {
+  grid-template-columns: minmax(0, 46rem);
+}
+
+.text-image__text {
+  display: grid;
+  gap: var(--space-m);
+  align-content: start;
+
+  .section-heading {
+    margin-bottom: 0;
+  }
+}
+
+.text-image__buttons {
+  margin-top: var(--space-2xs);
+}
+
+.text-image__media {
+  order: -1;
+  margin: 0;
+}
+
+@include breakpoints.from('medium') {
+  .text-image--image-right .text-image__media {
+    order: 1;
+  }
+}
+
+.text-image__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.text-image--ratio-landscape .text-image__image,
+.text-image--ratio-square .text-image__image,
+.text-image--ratio-portrait .text-image__image {
+  object-fit: cover;
+}
+
+.text-image--ratio-landscape .text-image__image {
+  aspect-ratio: 4 / 3;
+}
+
+.text-image--ratio-square .text-image__image {
+  aspect-ratio: 1;
+}
+
+.text-image--ratio-portrait .text-image__image {
+  aspect-ratio: 4 / 5;
+}

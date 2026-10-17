@@ -1,0 +1,21 @@
+@use '../../assets/scss/abstracts/breakpoints';
+
+// Text block: rich text in one or two columns.
+.text-block--columns-2 .text-block__content {
+  @include breakpoints.from('medium') {
+    column-count: 2;
+    column-gap: var(--space-2xl);
+
+    > * {
+      break-inside: avoid-column;
+    }
+
+    > :is(h2, h3, h4) {
+      break-after: avoid-column;
+    }
+
+    > :first-child {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+// FAQ block: native details / summary, separated by lines.
+.faq__list {
+  border-top: 1px solid var(--color-separator);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--color-separator);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-m);
+  padding-block: var(--space-m);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-large);
+  font-weight: 600;
+  list-style: none;
+  cursor: pointer;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:hover {
+    color: var(--color-accent);
+  }
+
+  svg {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.2s ease;
+  }
+}
+
+.faq__item[open] .faq__question svg {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  padding-bottom: var(--space-m);
+  color: var(--color-text-muted);
+}

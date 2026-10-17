@@ -101,7 +101,7 @@
   gap: var(--space-m);
 }
 
-.site-footer__contact-group {
+.site-footer .contact-details__group {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s) var(--space-l);
@@ -111,7 +111,7 @@
   --contact-details-icon-color: var(--footer-icon-color);
 }
 
-.site-footer__contact-item {
+.site-footer .contact-details__item {
   display: flex;
   align-items: flex-start;
   gap: var(--space-2xs);
@@ -122,11 +122,11 @@
 }
 
 // Value first, optional label below it aligned to the right
-.site-footer__contact-text {
+.site-footer .contact-details__text {
   display: grid;
 }
 
-.site-footer__contact-label {
+.site-footer .contact-details__label {
   justify-self: end;
   font-size: var(--font-size-smaller);
   color: var(--footer-label-color);
@@ -215,7 +215,7 @@
 
 // Columns: brand, footer menu and contact side by side
 .site-footer--columns {
-  .site-footer__contact-group {
+  .contact-details__group {
     flex-direction: column;
   }
 

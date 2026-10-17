@@ -1,0 +1,315 @@
+{
+  "key": "group_gaia_block_people",
+  "title": "Bloque: Personas",
+  "fields": [
+    {
+      "key": "field_gaia_people_tab_content",
+      "label": "Contenido",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_people_eyebrow",
+      "label": "Antetítulo",
+      "name": "people_eyebrow",
+      "type": "text",
+      "instructions": "Opcional. Una línea corta encima del título.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_people_title",
+      "label": "Título",
+      "name": "people_title",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_gaia_people_intro",
+      "label": "Introducción",
+      "name": "people_intro",
+      "type": "textarea",
+      "instructions": "Opcional.",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "maxlength": "",
+      "rows": 2,
+      "placeholder": "",
+      "new_lines": ""
+    },
+    {
+      "key": "field_gaia_people_items",
+      "label": "Personas",
+      "name": "people_items",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "layout": "block",
+      "min": 0,
+      "max": 0,
+      "button_label": "Añadir persona",
+      "collapsed": "",
+      "pagination": 0,
+      "rows_per_page": 20,
+      "sub_fields": [
+        {
+          "key": "field_gaia_people_items_photo",
+          "label": "Foto",
+          "name": "photo",
+          "type": "image",
+          "instructions": "Opcional.",
+          "required": 0,
+          "wrapper": {
+            "width": "30",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_people_items",
+          "return_format": "id",
+          "library": "all",
+          "preview_size": "medium",
+          "mime_types": "jpg, jpeg, png, webp, avif, gif, svg"
+        },
+        {
+          "key": "field_gaia_people_items_name",
+          "label": "Nombre",
+          "name": "name",
+          "type": "text",
+          "instructions": "",
+          "required": 1,
+          "wrapper": {
+            "width": "35",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_people_items",
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_gaia_people_items_role",
+          "label": "Cargo",
+          "name": "role",
+          "type": "text",
+          "instructions": "",
+          "required": 0,
+          "wrapper": {
+            "width": "35",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_people_items",
+          "default_value": "",
+          "maxlength": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": ""
+        },
+        {
+          "key": "field_gaia_people_items_text",
+          "label": "Texto",
+          "name": "text",
+          "type": "textarea",
+          "instructions": "Opcional.",
+          "required": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "parent_repeater": "field_gaia_people_items",
+          "default_value": "",
+          "maxlength": "",
+          "rows": 2,
+          "placeholder": "",
+          "new_lines": ""
+        }
+      ]
+    },
+    {
+      "key": "field_gaia_people_tab_settings",
+      "label": "Ajustes",
+      "name": "",
+      "type": "tab",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "placement": "top",
+      "endpoint": 0
+    },
+    {
+      "key": "field_gaia_people_columns",
+      "label": "Columnas",
+      "name": "people_columns",
+      "type": "button_group",
+      "instructions": "En pantallas anchas.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "2": "2",
+        "3": "3",
+        "4": "4"
+      },
+      "default_value": "4",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_people_photo_shape",
+      "label": "Forma de la foto",
+      "name": "people_photo_shape",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "round": "Redonda",
+        "square": "Cuadrada"
+      },
+      "default_value": "round",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_people_alignment",
+      "label": "Alineación del título",
+      "name": "people_alignment",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "left": "Izquierda",
+        "center": "Centro"
+      },
+      "default_value": "left",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_people_background",
+      "label": "Fondo",
+      "name": "people_background",
+      "type": "button_group",
+      "instructions": "El texto se adapta al fondo.",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "none": "Ninguno",
+        "surface": "Superficie",
+        "primary": "Color principal",
+        "dark": "Oscuro"
+      },
+      "default_value": "none",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    },
+    {
+      "key": "field_gaia_people_spacing",
+      "label": "Espaciado vertical",
+      "name": "people_spacing",
+      "type": "button_group",
+      "instructions": "",
+      "required": 0,
+      "wrapper": {
+        "width": "50",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "compact": "Compacto",
+        "normal": "Normal",
+        "large": "Amplio"
+      },
+      "default_value": "normal",
+      "return_format": "value",
+      "allow_null": 0,
+      "layout": "horizontal"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "gaia/people"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "Campos del bloque Personas.",
+  "show_in_rest": 0,
+  "modified": 1792254668
+}

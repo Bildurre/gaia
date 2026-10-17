@@ -410,7 +410,7 @@ function gaia_get_sample_markup($sample_name) {
         gaia_get_option_classes(['footer_text_color', 'footer_accent_color'])
       );
       printf('<div class="%s"><div class="container sample-contact">', esc_attr(implode(' ', $footer_area_classes)));
-      get_template_part('template-parts/footer/contact', null, ['is_sample' => true]);
+      get_template_part('template-parts/contact-details', null, ['class' => 'site-footer__contact', 'is_sample' => true]);
       get_template_part('template-parts/social-links');
       echo '</div></div>';
       break;
