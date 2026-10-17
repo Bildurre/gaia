@@ -1,78 +1,69 @@
 </main>
 
 <?php
+$footer_settings = gaia_get_footer_settings();
 $footer_tagline = gaia_get_translated_option_text('footer_tagline');
 $footer_credits = gaia_get_translated_option_html('footer_credits');
-$contact_details = gaia_get_contact_details();
-$has_contact_details = $contact_details['address'] || $contact_details['phones'] || $contact_details['emails'];
+$footer_logo_markup = gaia_get_logo_markup($footer_settings['logo']);
 ?>
 
-<footer class="site-footer scheme-dark">
-  <div class="site-footer__inner container">
-    <div class="site-footer__top">
+<footer class="<?php echo esc_attr(gaia_get_footer_classes()); ?>">
+  <?php if ($footer_settings['layout'] === 'minimal') : ?>
+    <div class="site-footer__inner container">
+      <?php if ($footer_logo_markup) : ?>
+        <a class="site-footer__logo" href="<?php echo esc_url(home_url('/')); ?>"><?php echo $footer_logo_markup; ?></a>
+      <?php endif; ?>
+
+      <?php gaia_footer_menu('legal', __('Legal', 'gaia'), 'site-footer__legal'); ?>
+
+      <?php if ($footer_settings['shows_social']) : ?>
+        <?php get_template_part('template-parts/social-links', null, ['class' => 'site-footer__social']); ?>
+      <?php endif; ?>
+
+      <?php if ($footer_credits) : ?>
+        <div class="site-footer__credits"><?php echo $footer_credits; ?></div>
+      <?php endif; ?>
+    </div>
+  <?php else : ?>
+    <div class="site-footer__inner container">
       <div class="site-footer__brand">
-        <a class="site-footer__logo" href="<?php echo esc_url(home_url('/')); ?>">
-          <?php echo gaia_get_logo_markup(gaia_get_option_field('footer_logo') ?: 'main'); ?>
-        </a>
+        <?php if ($footer_logo_markup) : ?>
+          <a class="site-footer__logo" href="<?php echo esc_url(home_url('/')); ?>"><?php echo $footer_logo_markup; ?></a>
+        <?php endif; ?>
 
         <?php if ($footer_tagline) : ?>
           <p class="site-footer__tagline"><?php echo esc_html($footer_tagline); ?></p>
         <?php endif; ?>
+
+        <?php if ($footer_settings['layout'] === 'columns' && $footer_settings['shows_social']) : ?>
+          <?php get_template_part('template-parts/social-links', null, ['class' => 'site-footer__social']); ?>
+        <?php endif; ?>
       </div>
 
-      <?php get_template_part('template-parts/social-links', null, ['class' => 'site-footer__social']); ?>
+      <?php if ($footer_settings['layout'] === 'brand-contact' && $footer_settings['shows_social']) : ?>
+        <?php get_template_part('template-parts/social-links', null, ['class' => 'site-footer__social']); ?>
+      <?php endif; ?>
+
+      <?php if ($footer_settings['layout'] === 'columns') : ?>
+        <?php gaia_footer_menu('footer', __('Footer menu', 'gaia'), 'site-footer__menu'); ?>
+      <?php endif; ?>
+
+      <?php if ($footer_settings['shows_contact']) : ?>
+        <?php get_template_part('template-parts/footer/contact'); ?>
+      <?php endif; ?>
     </div>
 
-    <?php if ($has_contact_details) : ?>
-      <address class="site-footer__contact">
-        <?php if ($contact_details['address']) : ?>
-          <div class="site-footer__contact-group">
-            <p class="site-footer__contact-item">
-              <?php echo gaia_get_icon_svg('ui/map-pin'); ?>
-              <span><?php echo nl2br(esc_html($contact_details['address'])); ?></span>
-            </p>
-          </div>
-        <?php endif; ?>
+    <?php if ($footer_credits || has_nav_menu('legal')) : ?>
+      <div class="site-footer__bottom container">
+        <div class="site-footer__bottom-inner">
+          <?php gaia_footer_menu('legal', __('Legal', 'gaia'), 'site-footer__legal'); ?>
 
-        <?php if ($contact_details['phones']) : ?>
-          <ul class="site-footer__contact-group" role="list">
-            <?php foreach ($contact_details['phones'] as $phone) : ?>
-              <li class="site-footer__contact-item">
-                <?php echo gaia_get_icon_svg('ui/phone'); ?>
-                <span class="site-footer__contact-text">
-                  <a href="<?php echo esc_attr($phone['href']); ?>"><?php echo esc_html($phone['number']); ?></a>
-                  <?php if ($phone['label']) : ?>
-                    <span class="site-footer__contact-label"><?php echo esc_html($phone['label']); ?></span>
-                  <?php endif; ?>
-                </span>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-        <?php endif; ?>
-
-        <?php if ($contact_details['emails']) : ?>
-          <ul class="site-footer__contact-group" role="list">
-            <?php foreach ($contact_details['emails'] as $email) : ?>
-              <li class="site-footer__contact-item">
-                <?php echo gaia_get_icon_svg('ui/mail'); ?>
-                <span class="site-footer__contact-text">
-                  <a href="<?php echo esc_attr($email['href']); ?>"><?php echo esc_html($email['address']); ?></a>
-                  <?php if ($email['label']) : ?>
-                    <span class="site-footer__contact-label"><?php echo esc_html($email['label']); ?></span>
-                  <?php endif; ?>
-                </span>
-              </li>
-            <?php endforeach; ?>
-          </ul>
-        <?php endif; ?>
-      </address>
+          <?php if ($footer_credits) : ?>
+            <div class="site-footer__credits"><?php echo $footer_credits; ?></div>
+          <?php endif; ?>
+        </div>
+      </div>
     <?php endif; ?>
-  </div>
-
-  <?php if ($footer_credits) : ?>
-    <div class="site-footer__credits container">
-      <div class="site-footer__credits-inner"><?php echo $footer_credits; ?></div>
-    </div>
   <?php endif; ?>
 </footer>
 

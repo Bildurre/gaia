@@ -31,31 +31,32 @@
   }
 }
 
+// Light footer: the surface color separates it from the page
+.site-footer--light {
+  background-color: var(--color-surface);
+}
+
+// Footer on the brand color, with light-scheme text
+.site-footer--primary {
+  --color-background: var(--color-primary);
+  --color-text: var(--color-light-text);
+  --color-accent: var(--color-primary-dark);
+  --footer-separator-color: color-mix(in srgb, var(--color-light-text) 25%, var(--color-primary));
+  --footer-icon-color: var(--color-primary-dark);
+  --footer-label-color: var(--color-primary-dark);
+  --footer-credits-color: color-mix(in srgb, var(--color-light-text) 75%, var(--color-primary));
+}
+
 .site-footer__inner {
   display: grid;
   gap: var(--space-l);
   padding-block: var(--space-xl);
 }
 
-// Row 1: brand on the left, social networks on the right.
-// Narrow screens: social networks below the brand.
-.site-footer__top {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-m);
-
-  @include breakpoints.from('medium') {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: var(--space-m) var(--space-xl);
-  }
-}
-
 .site-footer__brand {
   display: grid;
   gap: var(--space-s);
+  align-content: start;
   justify-items: start;
 }
 
@@ -72,27 +73,13 @@
 
 .site-footer__social {
   margin-inline-start: calc(var(--space-3xs) * -1);
-
-  @include breakpoints.from('medium') {
-    justify-content: flex-end;
-    margin-inline: 0 calc(var(--space-3xs) * -1);
-  }
 }
 
-// Row 2: address, phones and emails. One group per row on narrow screens,
-// side by side on wide ones. Everything wraps.
+// Contact: address, phones and emails. Everything wraps.
 .site-footer__contact {
   display: flex;
   flex-direction: column;
   gap: var(--space-m);
-  padding-top: var(--space-l);
-  border-top: 1px solid var(--footer-separator-color);
-
-  @include breakpoints.from('medium') {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--space-m) var(--space-xl);
-  }
 }
 
 .site-footer__contact-group {
@@ -130,23 +117,119 @@
   color: var(--footer-label-color);
 }
 
-.site-footer__credits {
-  font-size: var(--font-size-smaller);
-  text-align: center;
-  color: var(--footer-credits-color);
+// Footer and legal menus
+.site-footer__menu-list,
+.site-footer__legal-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-// Separator inside the container, same width as the one above the contact row
-.site-footer__credits-inner {
+.site-footer__menu-list {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.site-footer__legal-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3xs) var(--space-m);
+  font-size: var(--font-size-smaller);
+}
+
+.site-footer__credits {
+  font-size: var(--font-size-smaller);
+  color: var(--footer-credits-color);
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}
+
+// Bottom bar: legal menu and credits, with a container-width separator
+.site-footer__bottom-inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2xs);
   padding-block: var(--space-s);
+  text-align: center;
   border-top: 1px solid var(--footer-separator-color);
 }
 
-.site-footer__credits a {
-  color: inherit;
-  text-decoration: underline;
+// Brand and contact: brand and social networks on top, contact below
+.site-footer--brand-contact {
+  .site-footer__contact {
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--footer-separator-color);
+  }
 
-  &:hover {
-    color: var(--color-text);
+  @include breakpoints.from('medium') {
+    .site-footer__inner {
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        'brand social'
+        'contact contact';
+      gap: var(--space-l) var(--space-xl);
+    }
+
+    .site-footer__brand {
+      grid-area: brand;
+    }
+
+    .site-footer__social {
+      grid-area: social;
+      align-self: start;
+      justify-content: flex-end;
+      margin-inline: 0 calc(var(--space-3xs) * -1);
+    }
+
+    .site-footer__contact {
+      grid-area: contact;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-m) var(--space-xl);
+    }
+  }
+}
+
+// Columns: brand, footer menu and contact side by side
+.site-footer--columns {
+  .site-footer__contact-group {
+    flex-direction: column;
+  }
+
+  @include breakpoints.from('medium') {
+    .site-footer__inner {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1.5fr);
+      gap: var(--space-xl);
+    }
+  }
+}
+
+// Minimal: one line with logo, legal menu, social networks and credits
+.site-footer--minimal {
+  --site-logo-height: 2rem;
+
+  .site-footer__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-s) var(--space-l);
+    padding-block: var(--space-m);
+  }
+
+  .site-footer__logo {
+    --site-logo-height: 2rem;
+  }
+
+  .site-footer__legal-list {
+    justify-content: flex-start;
   }
 }

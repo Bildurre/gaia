@@ -17,6 +17,8 @@ function gaia_setup_theme() {
 
   register_nav_menus([
     'primary' => __('Primary menu', 'gaia'),
+    'footer' => __('Menú del pie', 'gaia'),
+    'legal' => __('Menú legal', 'gaia'),
   ]);
 }
 add_action('after_setup_theme', 'gaia_setup_theme');
